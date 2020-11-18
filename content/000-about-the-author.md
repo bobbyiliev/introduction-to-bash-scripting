@@ -1,0 +1,43 @@
+# About the book
+
+This is an open-source introduction to Bash scripting guide that will help you learn the basics of Bash scripting and start writing awesome Bash scripts that will help you automate your daily SysOps, DevOps, and Dev tasks. No matter if you are a DevOps/SysOps engineer, developer, or just a Linux enthusiast, you can use Bash scripts to combine different Linux commands and automate boring and repetitive daily tasks, so that you can focus on more productive and fun things.
+
+The guide is suitable for anyone working as a developer, system administrator, or a DevOps engineer and wants to learn the basics of Bash scripting.
+
+The first 13 chapters would be purely focused on getting some solid Bash scripting foundations then the rest of the chapters would give you some real life examples and scripts.
+
+## About the author
+
+My name is Bobby Iliev, and I have been working as a Linux DevOps Engineer since 2014. I am an avid Linux lover and supporter of the open-source movement philosophy. I am always doing that which I cannot do in order that I may learn how to do it, and I believe in sharing knowledge.
+
+I think it's essential always to keep professional and surround yourself with good people, work hard, and be nice to everyone. You have to perform at a consistently higher level than others. That's the mark of a true professional.
+
+For more information, please visit my blog at [https://bobbyiliev.com](https://bobbyiliev.com), follow me on Twitter [@bobbyiliev_](https://twitter.com/bobbyiliev_) and [YouTube](https://www.youtube.com/channel/UCQWmdHTeAO0UvaNqve9udRw).
+
+## Sponsors
+
+This book is made possible thanks to these fantastic companies!
+
+### DigitalOcean
+
+DigitalOcean is a cloud services platform delivering the simplicity developers love and businesses trust to run production applications at scale.
+
+It provides highly available, secure, and scalable compute, storage, and networking solutions that help developers build great software faster.
+
+Founded in 2012 with offices in New York and Cambridge, MA, DigitalOcean offers transparent and affordable pricing, an elegant user interface, and one of the largest libraries of open source resources available.
+
+For more information, please visit [https://www.digitalocean.com](https://www.digitalocean.com) or follow [@digitalocean](https://twitter.com/digitalocean) on Twitter.
+
+If you are new to DigitalOcean, you can get a free $100 credit and spin up your own servers via this referral link here:
+
+[Free $100 Credit For DigitalOcean](https://m.do.co/c/2a9bba940f39)
+
+### DevDojo
+
+The DevDojo is a resource to learn all things web development and web design. Learn on your lunch break or wake up and enjoy a cup of coffee with us to learn something new.
+
+Join this developer community, and we can all learn together, build together, and grow together.
+
+[Join DevDojo](https://devdojo.com?ref=bobbyiliev)
+
+For more information, please visit [https://www.devdojo.com](https://www.devdojo.com?ref=bobbyiliev) or follow [@thedevdojo](https://twitter.com/thedevdojo) on Twitter.
