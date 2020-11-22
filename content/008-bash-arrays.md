@@ -1,8 +1,8 @@
 # Bash Arrays
 
-If you have ever done any programming you are probably already familiar with arrays. 
+If you have ever done any programming, you are probably already familiar with arrays. 
 
-But just in case that you are not a developer, unlike variables, arrays can hold several values under one name.
+But just in case you are not a developer, the main thing that you need to know is that unlike variables, arrays can hold several values under one name.
 
 You can initialize an array by assigning values devided by space and enclosed in `()`. Example:
 
@@ -31,3 +31,5 @@ echo ${my_array[-1]}
 ```bash
 echo ${my_array[@]}
 ```
+
+Make sure to test this and practice it at your end with different values.

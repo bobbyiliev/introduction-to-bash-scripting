@@ -8,7 +8,7 @@ function function_name() {
 }
 ```
 
-You can also omit the `function` keyword in the beginning which would also work:
+You can also omit the `function` keyword at the beginning, which would also work:
 
 ```bash
 function_name() {
@@ -16,7 +16,7 @@ function_name() {
 }
 ```
 
-I prefer putting it there for better readability.
+I prefer putting it there for better readability. But it is a matter of personal preference.
 
 Example of a "Hello World!" function:
 
@@ -30,9 +30,9 @@ function hello(){
 hello
 ```
 
-One thing to keep in mind is that when you call the function, you should not add the parenthesis.
+>{notice} One thing to keep in mind is that you should not add the parenthesis when you call the function.
 
-Passing arguments to a function works in the same way as passing arguments to a script:
+Passing arguments to a function work in the same way as passing arguments to a script:
 
 ```bash
 #!/bin/bash
@@ -43,3 +43,5 @@ function hello(){
 
 hello DevDojo
 ```
+
+In the next few chapters we will be using functions a lot!

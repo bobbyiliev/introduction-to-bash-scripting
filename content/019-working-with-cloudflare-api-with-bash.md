@@ -18,7 +18,7 @@ Once you have your Cloudflare account, make sure to obtain the following informa
 
 Also, Make sure curl is installed on your server:
 
-```
+```bash
 curl --version
 ```
 
@@ -96,5 +96,9 @@ Note that you need to change the path to the script with the actual path where y
 This is quite straight forward and budget solution, one of the downsides of the script is that if your server gets unresponsive due to an attack, the script might not be triggered at all.
 
 Of course, a better approach would be to use a monitoring system like Nagios and based on the statistics from the monitoring system then you can trigger the script, but this scirpt challange could be a good learning experience!
+
+Here is another great resource on how to use the Discord API and send notifications to your Discord Channel with a Bash script:
+
+[How To Use Discord Webhooks to Get Notifications for Your Website Status on Ubuntu 18.04](https://www.digitalocean.com/community/tutorials/how-to-use-discord-webhooks-to-get-notifications-for-your-website-status-on-ubuntu-18-04)
 
 >{notice} This content was initially posted on [DevDojo](https://devdojo.com/bobbyiliev/bash-script-to-automatically-enable-cloudflare-ddos-protection)

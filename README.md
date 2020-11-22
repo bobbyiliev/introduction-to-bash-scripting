@@ -2,7 +2,7 @@
 
 ## 💡 Introduction to Bash Scripting
 
-This is an open-source introduction to Bash scripting guide that will help you learn the basics of Bash scripting and start writing awesome Bash scripts that will help you automate your daily SysOps, DevOps, and Dev tasks. No matter if you are a DevOps/SysOps engineer, developer, or just a Linux enthusiast, you can use Bash scripts to combine different Linux commands and automate boring and repetitive daily tasks, so that you can focus on more productive and fun things.
+This is an open-source introduction to Bash scripting guide/ebook that will help you learn the basics of Bash scripting and start writing awesome Bash scripts that will help you automate your daily SysOps, DevOps, and Dev tasks. No matter if you are a DevOps/SysOps engineer, developer, or just a Linux enthusiast, you can use Bash scripts to combine different Linux commands and automate boring and repetitive daily tasks, so that you can focus on more productive and fun things.
 
 The guide is suitable for anyone working as a developer, system administrator, or a DevOps engineer and wants to learn the basics of Bash scripting.
 
@@ -23,7 +23,7 @@ The first 13 chapters would be purely focused on getting some solid Bash scripti
 * **Bash Conditionals**
 * **Bash Loops**
 * **Bash Functions**
-* **Debugging and testing**
+* **Debugging, testing and shortcuts**
 * **Creating custom bash commands**
 * **Write your first Bash script**
 * **Creating an interactive menu in Bash**
@@ -31,6 +31,7 @@ The first 13 chapters would be purely focused on getting some solid Bash scripti
 * **Work with JSON in BASH using jq**
 * **Working with Cloudflare API with Bash**
 * **BASH Script parser to Summarize Your NGINX and Apache Access Logs**
+* **Sending emails with Bash and SSMTP**
 * **Wrap Up**
 
 ## 🌟 Sponsors
@@ -69,17 +70,24 @@ I think it's essential always to keep professional and surround yourself with go
 
 For more information, please visit my blog at [https://bobbyiliev.com](https://bobbyiliev.com), follow me on Twitter [@bobbyiliev_](https://twitter.com/bobbyiliev_) and [YouTube](https://www.youtube.com/channel/UCQWmdHTeAO0UvaNqve9udRw).
 
-## 🔥 PDF Generation
+## 🔥 PDF Generation Tool
 
 The project uses [Ibis](https://github.com/themsaid/ibis/) developed by [Mohamed Said](https://github.com/themsaid).
 
 Ibis is a PHP tool that helps you write eBooks in markdown.
+
+## 🎨 Book Cover
+
+The cover for this ebook was created by [Canva.com](https://www.canva.com/join/determined-cork-learn).
+
+If you ever need to create a graphic, poster, invitation, logo, presentation – or anything that looks good — give Canva a go.
 
 ## 🔗 Links
 
 - [My blog at](https://bobbyiliev.com)
 - [Free $100 Credit For DigitalOcean](https://m.do.co/c/2a9bba940f39)
 - [Join DevDojo](https://devdojo.com?ref=bobbyiliev)
+- [Canva](https://www.canva.com/)
 
 ## 🤲 Contributing
 

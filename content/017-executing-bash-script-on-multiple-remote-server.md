@@ -100,7 +100,7 @@ Copy the code bellow and add this in a file called `remote_check.sh`. You can al
 
 ## Running the Script on all Servers
 
-Now that we have the script and the servers ready and that we've added those servers in our servers.txt file we can run the following command to loop though all servers and execute the script remotely without having to copy the script to each server and individually connect to each server. 
+Now that we have the script and the servers ready and that we've added those servers in our servers.txt file we can run the following command to loop though all servers and execute the script remotely without having to copy the script to each server and individually connect to each server.
 
 ```bash
 for server in $(cat servers.txt) ; do ssh your_user@${server} 'bash -s' < ./remote_check.sh ; done
