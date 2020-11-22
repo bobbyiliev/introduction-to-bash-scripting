@@ -6,6 +6,14 @@ This is an open-source introduction to Bash scripting guide/ebook that will help
 
 The guide is suitable for anyone working as a developer, system administrator, or a DevOps engineer and wants to learn the basics of Bash scripting.
 
+## 🚀 Download
+
+To download a copy of the ebook use one of the following links:
+
+* [Dark mode](https://github.com/bobbyiliev/introduction-to-bash-scripting/raw/main/export/introduction-to-bash-scripting-dark.pdf)
+
+* [Light mode](https://github.com/bobbyiliev/introduction-to-bash-scripting/raw/main/export/introduction-to-bash-scripting-light.pdf)
+
 ## 📘 Chapters
 
 The first 13 chapters would be purely focused on getting some solid Bash scripting foundations then the rest of the chapters would give you some real life examples and scripts.
@@ -69,6 +77,10 @@ My name is Bobby Iliev, and I have been working as a Linux DevOps Engineer since
 I think it's essential always to keep professional and surround yourself with good people, work hard, and be nice to everyone. You have to perform at a consistently higher level than others. That's the mark of a true professional.
 
 For more information, please visit my blog at [https://bobbyiliev.com](https://bobbyiliev.com), follow me on Twitter [@bobbyiliev_](https://twitter.com/bobbyiliev_) and [YouTube](https://www.youtube.com/channel/UCQWmdHTeAO0UvaNqve9udRw).
+
+In case that you want to support me you can By Me a Coffee here:
+
+<a href="https://www.buymeacoffee.com/bobbyiliev" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: 41px !important;width: 174px !important;box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;" ></a>
 
 ## 🔥 PDF Generation Tool
 
