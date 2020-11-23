@@ -24,7 +24,7 @@ After that execute the file:
 ./devdojo.sh
 ```
 
-You will see a "Hello Wolrd" message on the screen.
+You will see a "Hello World" message on the screen.
 
 Another way to run the script would be:
 
