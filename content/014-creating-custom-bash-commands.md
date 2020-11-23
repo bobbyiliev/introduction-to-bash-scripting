@@ -80,4 +80,4 @@ This is one way of creating custom bash commands or bash aliases.
 
 Of course, you could actually write a bash script and add the script inside your `/usr/bin` folder, but this would not work if you don't have root or sudo access, whereas with aliases you can do it without the need of root access.
 
->{notice} Note: This was initially posted on [DevDojo.com](https://devdojo.com/bobbyiliev/how-to-create-custom-bash-commands)
+>{notice} This was initially posted on [DevDojo.com](https://devdojo.com/bobbyiliev/how-to-create-custom-bash-commands)

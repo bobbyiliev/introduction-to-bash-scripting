@@ -302,4 +302,4 @@ You will be able to choose a different option from the list and each number will
 
 You now know how to create a Bash menu and implement it in your scripts so that users could select different values!
 
->{notice} Note: This content was initially posted on [DevDojo.com](https://devdojo.com/bobbyiliev/how-to-work-with-json-in-bash-using-jq)
+>{notice} This content was initially posted on [DevDojo.com](https://devdojo.com/bobbyiliev/how-to-work-with-json-in-bash-using-jq)

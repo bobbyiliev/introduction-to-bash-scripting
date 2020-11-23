@@ -12,7 +12,7 @@ my_array=("value 1" "value 2" "value 3" "value 4")
 
 To access the elements in the array, you need to reference them by their numeric index.
 
->{notice} Note: keep in mind that you need to use curly brackets.
+>{notice} keep in mind that you need to use curly brackets.
 
 * Access a single element, this would output: `value 2`
 

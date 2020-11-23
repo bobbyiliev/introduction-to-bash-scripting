@@ -152,7 +152,7 @@ Let's go ahead and create a small bash script which should output the following 
 * Print the question and the answers
 * To do that I've put together the following script:
 
->{notice} Note: make sure to change the API_KEY part with your actual QuizAPI key:
+>{notice} make sure to change the API_KEY part with your actual QuizAPI key:
 
 ```bash
 #!/bin/bash
@@ -222,4 +222,4 @@ And for more information on the **QuizAPI**, you could take a look at the offici
 
 * [https://quizapi.io/docs/1.0/overview](https://quizapi.io/docs/1.0/overview)
 
->{notice} Note: This content was initially posted on [DevDojo.com](https://devdojo.com/bobbyiliev/how-to-work-with-json-in-bash-using-jq)
+>{notice} This content was initially posted on [DevDojo.com](https://devdojo.com/bobbyiliev/how-to-work-with-json-in-bash-using-jq)

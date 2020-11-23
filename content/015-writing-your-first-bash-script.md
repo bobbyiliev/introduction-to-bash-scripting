@@ -177,4 +177,4 @@ all_checks
 
 Bash scripting is awesome! No matter if you are a DevOps/SysOps engineer, developer, or just a Linux enthusiast, you can use Bash scripts to combine different Linux commands and automate boring and repetitive daily tasks, so that you can focus on more productive and fun things!
 
->{notice} Note: This was initially posted on [DevDojo.com](https://devdojo.com/bobbyiliev/introduction-to-bash-scripting)
+>{notice} This was initially posted on [DevDojo.com](https://devdojo.com/bobbyiliev/introduction-to-bash-scripting)

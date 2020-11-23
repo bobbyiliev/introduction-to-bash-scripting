@@ -8,7 +8,7 @@ To assign a value to a variable, all you need to do is use the `=` sign:
 name="DevDojo"
 ```
 
->{notice} Note: as an important note, you can not have spaces before and after the `=` sign.
+>{notice} as an important note, you can not have spaces before and after the `=` sign.
 
 After that, to access the variable, you have to use the `$` and reference it like this:
 
