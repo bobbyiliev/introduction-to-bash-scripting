@@ -20,7 +20,7 @@ Here is a list of the most popular Bash conditional expressions. You do not have
 [[ -b ${file} ]]
 ```
 
-*True if file exists and is a character special file.
+* True if file exists and is a character special file.
 
 ```bash
 [[ -c ${file} ]]

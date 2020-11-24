@@ -29,7 +29,7 @@ chmod +x arguments.sh
 Then run the file and pass **3** arguments:
 
 ```bash
-./arguments.sh dog catbird
+./arguments.sh dog cat bird
 ```
 
 The output that you would get would be:
