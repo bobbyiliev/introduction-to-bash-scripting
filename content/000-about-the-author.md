@@ -50,6 +50,6 @@ Ibis is a PHP tool that helps you write eBooks in markdown.
 
 ## Book Cover
 
-The cover for this ebook was created by [Canva.com](https://www.canva.com/join/determined-cork-learn).
+The cover for this ebook was created with [Canva.com](https://www.canva.com/join/determined-cork-learn).
 
 If you ever need to create a graphic, poster, invitation, logo, presentation – or anything that looks good — give Canva a go.
