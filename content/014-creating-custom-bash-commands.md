@@ -6,7 +6,7 @@ One way to do that is to either write short bash scripts or create custom comman
 
 ## Example
 
-Let's starit with the following scenario, as a system admin, you might have to check the connections to your web server quite often, so I will use the `netstat` command as an example.
+Let's start with the following scenario, as a system admin, you might have to check the connections to your web server quite often, so I will use the `netstat` command as an example.
 
 What I would usually do when I access a server that is having issues with the connections to port 80 or 443 is to check if there are any services listening on those ports and the number of connections to the ports.
 
