@@ -65,7 +65,7 @@ else
 fi
 ```
 
-Here is another example of an `if` statemnt which would check your current `User ID` and would not allow you to run the script as the `root` user:
+Here is another example of an `if` statement which would check your current `User ID` and would not allow you to run the script as the `root` user:
 
 ```bash
 #!/bin/bash
