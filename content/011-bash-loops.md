@@ -93,7 +93,7 @@ Now, if you run the above and just press enter without providing input, the loop
 
 ## Until Loops
 
-The difference between `until` and `while` loops is that the `until` lool will run the commands within the loop until the condition becomes true.
+The difference between `until` and `while` loops is that the `until` loop will run the commands within the loop until the condition becomes true.
 
 Structure:
 
