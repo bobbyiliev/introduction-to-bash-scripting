@@ -80,6 +80,26 @@ Join this developer community, and we can all learn together, build together, an
 
 For more information, please visit [https://www.devdojo.com](https://www.devdojo.com?ref=bobbyiliev) or follow [@thedevdojo](https://twitter.com/thedevdojo) on Twitter.
 
+## 🕸️ Web Page
+
+A web page showcasing the eBook:
+
+[Introduction to Bash Scripting Web Page](https://ebook.bobby.sh/)
+
+The web page was built using [Tails](http://devdojo.com/tails), a new `kick-ass` drag-and-drop TailwindCSS page builder!
+
+## 💻 Interactive training
+
+You can follow the interactive training online here:
+
+[Introduction to Bash Scripting Interactive training](https://ebook.bobby.sh/training.html)
+
+The training was built with Katacoda. You can find the Katacoda repository [here](https://github.com/bobbyiliev/katacoda).
+
+For more information on how to use Katacoda make sure to follow the steps from this tutorial here:
+
+[How to Use Katacoda to Create Highly Engaging Training Tutorials](https://devdojo.com/bobbyiliev/how-to-use-katacoda-to-create-highly-engaging-training-tutorials)
+
 ## 👋 About the author
 
 My name is Bobby Iliev, and I have been working as a Linux DevOps Engineer since 2014. I am an avid Linux lover and supporter of the open-source movement philosophy. I am always doing that which I cannot do in order that I may learn how to do it, and I believe in sharing knowledge.
@@ -111,6 +131,8 @@ If you ever need to create a graphic, poster, invitation, logo, presentation –
 - [Join DevDojo](https://devdojo.com?ref=bobbyiliev)
 - [Ibis](https://github.com/themsaid/ibis/)
 - [Canva](https://www.canva.com/)
+- [Tails](http://devdojo.com/tails)
+- [Katacoda](https://www.katacoda.com/)
 
 ## 🤲 Contributing
 
