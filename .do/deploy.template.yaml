@@ -1,0 +1,7 @@
+spec:
+ name: introduction-to-bash-scripting
+ static_sites:
+ - git:
+     branch: main
+     repo_clone_url: https://github.com/bobbyiliev/introduction-to-bash-scripting
+   name: introduction-to-bash-scripting
