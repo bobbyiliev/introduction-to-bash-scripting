@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bobby Iliev - Introduction to Bash Scripting</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.0.1/tailwind.min.css">
+    <meta name="Description" content="This is an open-source introduction to Bash scripting ebook that will help you learn the basics of Bash scripting and start writing awesome Bash scripts that will help you automate your daily SysOps, DevOps, and Dev tasks.">
+    <meta name="keywords" content="Bobby Iliev, blog, sysadmin, system administrator, linux, devops, bash, bash scripting, free bash ebook, introduction to bash scripting">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:image" content="https://cdn.devdojo.com/posts/images/November2020/open-source-introduction-to-bash-scripting-ebook-guide.jpg?auto=format" />
+    <meta property="og:title" content="Bobby Iliev - Introduction to Bash Scripting" />
+    <meta property="og:description" content="This is an open-source introduction to Bash scripting ebook that will help you learn the basics of Bash scripting and start writing awesome Bash scripts that will help you automate your daily SysOps, DevOps, and Dev tasks..." />
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@bobbyiliev_" />
+    <meta name="twitter:title" content="Bobby Iliev - Introduction to Bash Scripting"/>
+    <meta name="twitter:description" content="This is an open-source introduction to Bash scripting ebook that will help you learn the basics of Bash scripting and start writing awesome Bash scripts that will help you automate your daily SysOps, DevOps, and Dev tasks... " />
+    <meta name="twitter:image" content="https://cdn.devdojo.com/posts/images/November2020/open-source-introduction-to-bash-scripting-ebook-guide.jpg?auto=format" />
+    <link rel="icon" type="image/png" href="https://cdn.devdojo.com/devblog/favicons/3/2QLoxPNvDo4CGedlSIOUFqkXDpcrnLYBKhxHRMmr.png" />
+
+    <!-- Small CSS to Hide elements at 1520px size -->
+    <style>
+        @media(max-width:1520px) {
+            .left-svg {
+                display: none;
+            }
+        }
+
+        /* small css for the mobile nav close */
+        #nav-mobile-btn.close span:first-child {
+            transform: rotate(45deg);
+            top: 4px;
+            position: relative;
+            background: #a0aec0;
+        }
+
+        #nav-mobile-btn.close span:nth-child(2) {
+            transform: rotate(-45deg);
+            margin-top: 0px;
+            background: #a0aec0;
+        }
+    </style>
+</head>
+<body class="overflow-x-hidden antialiased">
+    <!-- Header Section -->
+    <header class="relative z-50 w-full h-24">
+        <div
+            class="container flex items-center justify-center h-full max-w-6xl px-8 mx-auto sm:justify-between xl:px-0">
+
+            <a href="/" class="relative flex items-center inline-block h-5 h-full font-black leading-none">
+                <span class="ml-3 text-xl text-gray-800">Bobby Iliev<span class="text-pink-500">.</span></span>
+            </a>
+
+            <nav id="nav"
+                class="absolute top-0 left-0 z-50 flex flex-col items-center justify-between hidden w-full h-64 pt-5 mt-24 text-sm text-gray-800 bg-white border-t border-gray-200 md:w-auto md:flex-row md:h-32 lg:text-base md:bg-transparent md:mt-0 md:border-none md:py-0 md:flex md:relative pb-5">
+                <a href="#ebook"
+                    class="ml-0 mr-0 font-bold duration-100 md:ml-12 md:mr-3 lg:mr-8 transition-color hover:text-indigo-600">eBook</a>
+                <a href="#sponsors"
+                    class="mr-0 font-bold duration-100 md:mr-3 lg:mr-8 transition-color hover:text-indigo-600">Sponsors</a>
+                <a href="#chapters"
+                    class="mr-0 font-bold duration-100 md:mr-3 lg:mr-8 transition-color hover:text-indigo-600">Chapters</a>
+                <a href="/training.html"
+                    class="mr-0 font-bold duration-100 md:mr-3 lg:mr-8 transition-color hover:text-indigo-600">Interactive Training</a>
+                <a href="https://blog.bobby.sh"
+                    class="font-bold duration-100 transition-color hover:text-indigo-600">Blog</a>
+                <!-- <div class="flex flex-col block w-full font-medium border-t border-gray-200 md:hidden">
+                    <a href="#_"
+                        class="relative inline-block w-full px-5 py-3 text-sm leading-none text-center text-white bg-gray-900 fold-bold">Free Download</a>
+                </div> -->
+            </nav>
+
+            <div
+                class="absolute left-0 flex-col items-center justify-center hidden w-full pb-8 mt-48 border-b border-gray-200 md:relative md:w-auto md:bg-transparent md:border-none md:mt-0 md:flex-row md:p-0 md:items-end md:flex md:justify-between">
+                <a href="https://github.com/bobbyiliev/introduction-to-bash-scripting"
+                    class="relative z-40 px-3 mr-0 text-sm font-bold text-pink-500 md:px-5 lg:text-white sm:mr-3 md:mt-0">
+                    <svg class="h-8 mr-4 text-white duration-150 cursor-pointer fill-current transition-color hover:text-gray-00" viewBox="0 0 2350 2315" xmlns="http://www.w3.org/2000/svg">
+                        <g stroke="none" stroke-width="1"></g>
+                        <g>
+                            <path d="M1175 0C525.8 0 0 525.8 0 1175c0 552.2 378.9 1010.5 890.1 1139.7-5.9-14.7-8.8-35.3-8.8-55.8v-199.8H734.4c-79.3 0-152.8-35.2-185.1-99.9-38.2-70.5-44.1-179.2-141-246.8-29.4-23.5-5.9-47 26.4-44.1 61.7 17.6 111.6 58.8 158.6 120.4 47 61.7 67.6 76.4 155.7 76.4 41.1 0 105.7-2.9 164.5-11.8 32.3-82.3 88.1-155.7 155.7-190.9-393.6-47-581.6-240.9-581.6-505.3 0-114.6 49.9-223.3 132.2-317.3-26.4-91.1-61.7-279.1 11.8-352.5 176.3 0 282 114.6 308.4 143.9 88.1-29.4 185.1-47 284.9-47 102.8 0 196.8 17.6 284.9 47 26.4-29.4 132.2-143.9 308.4-143.9 70.5 70.5 38.2 261.4 8.8 352.5 82.3 91.1 129.3 202.7 129.3 317.3 0 264.4-185.1 458.3-575.7 499.4 108.7 55.8 185.1 214.4 185.1 331.9V2256c0 8.8-2.9 17.6-2.9 26.4C2021 2123.8 2350 1689.1 2350 1175 2350 525.8 1824.2 0 1175 0z"></path>
+                        </g>
+                        
+                    </svg>
+                </a>
+                <a href="#download"
+                    class="relative z-40 inline-block w-auto h-full px-5 py-3 text-sm font-bold leading-none text-white transition-all transition duration-100 duration-300 bg-gray-900 rounded shadow-md fold-bold lg:bg-white lg:text-gray-600 sm:w-full lg:shadow-none hover:shadow-xl">Download
+                </a>
+                <svg class="absolute top-0 left-0 hidden w-screen max-w-3xl -mt-64 -ml-12 lg:block"
+                    viewBox="0 0 818 815" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <defs>
+                        <linearGradient x1="0%" y1="0%" x2="100%" y2="100%" id="c">
+                            <stop stop-color="#011627" offset="0%" />
+                            <stop stop-color="#011627" offset="100%" />
+                        </linearGradient>
+                        <linearGradient x1="0%" y1="0%" x2="100%" y2="100%" id="f">
+                            <stop stop-color="#011627" offset="0%" />
+                            <stop stop-color="#011627" offset="100%" />
+                        </linearGradient>
+                        <filter x="-4.7%" y="-3.3%" width="109.3%" height="109.3%" filterUnits="objectBoundingBox"
+                            id="a">
+                            <feOffset dy="8" in="SourceAlpha" result="shadowOffsetOuter1" />
+                            <feGaussianBlur stdDeviation="8" in="shadowOffsetOuter1" result="shadowBlurOuter1" />
+                            <feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.15 0" in="shadowBlurOuter1" />
+                        </filter>
+                        <filter x="-4.7%" y="-3.3%" width="109.3%" height="109.3%" filterUnits="objectBoundingBox"
+                            id="d">
+                            <feOffset dy="8" in="SourceAlpha" result="shadowOffsetOuter1" />
+                            <feGaussianBlur stdDeviation="8" in="shadowOffsetOuter1" result="shadowBlurOuter1" />
+                            <feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.2 0" in="shadowBlurOuter1" />
+                        </filter>
+                        <path
+                            d="M160.52 108.243h497.445c17.83 0 24.296 1.856 30.814 5.342 6.519 3.486 11.635 8.602 15.12 15.12 3.487 6.52 5.344 12.985 5.344 30.815v497.445c0 17.83-1.857 24.296-5.343 30.814-3.486 6.519-8.602 11.635-15.12 15.12-6.52 3.487-12.985 5.344-30.815 5.344H160.52c-17.83 0-24.296-1.857-30.814-5.343-6.519-3.486-11.635-8.602-15.12-15.12-3.487-6.52-5.343-12.985-5.343-30.815V159.52c0-17.83 1.856-24.296 5.342-30.814 3.486-6.519 8.602-11.635 15.12-15.12 6.52-3.487 12.985-5.343 30.815-5.343z"
+                            id="b" />
+                        <path
+                            d="M159.107 107.829H656.55c17.83 0 24.296 1.856 30.815 5.342 6.518 3.487 11.634 8.602 15.12 15.12 3.486 6.52 5.343 12.985 5.343 30.816V656.55c0 17.83-1.857 24.296-5.343 30.815-3.486 6.518-8.602 11.634-15.12 15.12-6.519 3.486-12.985 5.343-30.815 5.343H159.107c-17.83 0-24.297-1.857-30.815-5.343-6.519-3.486-11.634-8.602-15.12-15.12-3.487-6.519-5.343-12.985-5.343-30.815V159.107c0-17.83 1.856-24.297 5.342-30.815 3.487-6.519 8.602-11.634 15.12-15.12 6.52-3.487 12.985-5.343 30.816-5.343z"
+                            id="e" />
+                    </defs>
+                    <g fill="none" fill-rule="evenodd" opacity=".9">
+                        <g transform="rotate(65 416.452 409.167)">
+                            <use fill="#000" filter="url(#a)" xlink:href="#b" />
+                            <use fill="url(#c)" xlink:href="#b" />
+                        </g>
+                        <g transform="rotate(29 421.929 414.496)">
+                            <use fill="#000" filter="url(#d)" xlink:href="#e" />
+                            <use fill="url(#f)" xlink:href="#e" />
+                        </g>
+                    </g>
+                </svg>
+            </div>
+
+            <div id="nav-mobile-btn"
+                class="absolute top-0 right-0 z-50 block w-6 mt-8 mr-10 cursor-pointer select-none md:hidden sm:mt-10">
+                <span class="block w-full h-1 mt-2 duration-200 transform bg-gray-800 rounded-full sm:mt-1"></span>
+                <span class="block w-full h-1 mt-1 duration-200 transform bg-gray-800 rounded-full"></span>
+            </div>
+
+        </div>
+    </header>
+    <!-- End Header Section-->
+
+    <!-- BEGIN HERO SECTION -->
+    <div class="relative items-center justify-center w-full overflow-x-hidden lg:pt-40 lg:pb-40 xl:pt-40 xl:pb-64">
+        <div
+            class="container flex flex-col items-center justify-between h-full max-w-6xl px-8 mx-auto -mt-32 lg:flex-row xl:px-0">
+            <div
+                class="z-30 flex flex-col items-center w-full max-w-xl pt-48 text-center lg:items-start lg:w-1/2 lg:pt-20 xl:pt-40 lg:text-left">
+                <h1 class="relative mb-4 text-3xl font-black leading-tight text-gray-900 sm:text-6xl xl:mb-8">Introduction To Bash Scripting</h1>
+                <p class="pr-0 mb-8 text-base text-gray-600 sm:text-lg xl:text-xl lg:pr-20">Are you ready to start your
+                    adventure and start writing awesome Bash scripts?</p>
+                <a href="#download"
+                    class="relative self-start inline-block w-auto px-8 py-4 mx-auto mt-0 text-base font-bold text-white bg-gray-900 hover:bg-gray-700 border-t border-gray-200 rounded-md shadow-xl sm:mt-1 fold-bold lg:mx-0">Free Download
+                </a>
+                <!-- Sponsors with section -->
+                <div class="flex-col hidden mt-12 sm:flex lg:mt-24">
+                    <p class="mb-4 text-sm font-medium tracking-widest text-gray-500 uppercase">Sponsored by</p>
+                    <div class="flex">
+                        <!-- <svg class="h-8 mr-4 text-gray-500 duration-150 cursor-pointer fill-current transition-color hover:text-gray-600"></svg> -->
+                        <a href="https://devdojo.com/?ref=bobbyiliev">
+                            <svg class="h-8 mr-4 text-gray-500 duration-150 cursor-pointer fill-current transition-color hover:text-gray-600" viewBox="0 0 1967 449" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><defs><path d="M81.079 81.293c2.351 40.815-19.808 63.171-51.101 87.082 79.261-53.553 176.523-95.401 271.687-104.232 166.088-15.338 205.72 189.752 67.267 233.939-50.059 15.858-100.118 31.71-150.177 47.831-11.74-31.973-25.035-63.427-35.206-95.915-24.767-77.206 111.854-94.099 147.578-97.218-60.745 15.08-74.836 32.23-69.875 56.404 3.126 13.257 7.044 28.076 10.945 41.586 26.863-7.533 53.452-15.334 80.314-23.128 40.93-11.704 38.33-100.07-25.559-93.053C205.19 147.836 102.46 201.903 0 262.73c16.94-8.057 100.379-51.724 111.59-23.396 33.896 86.556 96.467 155.703 188.767 208.993 142.367-82.405 214.329-202.489 219.277-367.034C453.15 27.098 376.689.001 300.261.001S147.436 27.098 81.079 81.293" id="afooter"></path></defs><g fill-rule="evenodd"><g transform="translate(702)"><mask id="bfooter"><use xlink:href="#afooter"></use></mask><use xlink:href="#afooter"></use><path d="M81.079 81.293c2.351 40.815-19.808 63.171-51.101 87.082 79.261-53.553 176.523-95.401 271.687-104.232 166.088-15.338 205.72 189.752 67.267 233.939-50.059 15.858-100.118 31.71-150.177 47.831-11.74-31.973-25.035-63.427-35.206-95.915-24.767-77.206 111.854-94.099 147.578-97.218-60.745 15.08-74.836 32.23-69.875 56.404 3.126 13.257 7.044 28.076 10.945 41.586 26.863-7.533 53.452-15.334 80.314-23.128 40.93-11.704 38.33-100.07-25.559-93.053C205.19 147.836 102.46 201.903 0 262.73c16.94-8.057 100.379-51.724 111.59-23.396 33.896 86.556 96.467 155.703 188.767 208.993 142.367-82.405 214.329-202.489 219.277-367.034C453.15 27.098 376.689.001 300.261.001S147.436 27.098 81.079 81.293" mask="url(#bfooter)"></path></g><path d="M.226 102.38h102.198c20.147 0 36.42 2.733 48.822 8.2 12.401 5.467 22.652 13.313 30.75 23.538 8.1 10.225 13.971 22.12 17.616 35.686 3.644 13.566 5.467 27.941 5.467 43.127 0 23.79-2.708 42.24-8.125 55.351-5.416 13.11-12.933 24.094-22.55 32.953-9.618 8.858-19.944 14.755-30.979 17.69-15.084 4.05-28.75 6.075-41 6.075H.224V102.38zm68.79 50.416v121.636h16.856c14.376 0 24.6-1.594 30.675-4.783 6.074-3.19 10.832-8.757 14.274-16.704 3.442-7.948 5.163-20.83 5.163-38.648 0-23.588-3.847-39.735-11.54-48.442-7.695-8.706-20.45-13.06-38.268-13.06h-17.16zm178.072-50.416H431.44v47.53H316.03v35.383h107.058v45.405H316.03v43.886h118.751V325H247.088V102.38zm208.746 0h71.98l50.112 160.207 49.353-160.207h69.854L614.523 325h-74.56l-84.129-222.62zM1257.5 213.842c0-36.344 10.123-64.64 30.37-84.887 20.248-20.248 48.442-30.372 84.584-30.372 37.053 0 65.601 9.947 85.646 29.84s30.068 47.758 30.068 83.597c0 26.018-4.379 47.353-13.136 64.007-8.757 16.653-21.412 29.611-37.964 38.875-16.552 9.263-37.179 13.894-61.88 13.894-25.108 0-45.887-3.998-62.338-11.996-16.45-7.998-29.789-20.652-40.014-37.964-10.225-17.312-15.337-38.976-15.337-64.994zm68.79.304c0 22.474 4.176 38.621 12.528 48.441s19.715 14.73 34.091 14.73c14.78 0 26.22-4.808 34.32-14.426 8.099-9.617 12.148-26.878 12.148-51.783 0-20.956-4.227-36.268-12.68-45.936s-19.918-14.502-34.395-14.502c-13.87 0-25.006 4.91-33.408 14.73-8.403 9.82-12.604 26.068-12.604 48.746zM1623.87 102.38h68.943v121.029c0 25.41-2.253 44.746-6.758 58.008-4.505 13.263-13.565 24.5-27.182 33.712-13.616 9.213-31.054 13.82-52.314 13.82-22.475 0-39.887-3.038-52.238-9.112-12.351-6.074-21.893-14.958-28.625-26.65-6.732-11.694-10.706-26.145-11.92-43.355l65.753-8.96c.1 9.82.961 17.11 2.581 21.867 1.62 4.758 4.353 8.605 8.2 11.541 2.633 1.924 6.378 2.886 11.238 2.886 7.694 0 13.338-2.86 16.932-8.58 3.594-5.72 5.39-15.363 5.39-28.929V102.38zm112.167 111.462c0-36.344 10.123-64.64 30.37-84.887 20.248-20.248 48.443-30.372 84.584-30.372 37.053 0 65.602 9.947 85.647 29.84s30.067 47.758 30.067 83.597c0 26.018-4.378 47.353-13.135 64.007-8.757 16.653-21.412 29.611-37.964 38.875-16.552 9.263-37.18 13.894-61.881 13.894-25.107 0-45.886-3.998-62.337-11.996s-29.789-20.652-40.014-37.964c-10.225-17.312-15.337-38.976-15.337-64.994zm68.79.304c0 22.474 4.176 38.621 12.528 48.441s19.716 14.73 34.092 14.73c14.78 0 26.22-4.808 34.32-14.426 8.098-9.617 12.148-26.878 12.148-51.783 0-20.956-4.227-36.268-12.68-45.936-8.454-9.668-19.919-14.502-34.395-14.502-13.87 0-25.006 4.91-33.409 14.73-8.402 9.82-12.604 26.068-12.604 48.746z" fill-rule="nonzero"></path></g></svg>
+                        </a>
+                        <a href="https://m.do.co/c/2a9bba940f39">
+                            <svg class="h-8 mr-4 text-gray-500 duration-150 cursor-pointer fill-current transition-color hover:text-gray-600" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 316 60"><g transform="translate(9.259 4.552) scale(.4941)"><path d="M52.1 102.1V82.5c20.8 0 36.8-20.6 28.9-42.4-3-8.1-9.4-14.6-17.5-17.5-21.8-7.9-42.4 8.1-42.4 28.9H1.5c0-33.1 32-58.9 66.7-48.1 15.2 4.7 27.2 16.8 31.9 31.9 10.8 34.8-14.9 66.8-48 66.8z"></path><path d="M32.6 63h19.5v19.5H32.6zm-15 34.5v-15h15v15h-15zM5 70h12.6v12.5H5z" fill-rule="evenodd"></path><path d="M181.5 30.2c-5.8-4-13-6.1-21.4-6.1h-18.3v58.1h18.3c8.4 0 15.6-2.1 21.4-6.4 3.2-2.2 5.7-5.4 7.4-9.3s2.6-8.5 2.6-13.7c0-5.1-.9-9.7-2.6-13.6-1.7-3.8-4.2-6.9-7.4-9zm-29 3.8h5.8c6.4 0 11.7 1.3 15.7 3.7 4.4 2.7 6.7 7.8 6.7 15.1 0 7.6-2.3 12.9-6.7 15.8-3.8 2.5-9.1 3.8-15.6 3.8h-5.8V34z"></path><use xlink:href="#A"></use><path d="M199 41.3h10.3v41H199zm47.8 3.4c-3.1-2.8-6.6-4.4-10.3-4.4-5.7 0-10.4 2-14.1 5.8s-5.5 8.8-5.5 14.7c0 5.8 1.8 10.7 5.5 14.7 3.7 3.8 8.4 5.8 14.1 5.8 4 0 7.4-1.1 10.2-3.3v1c0 3.4-.9 6-2.7 7.9-1.8 1.8-4.3 2.7-7.4 2.7-4.8 0-7.7-1.9-11.4-6.8l-7 6.7.2.3c1.5 2.1 3.8 4.2 6.9 6.2s6.9 3 11.5 3c6.1 0 11.1-1.9 14.7-5.6 3.7-3.7 5.5-8.7 5.5-14.9V41.3h-10.1v3.4zm-2.7 24.2c-1.8 2-4.1 3-7.1 3s-5.3-1-7-3c-1.8-2-2.7-4.7-2.7-8s.9-6.1 2.7-8.1 4.1-3.1 7-3.1c3 0 5.3 1 7.1 3.1 1.8 2 2.7 4.8 2.7 8.1s-1 6-2.7 8zm21.6-27.6H276v41h-10.3z"></path><use xlink:href="#A" x="66.7"></use><path d="M298.6 30.3h-10.1v11.1h-5.9v9.4h5.9v17c0 5.3 1.1 9.1 3.2 11.3s5.8 3.3 11.1 3.3c1.7 0 3.4-.1 5-.2h.5v-9.4l-3.5.2c-2.5 0-4.1-.4-4.9-1.3s-1.2-2.7-1.2-5.4V50.7h9.6v-9.4h-9.6v-11zm57.9-6.2h10.3v58.1h-10.3zm114.4 43.5c-1.8 2.1-3.7 3.9-5.2 4.8-1.4.9-3.2 1.4-5.3 1.4-3 0-5.5-1.1-7.5-3.4s-3-5.2-3-8.7 1-6.4 2.9-8.6c2-2.3 4.4-3.4 7.4-3.4 3.3 0 6.8 2.1 9.8 5.6l6.8-6.5c-4.4-5.8-10.1-8.5-16.9-8.5-5.7 0-10.6 2.1-14.6 6.1s-6 9.2-6 15.3 2 11.2 6 15.3 8.9 6.1 14.6 6.1c7.5 0 13.5-3.2 17.5-9.1l-6.5-6.4zM513.2 47c-1.5-2-3.5-3.7-5.9-4.9-2.5-1.2-5.3-1.8-8.5-1.8-5.8 0-10.5 2.1-14 6.3-3.4 4.2-5.2 9.3-5.2 15.4 0 6.2 1.9 11.3 5.7 15.3 3.7 3.9 8.8 5.9 14.9 5.9 6.9 0 12.7-2.8 16.9-8.4l.2-.3-6.7-6.5c-.6.8-1.5 1.6-2.3 2.4-1 1-2 1.7-3 2.2-1.5.8-3.3 1.1-5.2 1.1-2.9 0-5.2-.8-7-2.5-1.7-1.5-2.7-3.6-2.9-6.2h27.3l.1-3.8c0-2.7-.4-5.2-1.1-7.6-.7-2.3-1.8-4.5-3.3-6.6zm-22.5 9.7c.5-2 1.4-3.6 2.7-4.9 1.4-1.4 3.2-2.1 5.4-2.1 2.5 0 4.4.7 5.7 2.1 1.2 1.3 1.9 2.9 2.1 4.8h-15.9zm62.1-12.3c-3.1-2.7-7.4-4-12.8-4-3.4 0-6.6.8-9.5 2.2-2.7 1.4-5.3 3.6-7 6.6l.1.1 6.6 6.3c2.7-4.3 5.7-5.8 9.7-5.8 2.2 0 3.9.6 5.3 1.7s2 2.6 2 4.4v2c-2.6-.8-5.1-1.2-7.6-1.2-5.1 0-9.3 1.2-12.4 3.6s-4.7 5.9-4.7 10.2c0 3.8 1.3 7 4 9.3 2.7 2.2 6 3.4 9.9 3.4s7.6-1.6 10.9-4.3v3.4h10.1V55.9c.2-4.9-1.4-8.8-4.6-11.5zm-18.3 22.2c1.2-.8 2.8-1.2 4.9-1.2 2.5 0 5.1.5 7.8 1.5v4C545 73 542 74 538.3 74c-1.8 0-3.2-.4-4.1-1.2s-1.4-1.7-1.4-3 .6-2.4 1.7-3.2zm62.7-21.4c-2.9-3.2-6.9-4.8-12-4.8-4.1 0-7.4 1.2-9.9 3.5v-2.5h-10.1v41h10.3V59.7c0-3.1.7-5.6 2.2-7.3 1.5-1.8 3.4-2.6 6.1-2.6 2.3 0 4.1.8 5.4 2.3 1.3 1.6 2 3.7 2 6.4v23.7h10.3V58.5c0-5.6-1.4-10.1-4.3-13.3zm-253.6-.8c-3.1-2.7-7.4-4-12.8-4-3.4 0-6.6.8-9.5 2.2-2.7 1.4-5.3 3.6-7 6.6l.1.1 6.6 6.3c2.7-4.3 5.7-5.8 9.7-5.8 2.2 0 3.9.6 5.3 1.7s2 2.6 2 4.4v2c-2.6-.8-5.1-1.2-7.6-1.2-5.1 0-9.3 1.2-12.4 3.6s-4.7 5.9-4.7 10.2c0 3.8 1.3 7 4 9.3 2.7 2.2 6 3.4 9.9 3.4s7.6-1.6 10.9-4.3v3.4h10.1V55.9c.1-4.9-1.5-8.8-4.6-11.5zm-18.3 22.2c1.2-.8 2.8-1.2 4.9-1.2 2.5 0 5.1.5 7.8 1.5v4c-2.2 2.1-5.2 3.1-8.9 3.1-1.8 0-3.2-.4-4.1-1.2s-1.4-1.7-1.4-3 .5-2.4 1.7-3.2zm78.9 16.5c-16.5 0-30-13.4-30-30s13.4-30 30-30c16.5 0 30 13.4 30 30s-13.5 30-30 30zm0-49.3c-10.7 0-19.4 8.7-19.4 19.4s8.7 19.4 19.4 19.4 19.4-8.7 19.4-19.4-8.7-19.4-19.4-19.4z"></path></g><defs><path d="M204.3 23.4c-1.8 0-3.3.6-4.5 1.8s-1.9 2.7-1.9 4.4c0 1.8.6 3.3 1.9 4.5 1.2 1.2 2.7 1.9 4.5 1.9s3.3-.6 4.5-1.9c1.2-1.2 1.9-2.8 1.9-4.5 0-1.8-.6-3.3-1.9-4.4-1.2-1.2-2.8-1.8-4.5-1.8z"></path></defs></svg>
+                        </a>
+                    </div>
+                </div>
+                <svg class="absolute left-0 max-w-md mt-24 -ml-64 left-svg" viewBox="0 0 423 423"
+                    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <defs>
+                        <linearGradient x1="100%" y1="0%" x2="4.48%" y2="0%" id="linearGradient-1">
+                            <stop stop-color="#F9B609" offset="0%" />
+                            <stop stop-color="#F9B609" offset="100%" />
+                        </linearGradient>
+                        <filter x="-9.3%" y="-6.7%" width="118.7%" height="118.7%" filterUnits="objectBoundingBox"
+                            id="filter-3">
+                            <feOffset dy="8" in="SourceAlpha" result="shadowOffsetOuter1" />
+                            <feGaussianBlur stdDeviation="8" in="shadowOffsetOuter1" result="shadowBlurOuter1" />
+                            <feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.1 0" in="shadowBlurOuter1" />
+                        </filter>
+                        <rect id="path-2" x="63" y="504" width="300" height="300" rx="40" />
+                    </defs>
+                    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" opacity=".9">
+                        <g id="Desktop-HD" transform="translate(-39 -531)">
+                            <g id="Hero" transform="translate(43 83)">
+                                <g id="Rectangle-6" transform="rotate(45 213 654)">
+                                    <use fill="#000" filter="url(#filter-3)" xlink:href="#path-2" />
+                                    <use fill="url(#linearGradient-1)" xlink:href="#path-2" />
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </svg>
+            </div>
+            <div class="relative z-50 flex flex-col items-end justify-center w-full h-full lg:w-1/2 ms:pl-10">
+                <div class="container relative left-0 w-full max-w-4xl lg:absolute xl:max-w-6xl lg:w-screen">
+                    <svg id="e3553d74-0590-491b-b28e-952d4d1eac83" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" width="672.5315" height="738.39398" viewBox="0 0 672.5315 738.39398"><g opacity="0.1"><path d="M601.28454,82.14432A149.04745,149.04745,0,0,0,432.35339,225.373c-.03027.67-.04,1.34-.0498,2.01,12.96191-1.85981,26.38476-3.4535,40.165-4.78431A149.02172,149.02172,0,0,1,601.28454,82.14432Z" transform="translate(-263.73425 -80.80301)" fill="#fff"></path></g><path d="M795.91443,242.427a600.121,600.121,0,0,0-65.2002-13.84,943.3639,943.3639,0,0,0-108.73974-10.45c-15.17041-.62-30.62012-.94-46.24024-.94-12.37988,0-24.66015.2-36.77.6a973.28988,973.28988,0,0,0-106.16015,8.97,624.29224,624.29224,0,0,0-77.25,15.66c-59.21,16.37-91.81983,38.31-91.81983,61.77s32.60987,45.4,91.81983,61.77c41.64013,11.52,92.98,19.37,148.92041,22.97,23.08984,1.5,46.96,2.26,71.25976,2.26,24.37988,0,48.33008-.77,71.49024-2.27,50.90966-3.29,98.00976-10.1,137.42968-20,.21-.06.41016-.11.62012-.16,2.66016-.66,5.27979-1.35,7.87012-2.04.92969-.26,1.84961-.51,2.77-.76a.97843.97843,0,0,1,.15967-.05c.88037-.24,1.75-.49,2.62011-.73,1.74024-.5,3.46-.99,5.14991-1.5.08007-.02.1499-.04.22021-.06,1.46973-.44,2.91016-.88,4.33984-1.32,1.16993-.37,2.33008-.73,3.48-1.1q1.26051-.405,2.49024-.81c.6001-.2,1.18994-.39,1.77-.59.79-.26,1.58008-.53,2.35986-.8.33008-.11.66016-.22.98-.34.75-.25,1.48-.51,2.21-.77.79-.28,1.58008-.57,2.35987-.85.65039-.23,1.30029-.47,1.93994-.71.54-.21,1.07031-.41,1.61035-.61,1.46973-.55,2.91016-1.12006,4.33008-1.68.71-.29,1.41992-.57,2.11963-.86.68994-.28,1.39013-.57,2.07031-.86q1.67944-.70506,3.2998-1.41c.52-.24,1.0503-.47,1.56006-.68994.39014-.18.77-.35,1.16016-.53.27978-.12.56006-.25.83008-.38,1.00976-.46,2.00976-.93,2.98974-1.4q5.64039-2.7,10.52979-5.52c20.45019-11.71,31.24023-24.7,31.24023-38.2C887.73425,280.737,855.12439,258.797,795.91443,242.427Zm-.54,121.62c-41.68994,11.53-93.16992,19.38-149.26026,22.95-22.81005,1.45-46.38964,2.2-70.37988,2.2-23.91015,0-47.41015-.74-70.1499-2.19-56.18018-3.56-107.74023-11.41-149.49023-22.96-58.27-16.12-90.35987-37.37-90.35987-59.85a24.11774,24.11774,0,0,1,.74024-5.89c5.09961-20.28,36.46972-39.26,89.61963-53.96a623.80606,623.80606,0,0,1,76.66015-15.57,976.02713,976.02713,0,0,1,106.79981-9q17.88061-.585,36.18017-.58c15.41016,0,30.6499.31,45.62988.91a941.36713,941.36713,0,0,1,109.37012,10.5A598.85754,598.85754,0,0,1,795.37439,244.347c53.14014,14.7,84.5,33.67,89.60986,53.94a23.82213,23.82213,0,0,1,.75,5.91C885.73425,326.677,853.64441,347.927,795.37439,364.047Z" transform="translate(-263.73425 -80.80301)" fill="#3f3d56"></path><path d="M887.16443,305.107c0,13.36005-11.01026,26-30.67041,37.29-3.26953,1.88-6.78955,3.72-10.52979,5.52-.98.47-1.98.94-2.98974,1.4-.27.13-.5503.26-.83008.38-.39014.18-.77.35-1.16016.53-.50976.22-1.04.45-1.56006.68994q-1.6201.705-3.2998,1.41c-.68018.29-1.38037.58-2.07031.86-.69971.29-1.40967.57-2.11963.86-1.41992.56-2.86035,1.13-4.33008,1.68-.54.2-1.07031.4-1.61035.61-.63965.24-1.28955.48-1.93994.71-.77979.28-1.56983.57-2.35987.85-.73.26-1.46.52-2.21.77-.31982.12006-.6499.23-.98.34-.77978.27-1.56982.54-2.35986.8-.58008.2-1.16992.39-1.77.59q-1.23046.40494-2.49024.81c-1.1499.37-2.31.73-3.48,1.1-1.42968.44-2.87011.88-4.33984,1.32-.07031.02-.14014.04-.22021.06-1.68995.51-3.40967,1-5.14991,1.5-.87011.24-1.73974.49-2.62011.73a.97843.97843,0,0,0-.15967.05c-.92041.25-1.84033.5-2.77.76-2.58008.68-5.21,1.37-7.87012,2.04-.21.05-.41016.1-.62012.16-38.35009,9.58-85.3999,16.56-137.46972,19.93-22.81006,1.47-46.59033,2.25-71.02,2.25-24.6499,0-48.63037-.79-71.62012-2.29-137.24023-8.95-239.37988-43.03-239.37988-83.71a25.07169,25.07169,0,0,1,1.11963-7.3c.06006.17.12011.33.19043.5,14.26953,37.48,115.54,67.77,246.93994,75.16,20.12988,1.13995,40.98,1.73,62.31982,1.73,21.43018,0,42.35987-.6,62.56983-1.74,131.29-7.42,232.46045-37.72,246.68017-75.17q.36036-.90006.62988-1.8A25.30451,25.30451,0,0,1,887.16443,305.107Z" transform="translate(-263.73425 -80.80301)" fill="#3f3d56"></path><path d="M355.40356,294.343c-16.6427,0-34.33068-3.58057-34.33068-10.2168s17.688-10.2168,34.33068-10.2168,34.33069,3.58057,34.33069,10.2168S372.04626,294.343,355.40356,294.343Zm0-18.4336c-19.053,0-32.33068,4.33057-32.33068,8.2168s13.2777,8.2168,32.33068,8.2168,32.33069-4.33057,32.33069-8.2168S374.45654,275.90939,355.40356,275.90939Z" transform="translate(-263.73425 -80.80301)" fill="#3f3d56"></path><path d="M426.40344,341.343c-16.64258,0-34.33056-3.58057-34.33056-10.2168s17.688-10.2168,34.33056-10.2168c16.64282,0,34.33081,3.58057,34.33081,10.2168S443.04626,341.343,426.40344,341.343Zm0-18.4336c-19.05286,0-32.33056,4.33057-32.33056,8.2168s13.2777,8.2168,32.33056,8.2168,32.33081-4.33057,32.33081-8.2168S445.45642,322.90939,426.40344,322.90939Z" transform="translate(-263.73425 -80.80301)" fill="#3f3d56"></path><path d="M795.40344,294.343c-16.64258,0-34.33056-3.58057-34.33056-10.2168s17.688-10.2168,34.33056-10.2168c16.64282,0,34.33081,3.58057,34.33081,10.2168S812.04626,294.343,795.40344,294.343Zm0-18.4336c-19.053,0-32.33056,4.33057-32.33056,8.2168s13.27758,8.2168,32.33056,8.2168,32.33081-4.33057,32.33081-8.2168S814.45642,275.90939,795.40344,275.90939Z" transform="translate(-263.73425 -80.80301)" fill="#3f3d56"></path><path d="M724.40344,341.343c-16.64258,0-34.33056-3.58057-34.33056-10.2168s17.688-10.2168,34.33056-10.2168c16.64282,0,34.33081,3.58057,34.33081,10.2168S741.04626,341.343,724.40344,341.343Zm0-18.4336c-19.053,0-32.33056,4.33057-32.33056,8.2168s13.27758,8.2168,32.33056,8.2168,32.33081-4.33057,32.33081-8.2168S743.45642,322.90939,724.40344,322.90939Z" transform="translate(-263.73425 -80.80301)" fill="#3f3d56"></path><path d="M575.40344,363.343c-16.64258,0-34.33056-3.58057-34.33056-10.2168s17.688-10.2168,34.33056-10.2168c16.64282,0,34.33081,3.58057,34.33081,10.2168S592.04626,363.343,575.40344,363.343Zm0-18.4336c-19.053,0-32.33056,4.33057-32.33056,8.2168s13.27758,8.2168,32.33056,8.2168,32.33081-4.33057,32.33081-8.2168S594.45642,344.90939,575.40344,344.90939Z" transform="translate(-263.73425 -80.80301)" fill="#3f3d56"></path><circle cx="336.97785" cy="450.70425" r="42.01233" fill="#2f2e41"></circle><rect x="565.93651" y="563.55388" width="22.86756" height="12.76328" transform="translate(-457.82019 238.05835) rotate(-26.60099)" fill="#2f2e41"></rect><ellipse cx="563.82041" cy="573.74843" rx="3.98853" ry="10.63605" transform="translate(-489.27546 647.82906) rotate(-56.60122)" fill="#2f2e41"></ellipse><rect x="617.67227" y="558.50174" width="12.76328" height="22.86756" transform="translate(-428.72163 791.92555) rotate(-63.39901)" fill="#2f2e41"></rect><ellipse cx="637.60379" cy="573.74843" rx="10.63605" ry="3.98853" transform="translate(-474.26735 364.92328) rotate(-33.39878)" fill="#2f2e41"></ellipse><circle cx="334.03663" cy="440.42779" r="14.35864" fill="#fff"></circle><ellipse cx="597.86951" cy="515.08401" rx="4.76624" ry="4.8" transform="translate(-452.84172 492.81919) rotate(-45)" fill="#3f3d56"></ellipse><path d="M633.854,485.80233c.63177-15.55359-12.77314-28.7276-29.9408-29.42493s-31.59692,11.346-32.22873,26.8996,11.30191,19.08746,28.46958,19.78485S633.22214,501.35592,633.854,485.80233Z" transform="translate(-263.73425 -80.80301)" fill="#F9B609"></path><ellipse cx="644.38811" cy="537.56776" rx="6.59448" ry="21.00616" transform="translate(-458.4377 468.61755) rotate(-40.64516)" fill="#2f2e41"></ellipse><ellipse cx="557.15365" cy="537.56776" rx="21.00616" ry="6.59448" transform="translate(-477.37906 529.35274) rotate(-49.35484)" fill="#2f2e41"></ellipse><path d="M612.25083,548.0638a9.57244,9.57244,0,0,1-18.83533,3.42884l-.00336-.0185c-.94177-5.20214,3.08039-7.043,8.28254-7.98474S611.30912,542.86166,612.25083,548.0638Z" transform="translate(-263.73425 -80.80301)" fill="#fff"></path><path d="M529.73425,576.197a2.0001,2.0001,0,0,1-2-2v-118a2,2,0,0,1,4,0v118A2.0001,2.0001,0,0,1,529.73425,576.197Z" transform="translate(-263.73425 -80.80301)" fill="#ccc"></path><path d="M499.73425,682.197a2.0001,2.0001,0,0,1-2-2v-86a2,2,0,1,1,4,0v86A2.0001,2.0001,0,0,1,499.73425,682.197Z" transform="translate(-263.73425 -80.80301)" fill="#ccc"></path><path d="M576.73425,611.197a2.0001,2.0001,0,0,1-2-2v-118a2,2,0,1,1,4,0v118A2.0001,2.0001,0,0,1,576.73425,611.197Z" transform="translate(-263.73425 -80.80301)" fill="#ccc"></path><path d="M547.73425,696.197a2.0001,2.0001,0,0,1-2-2v-48a2,2,0,1,1,4,0v48A2.0001,2.0001,0,0,1,547.73425,696.197Z" transform="translate(-263.73425 -80.80301)" fill="#ccc"></path><path d="M588.73425,450.197a2.0001,2.0001,0,0,1-2-2v-48a2,2,0,0,1,4,0v48A2.0001,2.0001,0,0,1,588.73425,450.197Z" transform="translate(-263.73425 -80.80301)" fill="#ccc"></path><path d="M488.73425,471.197a2.0001,2.0001,0,0,1-2-2v-48a2,2,0,0,1,4,0v48A2.0001,2.0001,0,0,1,488.73425,471.197Z" transform="translate(-263.73425 -80.80301)" fill="#ccc"></path><path d="M662.73425,476.197a2.0001,2.0001,0,0,1-2-2v-48a2,2,0,1,1,4,0v48A2.0001,2.0001,0,0,1,662.73425,476.197Z" transform="translate(-263.73425 -80.80301)" fill="#ccc"></path><path d="M658.73425,626.197a2.0001,2.0001,0,0,1-2-2v-58a2,2,0,1,1,4,0v58A2.0001,2.0001,0,0,1,658.73425,626.197Z" transform="translate(-263.73425 -80.80301)" fill="#ccc"></path><path d="M618.73425,677.197a2.0001,2.0001,0,0,1-2-2v-86a2,2,0,1,1,4,0v86A2.0001,2.0001,0,0,1,618.73425,677.197Z" transform="translate(-263.73425 -80.80301)" fill="#ccc"></path><path d="M626.73425,530.197a2.0001,2.0001,0,0,1-2-2v-118a2,2,0,1,1,4,0v118A2.0001,2.0001,0,0,1,626.73425,530.197Z" transform="translate(-263.73425 -80.80301)" fill="#ccc"></path><ellipse cx="858.10361" cy="764.78333" rx="6.76007" ry="21.53369" transform="translate(-554.53185 648.46489) rotate(-39.93837)" fill="#2f2e41"></ellipse><circle cx="812.2965" cy="757.30544" r="43.06733" transform="translate(-426.75153 1207.63346) rotate(-71.56505)" fill="#2f2e41"></circle><rect x="553.7073" y="710.30199" width="13.08374" height="23.44171" fill="#2f2e41"></rect><rect x="527.53982" y="710.30199" width="13.08374" height="23.44171" fill="#2f2e41"></rect><ellipse cx="555.8879" cy="734.01629" rx="10.90314" ry="4.08868" fill="#2f2e41"></ellipse><ellipse cx="529.72042" cy="733.47115" rx="10.90314" ry="4.08868" fill="#2f2e41"></ellipse><path d="M798.77365,703.16853c3.84557-15.487,20.82057-24.60076,37.91471-20.35617s27.83428,20.24028,23.98871,35.72729-16.60394,15.537-33.69809,11.29233S794.92806,718.65557,798.77365,703.16853Z" transform="translate(-263.73425 -80.80301)" fill="#F9B609"></path><ellipse cx="763.7883" cy="737.32189" rx="6.76007" ry="21.53369" transform="translate(-493.44249 1030.65892) rotate(-64.62574)" fill="#2f2e41"></ellipse><circle cx="542.12366" cy="667.41487" r="14.35864" fill="#fff"></circle><circle cx="536.22229" cy="662.26808" r="4.78622" fill="#3f3d56"></circle><circle cx="542" cy="697.39398" r="6" fill="#fff"></circle><path d="M935.26575,819.197h-236a1,1,0,0,1,0-2h236a1,1,0,0,1,0,2Z" transform="translate(-263.73425 -80.80301)" fill="#3f3d56"></path></svg>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- HERO SECTION END -->
+
+    <!-- Content Section -->
+    <div id="ebook" class="flex flex-col w-full overflow-hidden border-t border-gray-200 pt-10 bg-white lg:flex-row sm:mx-auto">
+        <div class="relative lg:w-1/2">
+            <img src="https://cdn.devdojo.com/posts/images/November2020/open-source-introduction-to-bash-scripting-ebook-guide.jpg?auto=format&q=70&w=680" alt="Persons talking in a work setting." class="object-cover w-full lg:absolute h-80 lg:h-full">
+            <svg class="absolute top-0 right-0 hidden h-full text-white lg:inline-block" viewBox="0 0 20 104" fill="currentColor">
+                <polygon points="17.3036738 5.68434189e-14 20 5.68434189e-14 20 104 0.824555778 104"></polygon>
+            </svg>
+        </div>
+        <div class="flex flex-col justify-center p-8 bg-white lg:py-32 lg:px-16 lg:pl-10 lg:w-1/2">
+            <div>
+                <p class="inline-block px-3 py-1 mb-4 text-xs font-medium tracking-wider text-purple-600 uppercase bg-purple-200 rounded-full">
+                    Free eBook
+                </p>
+            </div>
+            <h5 class="mb-3 text-3xl font-extrabold leading-none sm:text-4xl lg:text-5xl">
+                Introduction to Bash Scripting
+            </h5>
+            <p class="py-5 mb-5 text-gray-600 lg:text-m">
+                This is an open-source introduction to Bash scripting ebook that will help you learn the basics of Bash scripting and start writing awesome Bash scripts that will help you automate your daily SysOps, DevOps, and Dev tasks.
+            </p>
+            <div class="flex items-center">
+                <a href="#download" type="submit" class="inline-flex items-center justify-center h-12 px-6 mr-6 font-medium tracking-wide text-white transition duration-200 bg-gray-900 rounded-lg hover:bg-gray-700 focus:shadow-outline focus:outline-none">
+                    Free Download
+                </a>
+            </div>
+        </div>
+    </div>
+    <!-- End Content Section -->
+
+    <!-- Sponsors Section -->
+    <div id="sponsors" class="bg-gray-100">
+        <div class="max-w-screen-xl px-4 py-12 mx-auto sm:px-6 lg:px-8">
+            <h2 class="text-sm font-bold tracking-wide text-center text-gray-800 uppercase mb-7">This book is made possible thanks to these fantastic companies!</h2>
+            <div class="grid grid-cols-1 gap-8 sm:grid-col-1 md:grid-cols-2 lg:grid-cols-2">
+                <div class="flex items-center justify-center col-span-1 md:col-span-2 lg:col-span-1">
+                    <a href="https://devdojo.com/?ref=bobbyiliev">
+                        <svg class="h-8 text-gray-500 fill-current" viewBox="0 0 1967 449" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><defs><path d="M81.079 81.293c2.351 40.815-19.808 63.171-51.101 87.082 79.261-53.553 176.523-95.401 271.687-104.232 166.088-15.338 205.72 189.752 67.267 233.939-50.059 15.858-100.118 31.71-150.177 47.831-11.74-31.973-25.035-63.427-35.206-95.915-24.767-77.206 111.854-94.099 147.578-97.218-60.745 15.08-74.836 32.23-69.875 56.404 3.126 13.257 7.044 28.076 10.945 41.586 26.863-7.533 53.452-15.334 80.314-23.128 40.93-11.704 38.33-100.07-25.559-93.053C205.19 147.836 102.46 201.903 0 262.73c16.94-8.057 100.379-51.724 111.59-23.396 33.896 86.556 96.467 155.703 188.767 208.993 142.367-82.405 214.329-202.489 219.277-367.034C453.15 27.098 376.689.001 300.261.001S147.436 27.098 81.079 81.293" id="afooter"></path></defs><g fill-rule="evenodd"><g transform="translate(702)"><mask id="bfooter"><use xlink:href="#afooter"></use></mask><use xlink:href="#afooter"></use><path d="M81.079 81.293c2.351 40.815-19.808 63.171-51.101 87.082 79.261-53.553 176.523-95.401 271.687-104.232 166.088-15.338 205.72 189.752 67.267 233.939-50.059 15.858-100.118 31.71-150.177 47.831-11.74-31.973-25.035-63.427-35.206-95.915-24.767-77.206 111.854-94.099 147.578-97.218-60.745 15.08-74.836 32.23-69.875 56.404 3.126 13.257 7.044 28.076 10.945 41.586 26.863-7.533 53.452-15.334 80.314-23.128 40.93-11.704 38.33-100.07-25.559-93.053C205.19 147.836 102.46 201.903 0 262.73c16.94-8.057 100.379-51.724 111.59-23.396 33.896 86.556 96.467 155.703 188.767 208.993 142.367-82.405 214.329-202.489 219.277-367.034C453.15 27.098 376.689.001 300.261.001S147.436 27.098 81.079 81.293" mask="url(#bfooter)"></path></g><path d="M.226 102.38h102.198c20.147 0 36.42 2.733 48.822 8.2 12.401 5.467 22.652 13.313 30.75 23.538 8.1 10.225 13.971 22.12 17.616 35.686 3.644 13.566 5.467 27.941 5.467 43.127 0 23.79-2.708 42.24-8.125 55.351-5.416 13.11-12.933 24.094-22.55 32.953-9.618 8.858-19.944 14.755-30.979 17.69-15.084 4.05-28.75 6.075-41 6.075H.224V102.38zm68.79 50.416v121.636h16.856c14.376 0 24.6-1.594 30.675-4.783 6.074-3.19 10.832-8.757 14.274-16.704 3.442-7.948 5.163-20.83 5.163-38.648 0-23.588-3.847-39.735-11.54-48.442-7.695-8.706-20.45-13.06-38.268-13.06h-17.16zm178.072-50.416H431.44v47.53H316.03v35.383h107.058v45.405H316.03v43.886h118.751V325H247.088V102.38zm208.746 0h71.98l50.112 160.207 49.353-160.207h69.854L614.523 325h-74.56l-84.129-222.62zM1257.5 213.842c0-36.344 10.123-64.64 30.37-84.887 20.248-20.248 48.442-30.372 84.584-30.372 37.053 0 65.601 9.947 85.646 29.84s30.068 47.758 30.068 83.597c0 26.018-4.379 47.353-13.136 64.007-8.757 16.653-21.412 29.611-37.964 38.875-16.552 9.263-37.179 13.894-61.88 13.894-25.108 0-45.887-3.998-62.338-11.996-16.45-7.998-29.789-20.652-40.014-37.964-10.225-17.312-15.337-38.976-15.337-64.994zm68.79.304c0 22.474 4.176 38.621 12.528 48.441s19.715 14.73 34.091 14.73c14.78 0 26.22-4.808 34.32-14.426 8.099-9.617 12.148-26.878 12.148-51.783 0-20.956-4.227-36.268-12.68-45.936s-19.918-14.502-34.395-14.502c-13.87 0-25.006 4.91-33.408 14.73-8.403 9.82-12.604 26.068-12.604 48.746zM1623.87 102.38h68.943v121.029c0 25.41-2.253 44.746-6.758 58.008-4.505 13.263-13.565 24.5-27.182 33.712-13.616 9.213-31.054 13.82-52.314 13.82-22.475 0-39.887-3.038-52.238-9.112-12.351-6.074-21.893-14.958-28.625-26.65-6.732-11.694-10.706-26.145-11.92-43.355l65.753-8.96c.1 9.82.961 17.11 2.581 21.867 1.62 4.758 4.353 8.605 8.2 11.541 2.633 1.924 6.378 2.886 11.238 2.886 7.694 0 13.338-2.86 16.932-8.58 3.594-5.72 5.39-15.363 5.39-28.929V102.38zm112.167 111.462c0-36.344 10.123-64.64 30.37-84.887 20.248-20.248 48.443-30.372 84.584-30.372 37.053 0 65.602 9.947 85.647 29.84s30.067 47.758 30.067 83.597c0 26.018-4.378 47.353-13.135 64.007-8.757 16.653-21.412 29.611-37.964 38.875-16.552 9.263-37.18 13.894-61.881 13.894-25.107 0-45.886-3.998-62.337-11.996s-29.789-20.652-40.014-37.964c-10.225-17.312-15.337-38.976-15.337-64.994zm68.79.304c0 22.474 4.176 38.621 12.528 48.441s19.716 14.73 34.092 14.73c14.78 0 26.22-4.808 34.32-14.426 8.098-9.617 12.148-26.878 12.148-51.783 0-20.956-4.227-36.268-12.68-45.936-8.454-9.668-19.919-14.502-34.395-14.502-13.87 0-25.006 4.91-33.409 14.73-8.402 9.82-12.604 26.068-12.604 48.746z" fill-rule="nonzero"></path></g></svg>
+                    </a>
+                </div>
+                <div class="flex items-center justify-center col-span-1 md:col-span-2 lg:col-span-1">
+                    <a href="https://m.do.co/c/2a9bba940f39">
+                        <svg class="h-10 text-gray-500 fill-current" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 316 60"><g transform="translate(9.259 4.552) scale(.4941)"><path d="M52.1 102.1V82.5c20.8 0 36.8-20.6 28.9-42.4-3-8.1-9.4-14.6-17.5-17.5-21.8-7.9-42.4 8.1-42.4 28.9H1.5c0-33.1 32-58.9 66.7-48.1 15.2 4.7 27.2 16.8 31.9 31.9 10.8 34.8-14.9 66.8-48 66.8z"/><path d="M32.6 63h19.5v19.5H32.6zm-15 34.5v-15h15v15h-15zM5 70h12.6v12.5H5z" fill-rule="evenodd"/><path d="M181.5 30.2c-5.8-4-13-6.1-21.4-6.1h-18.3v58.1h18.3c8.4 0 15.6-2.1 21.4-6.4 3.2-2.2 5.7-5.4 7.4-9.3s2.6-8.5 2.6-13.7c0-5.1-.9-9.7-2.6-13.6-1.7-3.8-4.2-6.9-7.4-9zm-29 3.8h5.8c6.4 0 11.7 1.3 15.7 3.7 4.4 2.7 6.7 7.8 6.7 15.1 0 7.6-2.3 12.9-6.7 15.8-3.8 2.5-9.1 3.8-15.6 3.8h-5.8V34z"/><use xlink:href="#A"/><path d="M199 41.3h10.3v41H199zm47.8 3.4c-3.1-2.8-6.6-4.4-10.3-4.4-5.7 0-10.4 2-14.1 5.8s-5.5 8.8-5.5 14.7c0 5.8 1.8 10.7 5.5 14.7 3.7 3.8 8.4 5.8 14.1 5.8 4 0 7.4-1.1 10.2-3.3v1c0 3.4-.9 6-2.7 7.9-1.8 1.8-4.3 2.7-7.4 2.7-4.8 0-7.7-1.9-11.4-6.8l-7 6.7.2.3c1.5 2.1 3.8 4.2 6.9 6.2s6.9 3 11.5 3c6.1 0 11.1-1.9 14.7-5.6 3.7-3.7 5.5-8.7 5.5-14.9V41.3h-10.1v3.4zm-2.7 24.2c-1.8 2-4.1 3-7.1 3s-5.3-1-7-3c-1.8-2-2.7-4.7-2.7-8s.9-6.1 2.7-8.1 4.1-3.1 7-3.1c3 0 5.3 1 7.1 3.1 1.8 2 2.7 4.8 2.7 8.1s-1 6-2.7 8zm21.6-27.6H276v41h-10.3z"/><use xlink:href="#A" x="66.7"/><path d="M298.6 30.3h-10.1v11.1h-5.9v9.4h5.9v17c0 5.3 1.1 9.1 3.2 11.3s5.8 3.3 11.1 3.3c1.7 0 3.4-.1 5-.2h.5v-9.4l-3.5.2c-2.5 0-4.1-.4-4.9-1.3s-1.2-2.7-1.2-5.4V50.7h9.6v-9.4h-9.6v-11zm57.9-6.2h10.3v58.1h-10.3zm114.4 43.5c-1.8 2.1-3.7 3.9-5.2 4.8-1.4.9-3.2 1.4-5.3 1.4-3 0-5.5-1.1-7.5-3.4s-3-5.2-3-8.7 1-6.4 2.9-8.6c2-2.3 4.4-3.4 7.4-3.4 3.3 0 6.8 2.1 9.8 5.6l6.8-6.5c-4.4-5.8-10.1-8.5-16.9-8.5-5.7 0-10.6 2.1-14.6 6.1s-6 9.2-6 15.3 2 11.2 6 15.3 8.9 6.1 14.6 6.1c7.5 0 13.5-3.2 17.5-9.1l-6.5-6.4zM513.2 47c-1.5-2-3.5-3.7-5.9-4.9-2.5-1.2-5.3-1.8-8.5-1.8-5.8 0-10.5 2.1-14 6.3-3.4 4.2-5.2 9.3-5.2 15.4 0 6.2 1.9 11.3 5.7 15.3 3.7 3.9 8.8 5.9 14.9 5.9 6.9 0 12.7-2.8 16.9-8.4l.2-.3-6.7-6.5c-.6.8-1.5 1.6-2.3 2.4-1 1-2 1.7-3 2.2-1.5.8-3.3 1.1-5.2 1.1-2.9 0-5.2-.8-7-2.5-1.7-1.5-2.7-3.6-2.9-6.2h27.3l.1-3.8c0-2.7-.4-5.2-1.1-7.6-.7-2.3-1.8-4.5-3.3-6.6zm-22.5 9.7c.5-2 1.4-3.6 2.7-4.9 1.4-1.4 3.2-2.1 5.4-2.1 2.5 0 4.4.7 5.7 2.1 1.2 1.3 1.9 2.9 2.1 4.8h-15.9zm62.1-12.3c-3.1-2.7-7.4-4-12.8-4-3.4 0-6.6.8-9.5 2.2-2.7 1.4-5.3 3.6-7 6.6l.1.1 6.6 6.3c2.7-4.3 5.7-5.8 9.7-5.8 2.2 0 3.9.6 5.3 1.7s2 2.6 2 4.4v2c-2.6-.8-5.1-1.2-7.6-1.2-5.1 0-9.3 1.2-12.4 3.6s-4.7 5.9-4.7 10.2c0 3.8 1.3 7 4 9.3 2.7 2.2 6 3.4 9.9 3.4s7.6-1.6 10.9-4.3v3.4h10.1V55.9c.2-4.9-1.4-8.8-4.6-11.5zm-18.3 22.2c1.2-.8 2.8-1.2 4.9-1.2 2.5 0 5.1.5 7.8 1.5v4C545 73 542 74 538.3 74c-1.8 0-3.2-.4-4.1-1.2s-1.4-1.7-1.4-3 .6-2.4 1.7-3.2zm62.7-21.4c-2.9-3.2-6.9-4.8-12-4.8-4.1 0-7.4 1.2-9.9 3.5v-2.5h-10.1v41h10.3V59.7c0-3.1.7-5.6 2.2-7.3 1.5-1.8 3.4-2.6 6.1-2.6 2.3 0 4.1.8 5.4 2.3 1.3 1.6 2 3.7 2 6.4v23.7h10.3V58.5c0-5.6-1.4-10.1-4.3-13.3zm-253.6-.8c-3.1-2.7-7.4-4-12.8-4-3.4 0-6.6.8-9.5 2.2-2.7 1.4-5.3 3.6-7 6.6l.1.1 6.6 6.3c2.7-4.3 5.7-5.8 9.7-5.8 2.2 0 3.9.6 5.3 1.7s2 2.6 2 4.4v2c-2.6-.8-5.1-1.2-7.6-1.2-5.1 0-9.3 1.2-12.4 3.6s-4.7 5.9-4.7 10.2c0 3.8 1.3 7 4 9.3 2.7 2.2 6 3.4 9.9 3.4s7.6-1.6 10.9-4.3v3.4h10.1V55.9c.1-4.9-1.5-8.8-4.6-11.5zm-18.3 22.2c1.2-.8 2.8-1.2 4.9-1.2 2.5 0 5.1.5 7.8 1.5v4c-2.2 2.1-5.2 3.1-8.9 3.1-1.8 0-3.2-.4-4.1-1.2s-1.4-1.7-1.4-3 .5-2.4 1.7-3.2zm78.9 16.5c-16.5 0-30-13.4-30-30s13.4-30 30-30c16.5 0 30 13.4 30 30s-13.5 30-30 30zm0-49.3c-10.7 0-19.4 8.7-19.4 19.4s8.7 19.4 19.4 19.4 19.4-8.7 19.4-19.4-8.7-19.4-19.4-19.4z"/></g><defs><path d="M204.3 23.4c-1.8 0-3.3.6-4.5 1.8s-1.9 2.7-1.9 4.4c0 1.8.6 3.3 1.9 4.5 1.2 1.2 2.7 1.9 4.5 1.9s3.3-.6 4.5-1.9c1.2-1.2 1.9-2.8 1.9-4.5 0-1.8-.6-3.3-1.9-4.4-1.2-1.2-2.8-1.8-4.5-1.8z"/></defs></svg>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- End Sponsors Section -->
+
+    <!-- Start Chapters -->
+    <!-- Start Chapters -->
+    <div id="chapters" class="relative py-16 bg-white min-w-screen animation-fade animation-delay">
+        <div class="container px-0 mx-auto sm:px-5">
+            <h3 class="mx-6 mt-1 text-xl font-bold text-left text-gray-800 sm:text-3xl md:text-5xl sm:text-center sm:mx-0">
+                Chapters</h3>
+        
+            <p class="mx-6 my-6 text-xs font-bold text-left text-pink-500 uppercase sm:text-center sm:text-normal sm:font-bold">The first 13 chapters would be purely focused on getting some solid Bash scripting foundations then the rest of the chapters would give you some real life examples and scripts</p>
+            <div class="w-full px-6 py-6 mx-auto mt-4 bg-white border border-gray-200 sm:px-8 md:px-12 sm:py-8 sm:rounded-lg sm:shadow md:w-2/3">
+                <h3 class="text-lg font-bold text-purple-500 sm:text-xl md:text-2xl">About the book</h3>
+            </div>
+            <div class="w-full px-6 py-6 mx-auto mt-4 bg-white border border-gray-200 sm:px-8 md:px-12 sm:py-8 sm:rounded-lg sm:shadow md:w-2/3">
+                <h3 class="text-lg font-bold text-purple-500 sm:text-xl md:text-2xl">Introduction to Bash scripting</h3>
+            </div>
+            <div class="w-full px-6 py-6 mx-auto mt-4 bg-white border border-gray-200 sm:px-8 md:px-12 sm:py-8 sm:rounded-lg sm:shadow md:w-2/3">
+                <h3 class="text-lg font-bold text-purple-500 sm:text-xl md:text-2xl">Bash Structure</h3>
+            </div>
+            <div class="w-full px-6 py-6 mx-auto mt-4 bg-white border border-gray-200 sm:px-8 md:px-12 sm:py-8 sm:rounded-lg sm:shadow md:w-2/3">
+                <h3 class="text-lg font-bold text-purple-500 sm:text-xl md:text-2xl">Bash Hello World</h3>
+            </div>
+            <div class="w-full px-6 py-6 mx-auto mt-4 bg-white border border-gray-200 sm:px-8 md:px-12 sm:py-8 sm:rounded-lg sm:shadow md:w-2/3">
+                <h3 class="text-lg font-bold text-purple-500 sm:text-xl md:text-2xl">Bash Variables</h3>
+            </div>
+            <div class="w-full px-6 py-6 mx-auto mt-4 bg-white border border-gray-200 sm:px-8 md:px-12 sm:py-8 sm:rounded-lg sm:shadow md:w-2/3">
+                <h3 class="text-lg font-bold text-purple-500 sm:text-xl md:text-2xl">Bash User Input</h3>
+            </div>
+            <div class="w-full px-6 py-6 mx-auto mt-4 bg-white border border-gray-200 sm:px-8 md:px-12 sm:py-8 sm:rounded-lg sm:shadow md:w-2/3">
+                <h3 class="text-lg font-bold text-purple-500 sm:text-xl md:text-2xl">Bash Comments</h3>
+            </div>
+            <div class="w-full px-6 py-6 mx-auto mt-4 bg-white border border-gray-200 sm:px-8 md:px-12 sm:py-8 sm:rounded-lg sm:shadow md:w-2/3">
+                <h3 class="text-lg font-bold text-purple-500 sm:text-xl md:text-2xl">Bash Arguments</h3>
+            </div>
+            <div class="w-full px-6 py-6 mx-auto mt-4 bg-white border border-gray-200 sm:px-8 md:px-12 sm:py-8 sm:rounded-lg sm:shadow md:w-2/3">
+                <h3 class="text-lg font-bold text-purple-500 sm:text-xl md:text-2xl">Bash Arrays</h3>
+            </div>
+            <div class="w-full px-6 py-6 mx-auto mt-4 bg-white border border-gray-200 sm:px-8 md:px-12 sm:py-8 sm:rounded-lg sm:shadow md:w-2/3">
+                <h3 class="text-lg font-bold text-purple-500 sm:text-xl md:text-2xl">Bash Conditional Expressions</h3>
+            </div>
+            <div class="w-full px-6 py-6 mx-auto mt-4 bg-white border border-gray-200 sm:px-8 md:px-12 sm:py-8 sm:rounded-lg sm:shadow md:w-2/3">
+                <h3 class="text-lg font-bold text-purple-500 sm:text-xl md:text-2xl">Bash Conditionals</h3>
+            </div>
+            <div class="w-full px-6 py-6 mx-auto mt-4 bg-white border border-gray-200 sm:px-8 md:px-12 sm:py-8 sm:rounded-lg sm:shadow md:w-2/3">
+                <h3 class="text-lg font-bold text-purple-500 sm:text-xl md:text-2xl">Bash Loops</h3>
+            </div>
+            <div class="w-full px-6 py-6 mx-auto mt-4 bg-white border border-gray-200 sm:px-8 md:px-12 sm:py-8 sm:rounded-lg sm:shadow md:w-2/3">
+                <h3 class="text-lg font-bold text-purple-500 sm:text-xl md:text-2xl">Bash Functions</h3>
+            </div>
+            <div class="w-full px-6 py-6 mx-auto mt-4 bg-white border border-gray-200 sm:px-8 md:px-12 sm:py-8 sm:rounded-lg sm:shadow md:w-2/3">
+                <h3 class="text-lg font-bold text-purple-500 sm:text-xl md:text-2xl">Debugging, testing and shortcuts</h3>
+            </div>
+            <div class="w-full px-6 py-6 mx-auto mt-4 bg-white border border-gray-200 sm:px-8 md:px-12 sm:py-8 sm:rounded-lg sm:shadow md:w-2/3">
+                <h3 class="text-lg font-bold text-purple-500 sm:text-xl md:text-2xl">Creating custom bash commands</h3>
+            </div>
+            <div class="w-full px-6 py-6 mx-auto mt-4 bg-white border border-gray-200 sm:px-8 md:px-12 sm:py-8 sm:rounded-lg sm:shadow md:w-2/3">
+                <h3 class="text-lg font-bold text-purple-500 sm:text-xl md:text-2xl">Write your first Bash script</h3>
+            </div>
+            <div class="w-full px-6 py-6 mx-auto mt-4 bg-white border border-gray-200 sm:px-8 md:px-12 sm:py-8 sm:rounded-lg sm:shadow md:w-2/3">
+                <h3 class="text-lg font-bold text-purple-500 sm:text-xl md:text-2xl">Creating an interactive menu in Bash</h3>
+            </div>
+            <div class="w-full px-6 py-6 mx-auto mt-4 bg-white border border-gray-200 sm:px-8 md:px-12 sm:py-8 sm:rounded-lg sm:shadow md:w-2/3">
+                <h3 class="text-lg font-bold text-purple-500 sm:text-xl md:text-2xl">Executing BASH scripts on Multiple Remote Servers</h3>
+            </div>
+            <div class="w-full px-6 py-6 mx-auto mt-4 bg-white border border-gray-200 sm:px-8 md:px-12 sm:py-8 sm:rounded-lg sm:shadow md:w-2/3">
+                <h3 class="text-lg font-bold text-purple-500 sm:text-xl md:text-2xl">Work with JSON in BASH using jq</h3>
+            </div>
+            <div class="w-full px-6 py-6 mx-auto mt-4 bg-white border border-gray-200 sm:px-8 md:px-12 sm:py-8 sm:rounded-lg sm:shadow md:w-2/3">
+                <h3 class="text-lg font-bold text-purple-500 sm:text-xl md:text-2xl">Working with Cloudflare API with Bash</h3>
+            </div>
+            <div class="w-full px-6 py-6 mx-auto mt-4 bg-white border border-gray-200 sm:px-8 md:px-12 sm:py-8 sm:rounded-lg sm:shadow md:w-2/3">
+                <h3 class="text-lg font-bold text-purple-500 sm:text-xl md:text-2xl">BASH Script parser to Summarize Your NGINX and Apache Access Logs</h3>
+            </div>
+            <div class="w-full px-6 py-6 mx-auto mt-4 bg-white border border-gray-200 sm:px-8 md:px-12 sm:py-8 sm:rounded-lg sm:shadow md:w-2/3">
+                <h3 class="text-lg font-bold text-purple-500 sm:text-xl md:text-2xl">Sending emails with Bash and SSMTP</h3>
+            </div>
+            <div class="w-full px-6 py-6 mx-auto mt-4 bg-white border border-gray-200 sm:px-8 md:px-12 sm:py-8 sm:rounded-lg sm:shadow md:w-2/3">
+                <h3 class="text-lg font-bold text-purple-500 sm:text-xl md:text-2xl">Wrap Up</h3>
+            </div>
+        </div>
+    </div>
+    <!-- End Chapters -->
+    
+    <!-- Download Section  -->
+    <div id="download" class="pb-1 text-center text-gray-700 bg-gray-100 bg-cover">
+        <div class="container relative max-w-2xl px-5 pt-12 mx-auto sm:py-12 lg:px-0">
+            <h2
+                class="mb-10 text-4xl font-extrabold leading-10 tracking-tight text-left text-gray-900 sm:text-5xl sm:leading-none md:text-6xl sm:text-center">
+                Download for <span class="inline-block text-indigo-500">Free</span></h2>
+            <p class="mt-5 text-xl text-left opacity-75 sm:text-center">Thanks to the <a class="
+                text-indigo-500" href="https://github.com/themsaid/ibis">Ibis</a> project the Introduction to Bash Scripting eBook comes in both Dark and light modes!
+            </p>
+        </div>
+        <div class="my-8">
+            <div class="max-w-xl px-4 mx-auto sm:px-6 lg:max-w-screen-xl lg:px-8">
+                <div class="lg:grid lg:grid-cols-2 lg:gap-8">
+                    <div class="p-16 transition-all duration-150 bg-gray-900 rounded-lg shadow-xl ease hover:shadow-2xl">
+                        <div
+                            class="relative inline-flex items-center justify-center w-16 h-16 overflow-hidden text-white rounded-full">
+                            <svg class="relative w-12 h-12 text-gray-400" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M16 4v12l-4-2-4 2V4M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z">
+                                </path>
+                            </svg>
+                        </div>
+                        <div class="mt-3 mb-6">
+                            <h5 class="pb-2 text-xl font-bold leading-6 text-gray-400">Dark Theme</h5>
+                            <p class="mt-1 mb-4 text-base leading-6 text-gray-500">
+                                Download the Dark theme of the Introduction to Bash Scripting eBook
+                            </p>
+                            <a href="https://github.com/bobbyiliev/introduction-to-bash-scripting/blob/main/export/introduction-to-bash-scripting-dark.pdf" class="px-4 py-2 font-semibold text-gray-200 bg-gray-500 border border-green-700 rounded shadow btn btn-secundary hover:bg-gray-600"> Free Download</a>
+                        </div>
+                    </div>
+
+                    <div
+                        class="p-16 mt-10 transition-all duration-150 bg-white rounded-lg shadow-xl lg:mt-0 ease hover:shadow-2xl">
+                        <div
+                            class="relative inline-flex items-center justify-center w-16 h-16 overflow-hidden text-white rounded-full">
+                            <svg class="relative w-12 h-12 text-indigo-500" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M16 4v12l-4-2-4 2V4M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z">
+                                </path>
+                            </svg>
+                        </div>
+                        <div class="mt-3 mb-6">
+                            <h5 class="pb-2 text-xl font-bold leading-6 text-gray-600">Light Theme</h5>
+                            <p class="mt-1 mb-4 text-base leading-6 text-gray-500">
+                                Download the Light theme of the Introduction to Bash Scripting eBook
+                            </p>
+                            <a href="https://github.com/bobbyiliev/introduction-to-bash-scripting/blob/main/export/introduction-to-bash-scripting-light.pdf" class="px-4 py-2 font-semibold text-white bg-blue-500 border border-green-700 rounded shadow btn btn-secundary hover:bg-blue-600"> Free Download</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Download -->
+
+    <!-- Training Section -->
+    <div class="flex items-center justify-center py-32 bg-gray min-w-screen">
+        <div
+            class="relative flex flex-col items-center w-full max-w-6xl px-4 py-8 mx-auto text-center rounded-lg shadow-2xl lg:text-left lg:block bg-gradient-to-b from-gray-900 via-gray-600 to-gray-400 sm:px-6 md:pb-0 md:pt-12 lg:px-12 lg:py-12">
+            <h2
+                class="my-4 text-2xl font-extrabold tracking-tight text-white sm:text-4xl md:text-4xl lg:my-0 xl:text-3xl sm:leading-tight">
+                Introduction to Bash with <span class="block text-indigo-200 xl:inline">Interactive training</span>
+            </h2>
+            <p class="mt-1 mb-10 text-sm font-medium text-indigo-200 uppercase xl:text-base xl:tracking-wider lg:mb-0">
+                Powered by
+                <a class="text-gray-200" href="https://katacoda.com/bobbyiliev">Katacoda</a></></p>
+            <div class="flex mb-8 lg:mt-6 lg:mb-0">
+                <div class="inline-flex">
+                    <a href="/training.html"
+                        class="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-gray-700 transition duration-150 ease-in-out bg-gray-100 border border-transparent rounded-md hover:text-gray-900 hover:bg-gray-200 focus:outline-none focus:shadow-outline focus:border-indigo-300">
+                        Start Free Training
+                    </a>
+                </div>
+            </div>
+            <div class="bottom-0 right-0 mb-0 mr-3 lg:absolute lg:-mb-12">
+                <img src="https://cdn.devdojo.com/images/september2020/cta-1.png"
+                    class="max-w-xs mb-4 opacity-75 md:max-w-2xl lg:max-w-lg xl:mb-0 xl:max-w-md">
+            </div>
+        </div>
+    </div>
+    <!-- End Training Section -->
+    <!-- Call To Action -->
+    <div class="py-8 border-t border-b border-blue-100 bg-blue-50">
+        <div class="container mx-auto">
+            <div class="flex flex-col items-center content-center justify-center text-center lg:flex-row lg:text-left">
+                <img class="self-start w-auto h-24 px-4 mx-auto -mt-1 lg:mx-0" alt="Free Download" src="https://cdn.devdojo.com/images/december2020/coffee-start.png">
+    
+                <div class="flex flex-col content-center px-4 mx-4 my-6">
+                    <h4 class="pb-0 mb-0 text-lg font-semibold mb-md-0">Enjoying the free eBook?</h4>
+                    <p class="mb-0 text-gray-700">Support this opensource project by staring it on GitHub!</p>
+                </div>
+                <a href="https://github.com/bobbyiliev/introduction-to-bash-scripting" class="px-4 py-2 font-semibold text-white bg-green-500 border border-green-700 rounded shadow btn btn-secundary hover:bg-green-600"> 
+                    <svg class="inline-block h-8 mr-4 text-white duration-150 cursor-pointer fill-current transition-color hover:text-gray-00" viewBox="0 0 2350 2315" xmlns="http://www.w3.org/2000/svg">
+                        <g stroke="none" stroke-width="1"></g>
+                        <g>
+                            <path d="M1175 0C525.8 0 0 525.8 0 1175c0 552.2 378.9 1010.5 890.1 1139.7-5.9-14.7-8.8-35.3-8.8-55.8v-199.8H734.4c-79.3 0-152.8-35.2-185.1-99.9-38.2-70.5-44.1-179.2-141-246.8-29.4-23.5-5.9-47 26.4-44.1 61.7 17.6 111.6 58.8 158.6 120.4 47 61.7 67.6 76.4 155.7 76.4 41.1 0 105.7-2.9 164.5-11.8 32.3-82.3 88.1-155.7 155.7-190.9-393.6-47-581.6-240.9-581.6-505.3 0-114.6 49.9-223.3 132.2-317.3-26.4-91.1-61.7-279.1 11.8-352.5 176.3 0 282 114.6 308.4 143.9 88.1-29.4 185.1-47 284.9-47 102.8 0 196.8 17.6 284.9 47 26.4-29.4 132.2-143.9 308.4-143.9 70.5 70.5 38.2 261.4 8.8 352.5 82.3 91.1 129.3 202.7 129.3 317.3 0 264.4-185.1 458.3-575.7 499.4 108.7 55.8 185.1 214.4 185.1 331.9V2256c0 8.8-2.9 17.6-2.9 26.4C2021 2123.8 2350 1689.1 2350 1175 2350 525.8 1824.2 0 1175 0z"></path>
+                        </g>
+                        
+                    </svg>
+                    Star the project
+                </a>
+    
+            </div>
+        </div>
+    </div>
+    <footer class="bg-white">
+        <div class="max-w-screen-xl px-4 py-12 mx-auto space-y-8 overflow-hidden sm:px-6 lg:px-8">
+            <nav class="flex flex-wrap justify-center -mx-5 -my-2">
+                <div class="px-5 py-2">
+                    <a href="#ebook" class="text-base leading-6 text-gray-500 hover:text-gray-900">
+                        eBook
+                    </a>
+                </div>
+                <div class="px-5 py-2">
+                    <a href="#sponsors" class="text-base leading-6 text-gray-500 hover:text-gray-900">
+                        Sponsors
+                    </a>
+                </div>
+                <div class="px-5 py-2">
+                    <a href="#chapters" class="text-base leading-6 text-gray-500 hover:text-gray-900">
+                        Chapters
+                    </a>
+                </div>
+                <div class="px-5 py-2">
+                    <a href="/training.html" class="text-base leading-6 text-gray-500 hover:text-gray-900">
+                        Interactive Training
+                    </a>
+                </div>
+                <div class="px-5 py-2">
+                    <a href="https://blog.bobby.sh" class="text-base leading-6 text-gray-500 hover:text-gray-900">
+                        Blog
+                    </a>
+                </div>
+                <div class="px-5 py-2">
+                    <a href="#" class="text-base leading-6 text-gray-500 hover:text-gray-900">
+                        Terms
+                    </a>
+                </div>
+            </nav>
+            <div class="flex justify-center mt-8 space-x-6">
+                <a href="https://facebook.com/bobby.iliev4" class="text-gray-400 hover:text-gray-500">
+                    <span class="sr-only">Facebook</span>
+                    <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 24 24">
+                        <path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd" />
+                    </svg>
+                </a>
+                <a href="https://instagram.com/bobby.iliev" class="text-gray-400 hover:text-gray-500">
+                    <span class="sr-only">Instagram</span>
+                    <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 24 24">
+                        <path fill-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z" clip-rule="evenodd" />
+                    </svg>
+                </a>
+                <a href="https://twitter.com/bobbyiliev_" class="text-gray-400 hover:text-gray-500">
+                    <span class="sr-only">Twitter</span>
+                    <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84" />
+                    </svg>
+                </a>
+                <a href="https://github.com/bobbyiliev/introduction-to-bash-scripting" class="text-gray-400 hover:text-gray-500">
+                    <span class="sr-only">GitHub</span>
+                    <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 24 24">
+                        <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd" />
+                    </svg>
+                </a>
+                <a href="https://devdojo.com/bobbyiliev" class="text-gray-400 hover:text-gray-500">
+                    <svg viewBox="0 0 520 460" class="text-gray-400 fill-current w-6 h-6 dark:text-white" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><defs><path d="M81.079 81.293c2.351 40.815-19.808 63.171-51.101 87.082 79.261-53.553 176.523-95.401 271.687-104.232 166.088-15.338 205.72 189.752 67.267 233.939-50.059 15.858-100.118 31.71-150.177 47.831-11.74-31.973-25.035-63.427-35.206-95.915-24.767-77.206 111.854-94.099 147.578-97.218-60.745 15.08-74.836 32.23-69.875 56.404 3.126 13.257 7.044 28.076 10.945 41.586 26.863-7.533 53.452-15.334 80.314-23.128 40.93-11.704 38.33-100.07-25.559-93.053C205.19 147.836 102.46 201.903 0 262.73c16.94-8.057 100.379-51.724 111.59-23.396 33.896 86.556 96.467 155.703 188.767 208.993 142.367-82.405 214.329-202.489 219.277-367.034C453.15 27.098 376.689.001 300.261.001S147.436 27.098 81.079 81.293" id="a"></path></defs><g fill-rule="evenodd"><mask id="b"><use xlink:href="#a"></use></mask><use xlink:href="#a"></use><path d="M81.079 81.293c2.351 40.815-19.808 63.171-51.101 87.082 79.261-53.553 176.523-95.401 271.687-104.232 166.088-15.338 205.72 189.752 67.267 233.939-50.059 15.858-100.118 31.71-150.177 47.831-11.74-31.973-25.035-63.427-35.206-95.915-24.767-77.206 111.854-94.099 147.578-97.218-60.745 15.08-74.836 32.23-69.875 56.404 3.126 13.257 7.044 28.076 10.945 41.586 26.863-7.533 53.452-15.334 80.314-23.128 40.93-11.704 38.33-100.07-25.559-93.053C205.19 147.836 102.46 201.903 0 262.73c16.94-8.057 100.379-51.724 111.59-23.396 33.896 86.556 96.467 155.703 188.767 208.993 142.367-82.405 214.329-202.489 219.277-367.034C453.15 27.098 376.689.001 300.261.001S147.436 27.098 81.079 81.293"></path></g></svg>
+                </a>
+            </div>
+            <p class="mt-8 text-base leading-6 text-center text-gray-400">
+                &copy; 2020 Designed with <a href="https://devdojo.com/tails" class="text-blue-500 font-bold">Tails</a>
+            </p>
+        </div>
+    </footer>
+    <!-- a little JS for the mobile nav button -->
+    <script>
+        if (document.getElementById('nav-mobile-btn')) {
+            document.getElementById('nav-mobile-btn').addEventListener('click', function () {
+                if (this.classList.contains('close')) {
+                    document.getElementById('nav').classList.add('hidden');
+                    this.classList.remove('close');
+                } else {
+                    document.getElementById('nav').classList.remove('hidden');
+                    this.classList.add('close');
+                }
+            });
+        }
+    </script>
+</body>
+</html>
