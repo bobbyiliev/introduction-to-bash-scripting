@@ -106,6 +106,7 @@ exit 0
 else
   read -p "What is this password for? " source && echo "${source} - ${pass_output}" >> ${log_file}
   printf "Password is saved in the pass-log. Goodbye, ${USER}!\n"
+fi
 ```
 If we want to check the log file and see if the password was saved, all we need to do is ```cat ```the file:
 ```
@@ -171,4 +172,4 @@ I hope you find this useful and would like to hear what do you think about loggi
 Let me know if you face any issues with the script or if you have any recommendations as well.
 
 # Contributed by
-Alex Georgiev
+[Alex Georgiev](https://twitter.com/alexgeorgiev17)
