@@ -1,11 +1,11 @@
-# Introduction
+# Password Generator Bash Script
 It's not uncommon situation where you will need to generate a random password that you can use for any software installation or when you sign-up to any website.
 
 There are a lot of options in order to achieve this. You can use a password manager/vault where you often have the option to randomly generate a password or to use a website that can generate the password on your behalf.
 
 You can also use Bash in your terminal (command-line) to generate a password that you can quickly use. There are a lot of ways to achieve that and I will make sure to cover few of them and will leave up to you to choose which option is most suitable with your needs.
 
-# Script summary
+## Script summary
 
 Let me first do a quick summary of what our script is going to do.:
 
@@ -13,7 +13,7 @@ Let me first do a quick summary of what our script is going to do.:
 2. We will ask the user if they want to save the password in the log file and 
 3. If the user wants to save the password we will ask for some details about the password before the password is saved in the log file.
 
-# Prerequisites
+## Prerequisites
 
 You would need a bash terminal and a text editor. You can use any text editor like vi, vim, nano or Visual Studio Code.
 
@@ -21,7 +21,7 @@ I'm running the script locally on my Linux laptop but if you're using Windows PC
 
 Although the script is pretty simple, having some basic BASH scripting knowledge will help you to better understand the script and how it's working.
 
-# Generate a random password
+## Generate a random password
 One of the great benefits of Linux is that you can do a lot of things using different methods. When it comes to generating a random string of characters it's not different as well.
 
 You can use several commands in order to generate a random string of characters. I will cover few of them and will provide some examples.
@@ -60,7 +60,7 @@ tr -cd '[:alnum:]' < /dev/urandom | fold -w10 | head -n 1
 ```
 With this command we take the output from /dev/urandom and translate it with ```tr``` while using all letters and digits and print the desired number of characters.
 
-# The script
+## The script
 First we begin the script with the shebang. We use it to tell the operating system which interpreter to use to parse the rest of the file.
 ```
 #!/bin/bash
@@ -118,7 +118,7 @@ An example output will be:
 DevDojo - VyJ3Kn7ltN
 ```
 
-# The full script:
+## The full script:
 ```
 #!/bin/bash
 #=======================================                                                             
@@ -160,7 +160,7 @@ else
 fi
 ```
 
-# Conclusion
+## Conclusion
 This is pretty much how you can use simple bash script to generate random passwords that you can just use one time or save it in a log file. 
 
 While the script is working fine, it expects that the user will provide the requested input.  In order to prevent any issues you would need to do some more advance checks on the user input in order to make sure the script will continue to work fine even if the provided input does not match our needs.
@@ -171,5 +171,5 @@ I hope you find this useful and would like to hear what do you think about loggi
 
 Let me know if you face any issues with the script or if you have any recommendations as well.
 
-# Contributed by
+## Contributed by
 [Alex Georgiev](https://twitter.com/alexgeorgiev17)
