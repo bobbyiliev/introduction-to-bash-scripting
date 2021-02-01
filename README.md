@@ -20,9 +20,9 @@ The guide is suitable for anyone working as a developer, system administrator, o
 
 To download a copy of the ebook use one of the following links:
 
-* [Dark mode](https://github.com/bobbyiliev/introduction-to-bash-scripting/raw/main/export/introduction-to-bash-scripting-dark.pdf)
+* [Dark mode](https://github.com/bobbyiliev/introduction-to-bash-scripting/raw/main/ebook/en/export/introduction-to-bash-scripting-dark.pdf)
 
-* [Light mode](https://github.com/bobbyiliev/introduction-to-bash-scripting/raw/main/export/introduction-to-bash-scripting-light.pdf)
+* [Light mode](https://github.com/bobbyiliev/introduction-to-bash-scripting/raw/main/ebook/en/export/introduction-to-bash-scripting-light.pdf)
 
 ## 📘 Chapters
 

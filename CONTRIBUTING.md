@@ -11,9 +11,21 @@ Creating a pull request is described in
 
 ### File Location/Types
 
-### [`content`](./content)
+### [`ebook`](./ebook)
 
-All the Markdown files for the 'Introduction to Bash Scripting' guide are located within the [`content`](./content) directory.
+This directory holds all of the translations of the eBook.
+
+### [`ebook/{LANG}`](./ebook/{LANG})
+
+In the `ebook` directory we have the translations of the eBook in different languages.
+
+If you are adding a new translation, make sure to make a copy of the `./ebook/en` directory and use the language code as the new directory name.
+
+### [`ebook/{LANG}/content`](./ebook/{LANG}/content)
+
+All the Markdown files for the 'Introduction to Bash Scripting' guide are located within the [`content`](./content) directory for the specific language.
+
+For example if you are adding a Bulgarian transaltion copy the `./ebook/en` folder to `./ebook/bg`, translate the `.md` files in the `content` directory and submit a PR.
 
 ### PDF Generation
 
