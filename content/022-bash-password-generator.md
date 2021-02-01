@@ -1,17 +1,23 @@
 # Password Generator Bash Script
+
 It's not uncommon situation where you will need to generate a random password that you can use for any software installation or when you sign-up to any website.
 
 There are a lot of options in order to achieve this. You can use a password manager/vault where you often have the option to randomly generate a password or to use a website that can generate the password on your behalf.
 
 You can also use Bash in your terminal (command-line) to generate a password that you can quickly use. There are a lot of ways to achieve that and I will make sure to cover few of them and will leave up to you to choose which option is most suitable with your needs.
 
+## :warning: Security
+
+**This script is intended to practice your bash scripting skills. You can have fun while doing simple projects with BASH, but security is not a joke, so please make sure you do not save your passwords in plain text in a local file or write them down by hand on a piece of paper.**
+
+**I will highly recommend everyone to use secure and trusted providers to generate and save the passwords.**
+
 ## Script summary
 
 Let me first do a quick summary of what our script is going to do.:
 
 1. We will have to option to choose the password characters length when the script is executed.
-2. We will ask the user if they want to save the password in the log file and 
-3. If the user wants to save the password we will ask for some details about the password before the password is saved in the log file.
+2. The script will then generate 5 random passwords with the length that was specified in step 1
 
 ## Prerequisites
 
@@ -65,111 +71,56 @@ First we begin the script with the shebang. We use it to tell the operating syst
 ```
 #!/bin/bash
 ```
-Then we can define the log file path as variable which we're going to use later in the script:
-
-```
-# Log file location
-log_file=~/pass_log.txt
-```
-We can also run a check if the log file exists and if not to create it in the user's home directory:
-
-```
-# Check if the log file is present and if not, create it
-if [[ !log_file ]]; then
-  touch ~/pass_log.txt
-fi
-```
 We can then continue and ask the user for some input. In this case we would like to know how many characters the password needs to be:
 
 ```
 # Ask user for password length
 clear
 printf "\n"
-read -p "How many characters you would like the password to have? " pass_lenght
+read -p "How many characters you would like the password to have? " pass_length
 printf "\n"
 ``` 
-Generate the password and then print it so the user can copy it.
+Generate the passwords and then print it so the user can use it.
 ```
-pass_output=$(tr -cd '[:alnum:]' < /dev/urandom | fold -w${pass_lenght} | head -n 1)
-# Print the password
-printf "$pass_output\n"
-```
-Ask the user if they want to save the password in the password log file:
-```
-read -p "Would you like to save the password in the pass-log? Answer with: y or n: " log_pass
-```
-Check if the user wants to save the password in the log. Log the file if the answer is yes else exit the script.
-```
-if [[ ${log_pass} == n ]]; then
-  printf "Goodbye, ${USER}!\n"
-exit 0
-else
-  read -p "What is this password for? " source && echo "${source} - ${pass_output}" >> ${log_file}
-  printf "Password is saved in the pass-log. Goodbye, ${USER}!\n"
-fi
-```
-If we want to check the log file and see if the password was saved, all we need to do is ```cat ```the file:
-```
-cat ~/pass_log.txt
-```
-An example output will be:
+# This is where the magic happens!
+# Generate a list of 10 strings and cut it to the desired value provided from the user
 
-```
-DevDojo - VyJ3Kn7ltN
+for i in {1..10}; do (tr -cd '[:alnum:]' < /dev/urandom | fold -w${pass_lenght} | head -n 1); done
+
+# Print the strings
+printf "$pass_output\n"
+printf "Goodbye, ${USER}\n"
 ```
 
 ## The full script:
 ```
 #!/bin/bash
-#=======================================                                                             
+#=======================================
 # Password generator with login option
-#=======================================                                                      
-# Log file location
-log_file=~/pass_log.txt
+#=======================================
 
-# Check if the log file is present and if not, create it
-if [[ !log_file ]]; then
-  touch ~/pass_log.txt
-fi
-
-# Ask user for password length
+# Ask user for the string length
 clear
 printf "\n"
 read -p "How many characters you would like the password to have? " pass_lenght
 printf "\n"
 
 # This is where the magic happens!
-# Generate the password and cut it to the desired value provided from the user
-pass_output=$(tr -cd '[:alnum:]' < /dev/urandom | fold -w${pass_lenght} | head -n 1)
+# Generate a list of 10 strings and cut it to the desired value provided from the user
 
-# Print the password so the user can copy it
+for i in {1..10}; do (tr -cd '[:alnum:]' < /dev/urandom | fold -w${pass_lenght} | head -n 1); done
+
+# Print the strings
 printf "$pass_output\n"
-
-#Ask user if the password needs to be saved in the log file
-printf "\n"
-read -p "Would you like to save the password in the pass-log? Answer with: y or n: " log_pass
-
-#Ask user if the password needs to be saved in the log file
-printf "\n"
-if [[ ${log_pass} == n ]]; then
-  printf "Goodbye, ${USER}!\n"
-exit 0
-else
-  read -p "What is this password for? " source && echo "${source} - ${pass_output}" >> ${log_file}
-  printf "Password is saved in the pass-log. Goodbye, ${USER}!\n"
-fi
+printf "Goodbye, ${USER}\n"
 ```
 
 ## Conclusion
-This is pretty much how you can use simple bash script to generate random passwords that you can just use one time or save it in a log file. 
+This is pretty much how you can use simple bash script to generate random passwords. 
+
+:warning: **As already mentioned, please make sure to use strong passwords in order to make sure your account is protected. Also whenever is possible use 2 factor authentication as this will provide additional layer of security for your account.**
 
 While the script is working fine, it expects that the user will provide the requested input.  In order to prevent any issues you would need to do some more advance checks on the user input in order to make sure the script will continue to work fine even if the provided input does not match our needs.
-
-I will make sure to cover the more advance checks or the user input in of my next blog posts.
-
-I hope you find this useful and would like to hear what do you think about logging passwords using local scripts and if you have custom build scripts to generate and save passworss.
-
-Let me know if you face any issues with the script or if you have any recommendations as well.
 
 ## Contributed by
 [Alex Georgiev](https://twitter.com/alexgeorgiev17)
