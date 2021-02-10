@@ -88,6 +88,12 @@ A web page showcasing the eBook:
 
 The web page was built using [Tails](http://devdojo.com/tails), a new `kick-ass` drag-and-drop TailwindCSS page builder!
 
+## 📹 Mini Video Course
+
+If you prefer watching videos rather than reading, you can find a quick crash course based on the first 12 chapters of the eBook here:
+
+**[Introduction to Bash Scripting Mini Video Crash Course](https://www.youtube.com/playlist?list=PLY7SzAmnEqp78tsHh1kK0gOx_f-uwQZAT)**
+
 ### DigitalOcean App Platform
 
 The [website](https://ebook.bobby.sh) is hosted on the [DigitalOcean App Platform](https://www.digitalocean.com/products/app-platform/).
