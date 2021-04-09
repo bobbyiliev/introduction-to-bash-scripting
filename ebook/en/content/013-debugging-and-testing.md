@@ -36,7 +36,7 @@ Ctrl + k
 Ctrl + u
 ```
 
-* Delete one worked backward from cursor:
+* Delete one word backward from cursor:
 
 ```
 Ctrl + w
