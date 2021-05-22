@@ -150,7 +150,8 @@ If you ever need to create a graphic, poster, invitation, logo, presentation –
 
 ## 📖 Other books
 
-[Introduction to Git and GitHub eBook](https://github.com/bobbyiliev/introduction-to-git-and-github-ebook)
+- [Introduction to Git and GitHub eBook](https://github.com/bobbyiliev/introduction-to-git-and-github-ebook)
+- [Introduction to SQL](https://github.com/bobbyiliev/introduction-to-sql)
 
 ## 🤲 Contributing
 
