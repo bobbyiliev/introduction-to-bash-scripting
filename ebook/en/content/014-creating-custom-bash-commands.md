@@ -72,7 +72,7 @@ To list all of the available aliases for your current shell, you have to just ru
 alias
 ```
 
-This would be heady in case that you are seeing some weird behavior with some commands.
+This would be handy in case that you are seeing some weird behavior with some commands.
 
 ## Conclusion
 
