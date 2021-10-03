@@ -4,7 +4,7 @@ I host all of my websites on **DigitalOcean** Droplets and I also use Cloudflare
 
 My personal favorite Cloudflare feature is their free DDoS protection. It has saved my servers multiple times from different DDoS attacks. They have a cool API that you could use to enable and disable their DDoS protection easily.
 
-This chapter is going to be an exercise! I challange you to go ahead and write a short bash script that would enable and disable the Cloudflare DDoS protection for your server automatically if needed!
+This chapter is going to be an exercise! I challenge you to go ahead and write a short bash script that would enable and disable the Cloudflare DDoS protection for your server automatically if needed!
 
 ## Prerequisites
 
@@ -36,7 +36,7 @@ yum install curl
 apt-get install curl
 ```
 
-## Challange - Script requirements
+## Challenge - Script requirements
 
 The script needs to monitor the CPU usage on your server and if the CPU usage gets high based on the number vCPU it would enable the Cloudflare DDoS protection automatically via the Cloudflare API.
 
