@@ -95,7 +95,7 @@ Note that you need to change the path to the script with the actual path where y
 
 This is quite straight forward and budget solution, one of the downsides of the script is that if your server gets unresponsive due to an attack, the script might not be triggered at all.
 
-Of course, a better approach would be to use a monitoring system like Nagios and based on the statistics from the monitoring system then you can trigger the script, but this scirpt challange could be a good learning experience!
+Of course, a better approach would be to use a monitoring system like Nagios and based on the statistics from the monitoring system then you can trigger the script, but this script challenge could be a good learning experience!
 
 Here is another great resource on how to use the Discord API and send notifications to your Discord Channel with a Bash script:
 
