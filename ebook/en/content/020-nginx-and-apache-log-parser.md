@@ -78,6 +78,6 @@ We can also see that there were a couple of Russian IP addresses accessing our s
 
 This is an example of a simple BASH script that allows you to quickly summarize your access logs and determine if anything malicious is going on.
 
-Of course, you might want to also manually go through the logs as well but it is a good challange to try and automate this with Bash!
+Of course, you might want to also manually go through the logs as well but it is a good challenge to try and automate this with Bash!
 
 >{notice} This content was initially posted on [DevDojo](https://devdojo.com/bobbyiliev/bash-script-to-summarize-your-nginx-and-apache-access-logs)
