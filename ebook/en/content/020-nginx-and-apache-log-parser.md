@@ -4,7 +4,7 @@ One of the first things that I would usually do in case I notice a high CPU usag
 
 Sometimes reading the logs could be quite intimidating as the log might be huge and going though it manually could take a lot of time. Also, the raw log format could be confusing for people with less experience.
 
-Just like the previous chapter, this chapter is going to be a challange! You need to write a short bash script that would summarize the whole access log for you without the need of installing any additional software.
+Just like the previous chapter, this chapter is going to be a challenge! You need to write a short bash script that would summarize the whole access log for you without the need of installing any additional software.
 
 # Script requirements
 
