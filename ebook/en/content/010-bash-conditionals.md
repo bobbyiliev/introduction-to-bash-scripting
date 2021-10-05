@@ -78,6 +78,27 @@ fi
 
 If you put this on top of your script it would exit in case that the EUID is 0 and would not execute the rest of the script. This was discussed on [the DigitalOcean community forum](https://www.digitalocean.com/community/questions/how-to-check-if-running-as-root-in-a-bash-script).
 
+You can also test multiple conditions with an `if` statement. In this example we want to make sure that the user is neither the admin user or the root user to ensure the script is incapable of causing too much damage. We'll use the `or` operator in this example, noted by `||`. This means that either of the conditions needs to be true. If we used the `and` operator of `&&` then both conditions would need to be true.
+
+```bash
+#!/bin/bash
+
+admin="devdojo"
+
+read -p "Enter your username? " username
+
+# Check if the username provided is the admin
+
+if [[ "${username}" != "${admin}" ]] || [[ $EUID != 0 ]] ; then
+    echo "You are not the admin or root user, but please be safe!"
+else
+    echo "You are the admin user! This could be very destructive!"
+fi
+```
+
+
+```
+
 ## Switch case statements
 
 As in other programming languages, you can use a `case` statement to simplify complex conditionals when there are multiple different choices. So rather than using a few `if`, and `if-else` statements, you could use a single `case` statement.
