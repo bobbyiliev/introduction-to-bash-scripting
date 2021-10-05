@@ -170,3 +170,17 @@ As with other programming languages you can use `AND` & `OR` conditions:
 [[ test_case_1 ]] && [[ test_case_2 ]] # And
 [[ test_case_1 ]] || [[ test_case_2 ]] # Or
 ```
+
+## Exit status operators
+
+* returns true if the the command was successful without any errors
+
+```bash
+[[ $? -eq 0 ]]
+```
+
+* returns true if the the command was not successful or had errors
+
+```bash
+[[ $? -gt 0 ]]
+```
