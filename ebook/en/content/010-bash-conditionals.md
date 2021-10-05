@@ -96,9 +96,6 @@ else
 fi
 ```
 
-
-```
-
 ## Switch case statements
 
 As in other programming languages, you can use a `case` statement to simplify complex conditionals when there are multiple different choices. So rather than using a few `if`, and `if-else` statements, you could use a single `case` statement.
