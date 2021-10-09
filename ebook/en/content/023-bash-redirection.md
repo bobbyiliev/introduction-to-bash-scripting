@@ -1,9 +1,9 @@
 # Redirection in Bash
 
-A Linux superuser must have a good knowledge of redirection and pipes in bash. They are an essential component of the system and are often helpful in the field of Linux System Administration.
+A Linux superuser must have a good knowledge of redirection in Bash. It is an essential component of the system and is often helpful in the field of Linux System Administration.
 
-When you run a command like ``ls``, ``cat``, etc, you get some output on the terminal. If you write a wrong command or pass a wrong flag or an wrong command-line argument, you get error output on the terminal.
-In both the cases, you are given some text. It may seem like "just text" to us, but the system treats this text differently. This identifier is known as a File Descriptor (fd).
+When you run a command like ``ls``, ``cat``, etc, you get some output on the terminal. If you write a wrong command, pass a wrong flag or an wrong command-line argument, you get error output on the terminal.
+In both the cases, you are given some text. It may seem like "just text" to you, but the system treats this text differently. This identifier is known as a File Descriptor (fd).
 
 In Linux, there are 3 File Descriptors, **STDIN** (0); **STDOUT** (1) and **STDERR** (2).
 
@@ -11,9 +11,9 @@ In Linux, there are 3 File Descriptors, **STDIN** (0); **STDOUT** (1) and **STDE
 * **STDOUT** (fd: 1): Manages the output text in the terminal.
 * **STDERR** (fd: 2): Manages the error text in the terminal.
 
-## STDIN (Standard In)
+## STDIN (Standard Input)
 When you enter some input text for a command that asks for it, you are actually entering the text to the **STDIN** file descriptor. Run the ``cat`` command without any command-line arguments.
-It may seem that the process has paused but in fact it's ``cat`` asking for **STDIN**. ``cat`` is a simple program and will print the text passed to **STDIN**. However, the user can extend the use case by redirecting the input to the commands that take **STDIN**.
+It may seem that the process has paused but in fact it's ``cat`` asking for **STDIN**. ``cat`` is a simple program and will print the text passed to **STDIN**. However, you can extend the use case by redirecting the input to the commands that take **STDIN**.
 
 Example with ``cat``:
 ```
@@ -36,12 +36,12 @@ How are you?
 EOF
 ```
 The ``-l`` flag with ``wc`` counts the number of lines.
-This block of bash code will print the number of lines on the terminal screen:
+This block of bash code will print the number of lines to the terminal screen:
 ```
 2
 ```
 
-## STDOUT (Standard Out)
+## STDOUT (Standard Output)
 The normal non-error text on your terminal screen is printed via the **STDOUT** file descriptor. The **STDOUT** of a command can be redirected into a file, in such a way that the output of the command is written to a file instead of being printed on the terminal screen.
 This is done simply with the help of ``>`` and ``>>`` operators.
 
@@ -67,7 +67,13 @@ On running ``cat`` on ``file.txt`` file:
 ```
 cat file.txt
 ```
-You will only get the "How are you?" string printed. This is because the "Hello World" string has been overwritten.
+
+You will only get the "How are you?" string printed.
+```
+How are you?
+```
+
+This is because the "Hello World" string has been overwritten.
 This behaviour can be avoided using the ``>>`` operator.
 
 The above example can be written as:
@@ -105,15 +111,15 @@ This command will redirect the error message to the ``error.txt`` file and write
 
 You can also use the ``2>>`` operator for **STDERR** just like you used ``>>`` for **STDOUT**.
 
-Error messages in Bash Scripts can be ugly sometimes. You can choose to ignore them by redirecting the error message to the ``/dev/null`` file.
-```/dev/null`` is pseudo-device that takes in text and then immediately discards it.
+Error messages in Bash Scripts can be undesirable sometimes. You can choose to ignore them by redirecting the error message to the ``/dev/null`` file.
+``/dev/null`` is pseudo-device that takes in text and then immediately discards it.
 
 The above example can be written follows to ignore the error text completely:
 ```
 ls --hello 2> /dev/null
 ```
 
-Of course you can redirect both **STDOUT** and **STDERR** for the same command or script.
+Of course, you can redirect both **STDOUT** and **STDERR** for the same command or script.
 ```
 ./install_package.sh > output.txt 2> error.txt
 ```
