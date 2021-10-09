@@ -51,6 +51,7 @@ The first 13 chapters would be purely focused on getting some solid Bash scripti
 * [**BASH Script parser to Summarize Your NGINX and Apache Access Logs**](ebook/en/content/020-nginx-and-apache-log-parser.md)
 * [**Sending emails with Bash and SSMTP**](ebook/en/content/021-how-to-send-emails-with-bash.md)
 * [**Bash Password Generator**](ebook/en/content/022-bash-password-generator.md)
+* [**Redirection in Bash**](ebook/en/content/023-bash-redirection.md)
 * [**Wrap Up**](ebook/en/content/100-bash-wrap-up.md)
 
 ## 🌟 Sponsors
