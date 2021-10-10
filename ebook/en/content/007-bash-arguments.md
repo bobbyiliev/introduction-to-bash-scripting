@@ -75,3 +75,79 @@ rm -f $0
 ```
 
 You need to be careful with the self deletion and ensure that you have your script backed up before you self-delete it.
+
+
+## Substring in Bash :: Slicing
+
+<!-- slicing in string -->
+
+```bash
+#!/bin/bash
+
+letters=( "A""B""C""D""E" ) 
+echo ${letters[@]}
+```
+
+This command will print all the elements of an array.
+
+```bash
+$ ABCDE
+```
+
+
+Lets see some other ways...
+
+- 1  
+
+```bash
+#!/bin/bash
+
+letters=( "A""B""C""D""E" ) 
+b=${letters:0:2}
+echo "${b}"
+```
+
+This command wil print array from starting index 0 to 2 where 2 is exclusive.
+
+```bash
+$ AB
+```
+ 
+ - 2
+
+```bash
+#!/bin/bash
+
+letters=( "A""B""C""D""E" ) 
+b=${letters::5}
+echo "${b}"
+```
+
+This command will print from base index 0 to 5, where 5 is exclusive and starting index is default set to 0 .
+
+```bash
+$ ABCDE
+```
+
+- 3
+
+```bash
+#!/bin/bash
+
+letters=( "A""B""C""D""E" ) 
+b=${letters:3}
+echo "${b}"
+```
+
+This command will print from starting index
+ 3 to end of array inclusive .
+
+ ```bash
+ $ DE
+ ```
+
+
+
+
+
+
