@@ -79,7 +79,7 @@ You need to be careful with the self deletion and ensure that you have your scri
 
 ## Substring in Bash :: Slicing
 
-<!-- slicing in string -->
+Let's review the following example of slicing in a string in Bash:
 
 ```bash
 #!/bin/bash
@@ -90,14 +90,16 @@ echo ${letters[@]}
 
 This command will print all the elements of an array.
 
+Output:
+
 ```bash
 $ ABCDE
 ```
 
 
-Lets see some other ways...
+Lets see a few more examples:
 
-- 1  
+- Example 1  
 
 ```bash
 #!/bin/bash
@@ -113,7 +115,7 @@ This command wil print array from starting index 0 to 2 where 2 is exclusive.
 $ AB
 ```
  
- - 2
+ - Example 2
 
 ```bash
 #!/bin/bash
@@ -129,7 +131,7 @@ This command will print from base index 0 to 5, where 5 is exclusive and startin
 $ ABCDE
 ```
 
-- 3
+- Example 3
 
 ```bash
 #!/bin/bash
