@@ -1,4 +1,4 @@
-# Introduction
+# Redirection in Bash
 
 A Linux superuser must have a good knowledge of pipes and redirection in Bash. It is an essential component of the system and is often helpful in the field of Linux System Administration.
 
