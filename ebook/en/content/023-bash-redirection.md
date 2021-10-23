@@ -1,6 +1,6 @@
 # Redirection in Bash
 
-A Linux superuser must have a good knowledge of redirection in Bash. It is an essential component of the system and is often helpful in the field of Linux System Administration.
+A Linux superuser must have a good knowledge of pipes and redirection in Bash. It is an essential component of the system and is often helpful in the field of Linux System Administration.
 
 When you run a command like ``ls``, ``cat``, etc, you get some output on the terminal. If you write a wrong command, pass a wrong flag or an wrong command-line argument, you get error output on the terminal.
 In both the cases, you are given some text. It may seem like "just text" to you, but the system treats this text differently. This identifier is known as a File Descriptor (fd).
@@ -10,6 +10,14 @@ In Linux, there are 3 File Descriptors, **STDIN** (0); **STDOUT** (1) and **STDE
 * **STDIN** (fd: 0): Manages the input in the terminal.
 * **STDOUT** (fd: 1): Manages the output text in the terminal.
 * **STDERR** (fd: 2): Manages the error text in the terminal.
+
+# Difference between Pipes and Redirections
+
+Both *pipes* and *redidertions* redirect streams `(file descriptor)` of process being executed. The main diffrence is that *redirections* deal with `files stream`, sending the output stream to a file or sending the content of a given file to the input stream of the process.
+
+On the otherhand a pipe connects two commands by sending the output stream of the first one to the input stream of the second one. without any redidertions specified.
+
+# Redirection in Bash
 
 ## STDIN (Standard Input)
 When you enter some input text for a command that asks for it, you are actually entering the text to the **STDIN** file descriptor. Run the ``cat`` command without any command-line arguments.
@@ -133,3 +141,42 @@ There is also a shorter way to do this.
 ```
 ./install_package.sh > file.txt 2>&1
 ```
+
+# Piping
+
+So far we have seen how to redirect the **STDOUT**, **STDIN** and **STDOUT** to and from a file.
+To concatenate the output of program *(command)* as the input of another program *(command)* you can use a vertical bar `|`.
+
+Example:
+```
+ls | grep ".txt"
+```
+This command will list the files in the current directory and pass output to *`grep`* command which then filter the output to only show the files that contain the string ".txt".
+
+Syntax:
+```
+[time [-p]] [!] command1 [ | or |& command2 ] …
+```
+
+You can also build arbitrary chains of commands by piping them together to achieve a powerful result.
+
+This examble create a listing of every user which owns a file in a given directory as well as how many files and directories they own:
+```
+ls -l /projects/bash_scripts | tail -n +2 | sed 's/\s\s*/ /g' | cut -d ' ' -f 3 | sort | uniq -c
+```
+Output:
+```
+8 anne
+34 harry
+37 tina
+18 ryan
+```
+
+## Summary
+|**Operator**   |**Description**   |
+|:---|:---|
+|`>`|`Save output to a file`|
+|`>>`|`Append output to a file`|
+|`<`|`Read input from a file`|
+|`2>`|`Redirect error messages`|
+|`\|`|`Send the output from one program as input to another program`|
