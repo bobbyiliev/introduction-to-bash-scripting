@@ -172,6 +172,42 @@ Output:
 18 ryan
 ```
 
+# HereDocument
+
+The symbol `<<` can be used to create a temporary file [heredoc] and redirect from it at the command line.
+
+```
+COMMAND << EOF
+	ContentOfDocument
+	...
+	...
+EOF
+```
+
+Note here that `EOF` represents the end of file of the heredoc. Infact, we use any alphanumeric word in it's place to signify the start and end of the file. For instance, this is a valid heredoc:
+
+```
+cat << randomword1
+	This script will print these lines on the terminal.
+	Note that cat only accepts a filename as it's argument. Using this heredoc,
+	we can create a temporary file with these lines as it's content and pass
+	that file as the argument to cat.
+randomword1
+```
+
+Effectively it will appear as if the contents of the heredoc are piped into the command. This can make the script very clean if multiple lines need to be piped into a program.
+
+Further, we can attach more pipes as shown:
+
+```
+cat << randomword1 | wc
+	This script will print these lines on the terminal.
+	Note that cat only accepts a filename as it's argument. Using this heredoc,
+	we can create a temporary file with these lines as it's content and pass
+	that file as the argument to cat.
+randomword1
+```
+
 ## Summary
 |**Operator**   |**Description**   |
 |:---|:---|
@@ -180,3 +216,4 @@ Output:
 |`<`|`Read input from a file`|
 |`2>`|`Redirect error messages`|
 |`\|`|`Send the output from one program as input to another program`|
+|`<<`|`Pipe multiple lines into a program cleanly`|
