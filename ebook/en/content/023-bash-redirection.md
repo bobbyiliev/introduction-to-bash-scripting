@@ -175,7 +175,6 @@ Output:
 # HereDocument
 
 The symbol `<<` can be used to create a temporary file [heredoc] and redirect from it at the command line.
-
 ```
 COMMAND << EOF
 	ContentOfDocument
@@ -184,8 +183,7 @@ COMMAND << EOF
 EOF
 ```
 
-Note here that `EOF` represents the end of file of the heredoc. Infact, we use any alphanumeric word in it's place to signify the start and end of the file. For instance, this is a valid heredoc:
-
+Note here that `EOF` represents the delimiter (end of file) of the heredoc. In fact, we use any alphanumeric word in it's place to signify the start and end of the file. For instance, this is a valid heredoc:
 ```
 cat << randomword1
 	This script will print these lines on the terminal.
@@ -198,7 +196,6 @@ randomword1
 Effectively it will appear as if the contents of the heredoc are piped into the command. This can make the script very clean if multiple lines need to be piped into a program.
 
 Further, we can attach more pipes as shown:
-
 ```
 cat << randomword1 | wc
 	This script will print these lines on the terminal.
@@ -206,6 +203,16 @@ cat << randomword1 | wc
 	we can create a temporary file with these lines as it's content and pass
 	that file as the argument to cat.
 randomword1
+```
+
+Also, pre-defined variables can be used inside the documents.
+
+# HereString
+
+Herestrings are quite similar to heredocs but use `<<<`. These are used for single line strings that have to be piped into some program. This looks cleaner that heredocs as we don't have to specify the delimiter.
+
+```
+cat <<<"this is an easy way of passing strings to the stdin of a program (here wc)" | wc
 ```
 
 ## Summary
@@ -217,3 +224,4 @@ randomword1
 |`2>`|`Redirect error messages`|
 |`\|`|`Send the output from one program as input to another program`|
 |`<<`|`Pipe multiple lines into a program cleanly`|
+|`<<<`|`Pipe a single line into a program cleanly`|
