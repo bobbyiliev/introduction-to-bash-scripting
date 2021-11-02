@@ -182,14 +182,13 @@ COMMAND << EOF
 	...
 EOF
 ```
-
-Note here that `EOF` represents the delimiter (end of file) of the heredoc. In fact, we use any alphanumeric word in it's place to signify the start and end of the file. For instance, this is a valid heredoc:
+Note here that `EOF` represents the delimiter (end of file) of the heredoc. In fact, we can use any alphanumeric word in it's place to signify the start and the end of the file. For instance, this is a valid heredoc:
 ```
 cat << randomword1
 	This script will print these lines on the terminal.
-	Note that cat only accepts a filename as it's argument. Using this heredoc,
-	we can create a temporary file with these lines as it's content and pass
-	that file as the argument to cat.
+	Note that cat can read from standard input. Using this heredoc, we can
+	create a temporary file with these lines as it's content and pipe that
+	into cat.
 randomword1
 ```
 
@@ -199,21 +198,23 @@ Further, we can attach more pipes as shown:
 ```
 cat << randomword1 | wc
 	This script will print these lines on the terminal.
-	Note that cat only accepts a filename as it's argument. Using this heredoc,
-	we can create a temporary file with these lines as it's content and pass
-	that file as the argument to cat.
+	Note that cat can read from standard input. Using this heredoc, we can
+	create a temporary file with these lines as it's content and pipe that
+	into cat.
 randomword1
 ```
 
-Also, pre-defined variables can be used inside the documents.
+Also, pre-defined variables can be used inside the heredocs.
 
 # HereString
 
 Herestrings are quite similar to heredocs but use `<<<`. These are used for single line strings that have to be piped into some program. This looks cleaner that heredocs as we don't have to specify the delimiter.
 
 ```
-cat <<<"this is an easy way of passing strings to the stdin of a program (here wc)" | wc
+wc <<<"this is an easy way of passing strings to the stdin of a program (here wc)"
 ```
+
+Just like heredocs, herestrings can contain variables.
 
 ## Summary
 |**Operator**   |**Description**   |
