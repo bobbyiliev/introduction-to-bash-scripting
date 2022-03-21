@@ -132,29 +132,29 @@ A quick rundown of the structure:
 
 Here is an example of a Bash `case` statement:
 
-```
+```bash
 #!/bin/bash
 
-echo -n "Enter the name of a car brand: "
-read car
+read -p "Enter the name of your car brand: " car
 
 case $car in
 
   Tesla)
-    echo -n "${car}'s factory in the USA."
+    echo -n "${car}'s car factory is in the USA."
     ;;
 
   BMW | Mercedes | Audi | Porsche)
-    echo -n "${car}'s factory in Germany."
+    echo -n "${car}'s car factory is in Germany."
     ;;
 
-  Toyoda | Mazda | Mitsubishi | Subaru)
-    echo -n "${car}'s factory in Japan."
+  Toyota | Mazda | Mitsubishi | Subaru)
+    echo -n "${car}'s car factory is in Japan."
     ;;
 
   *)
-    echo -n "${car} is an unknown car brand."
+    echo -n "${car} is an unknown car brand"
     ;;
+
 esac
 ```
 
