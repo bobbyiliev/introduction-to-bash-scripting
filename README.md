@@ -1,5 +1,5 @@
-<p align="center"><img src="https://imgur.com/eXCcDPp.png" height="450" width="auto"></p>
-
+﻿<p align="center"><img src="https://imgur.com/eXCcDPp.png" height="450" width="auto"></p>
+<h1>Introduction to Bash Scripting</h1>
 <div align="center">
     <p>
 	    <a name="stars"><img src="https://img.shields.io/github/stars/bobbyiliev/introduction-to-bash-scripting?style=for-the-badge"></a>
