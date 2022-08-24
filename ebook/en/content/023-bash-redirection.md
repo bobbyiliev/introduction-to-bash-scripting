@@ -2,7 +2,7 @@
 
 A Linux superuser must have a good knowledge of pipes and redirection in Bash. It is an essential component of the system and is often helpful in the field of Linux System Administration.
 
-When you run a command like ``ls``, ``cat``, etc, you get some output on the terminal. If you write a wrong command, pass a wrong flag or an wrong command-line argument, you get error output on the terminal.
+When you run a command like ``ls``, ``cat``, etc, you get some output on the terminal. If you write a wrong command, pass a wrong flag or a wrong command-line argument, you get error output on the terminal.
 In both the cases, you are given some text. It may seem like "just text" to you, but the system treats this text differently. This identifier is known as a File Descriptor (fd).
 
 In Linux, there are 3 File Descriptors, **STDIN** (0); **STDOUT** (1) and **STDERR** (2).
