@@ -52,6 +52,7 @@ The first 13 chapters would be purely focused on getting some solid Bash scripti
 * [**Sending emails with Bash and SSMTP**](ebook/en/content/021-how-to-send-emails-with-bash.md)
 * [**Bash Password Generator**](ebook/en/content/022-bash-password-generator.md)
 * [**Redirection in Bash**](ebook/en/content/023-bash-redirection.md)
+* [**Proxy automation in Bash**](ebook/en/content/024-bash-proxy-automation.md)
 * [**Wrap Up**](ebook/en/content/100-bash-wrap-up.md)
 
 ## 🌟 Sponsors
