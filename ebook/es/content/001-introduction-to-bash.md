@@ -7,3 +7,4 @@ Bash es un lenguaje de comandos y consola de Unix. Está ampliamente disponible 
 Bash significa _Bourne-Again SHell_. Al igual que otros shells, puede usar Bash de forma interactiva directamente en tu terminal, y también, puede usar Bash como cualquier otro lenguaje de programación para escribir scripts. Este libro le ayudará a aprender los fundamentos de la escritura de scripts en Bash, incluyendo las variables de Bash, entrada del usuario, comentarios, argumentos, arreglos, expresiones condicionales, condicionales, bucles, funciones, depuración y pruebas.
 
 Para escribir scripts Bash, solo necesita un terminal UNIX y un editor de texto como Sublime Text, VS Code, o un editor basado en terminal como vim o nano.
+
