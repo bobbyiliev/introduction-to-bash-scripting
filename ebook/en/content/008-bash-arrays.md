@@ -35,7 +35,7 @@ echo ${my_array[@]}
 * Prepending the array with a hash sign (`#`) would output the total number of elements in the array, in our case it is `4`:
 
 ```bash
-echo ${#my_array[@]}
+echo ${#my_array}
 ```
 
 Make sure to test this and practice it at your end with different values.
