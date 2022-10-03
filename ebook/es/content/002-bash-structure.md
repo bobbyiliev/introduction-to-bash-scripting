@@ -4,13 +4,13 @@ Comencemos creando un nuevo archivo con extensión `.sh`. Como ejemplo, podríam
 
 Para crear ese archivo, puede usar el comando `touch`:
 
-``bash
+```bash
 touch devdojo.sh
 ```
 
 O en vez de eso, puede usar su editor de texto:
 
-``bash
+```bash
 nano devdojo.sh
 ```
 
