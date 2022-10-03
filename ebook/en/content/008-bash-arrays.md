@@ -60,7 +60,7 @@ $ ABCDE
 ```
 
 
-Lets see a few more examples:
+Let's see a few more examples:
 
 - Example 1  
 
@@ -72,7 +72,7 @@ b=${letters:0:2}
 echo "${b}"
 ```
 
-This command wil print array from starting index 0 to 2 where 2 is exclusive.
+This command will print array from starting index 0 to 2 where 2 is exclusive.
 
 ```bash
 $ AB
