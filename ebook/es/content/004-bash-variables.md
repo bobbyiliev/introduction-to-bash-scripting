@@ -84,5 +84,3 @@ Hola DevDojo
 ```
 
 Tenga en cuenta que no necesariamente tiene que añadir punto y coma `;` al final de cada línea. Funciona de ambas maneras, un poco como otros lenguajes de programación como JavaScript.
-
-
