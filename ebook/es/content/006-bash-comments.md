@@ -1,8 +1,8 @@
 # Comentarios en Bash
 
-Como con cualquier otro lenguaje de programación, puedes agregar comentarios a tu script. Los comentarios son usados para dejar notas personales en el código.
+Como con cualquier otro lenguaje de programación, puede agregar comentarios a su script. Los comentarios son usados para dejar notas personales en el código.
 
-Para hacerlo en Bash, necesitas agregar el simbolo `#` al comienzo de la línea. Los comentarios nunca aparecerán en la pantalla.
+Para hacerlo en Bash, necesita agregar el simbolo `#` al comienzo de la línea. Los comentarios nunca aparecerán en la pantalla.
 
 Aquí hay un ejemplo de un comentario:
 
@@ -16,11 +16,11 @@ Ahora agreguemos algunos comentarios a nuestro script:
 #!/bin/bash
 
 # Pregúntale al usuario su nombre
-read -p "¿Cuál es tu nombre? " name
+read -p "¿Cuál es tu nombre? " nombre
 
 # Saluda al usuario
-echo "Hola $name"
-echo "Bienvenido a DevDojo!"
+echo "Hola $nombre"
+echo "¡Bienvenido a DevDojo!"
 ```
 
-Los comentarios son una excelente manera de describir algunas de las funciones más complejas directamente en tus scripts para que otras personas puedan orientarse en tu código con facilidad.
+Los comentarios son una excelente manera de describir algunas de las funciones más complejas directamente en sus scripts para que otras personas puedan orientarse en su código con facilidad.
