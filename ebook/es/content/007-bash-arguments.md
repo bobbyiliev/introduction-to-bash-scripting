@@ -75,7 +75,3 @@ rm -f $0
 ```
 
 Debes tener cuidado con la eliminación automática y asegurarte de tener una copia de seguridad de tu script antes de eliminarlo automáticamente.
-
-
-
-
