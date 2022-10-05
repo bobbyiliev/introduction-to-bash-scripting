@@ -1,16 +1,16 @@
 # Matrices en Bash 
 
-Si alguna vez has hecho algo de programación, probablemente ya estás familiarizado con matrices.
+Si alguna vez ha hecho algo de programación, probablemente ya está familiarizado con matrices.
 
-Pero en caso de que no seas un desarrollador, lo principal que debes saber es que, a diferencia de las variables, las matrices pueden contener varios valores bajo un mismo nombre.
+Pero en caso de que no sea un desarrollador, lo principal que debe saber es que, a diferencia de las variables, las matrices pueden contener varios valores bajo un mismo nombre.
 
-Puedes inicializar una matriz asignando valores divididos por espacio y encerrados en `()`. Ejemplo:
+Puede inicializar una matriz asignando valores divididos por espacio y encerrados en `()`. Ejemplo:
 
 ```bash
 mi_matriz=("valor 1" "valor 2" "valor 3" "valor 4")
 ```
 
-Para acceder a los elementos de la matriz, debes hacer referencia a ellos por su índice numérico.
+Para acceder a los elementos de la matriz, debe hacer referencia a ellos por su índice numérico.
 
 >{aviso} tenga en cuenta que necesita usar corchetes.
 
@@ -38,7 +38,7 @@ echo ${mi_matriz[@]}
 echo ${#mi_matriz[@]}
 ```
 
-Asegúrate de probar esto y practicarlo con diferentes valores.
+Asegúrese de probar esto y practicarlo con diferentes valores.
 
 ## Subcadena en Bash :: Rebanar
 
