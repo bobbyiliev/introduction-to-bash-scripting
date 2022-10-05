@@ -5,7 +5,7 @@ En informática, las declaraciones condicionales, las expresiones condicionales 
 En Bash, las expresiones condicionales son utilizadas por el comando compuesto `[[` y los comandos integrados `[` para probar los atributos del archivo y realizar comparaciones aritméticas y de cadenas.
 
 Aquí hay una lista de las expresiones condicionales de Bash más populares. 
-No tienes que memorizarlos. ¡Simplemente, puedes volver a consultar esta lista cuando la necesites!
+No tiene que memorizarlos. ¡Simplemente, puede volver a consultar esta lista cuando la necesite!
 
 ## Expresiones de Archivo
 
