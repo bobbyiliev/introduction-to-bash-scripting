@@ -15,8 +15,8 @@ Ahora agreguemos algunos comentarios a nuestro script:
 ```bash
 #!/bin/bash
 
-# Pregúntale al usuario su nombre
-read -p "¿Cuál es tu nombre? " nombre
+# Pregúntele al usuario su nombre
+read -p "¿Cuál es su nombre? " nombre
 
 # Saluda al usuario
 echo "Hola $nombre"
