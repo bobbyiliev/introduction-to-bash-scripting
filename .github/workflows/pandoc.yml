@@ -1,0 +1,25 @@
+name: Pandoc eBook Generation
+on:
+  workflow_run:
+    workflows: ["Ibis eBook Generation"]
+    types:
+      - completed
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@main
+        with:
+          fetch-depth: "0"
+      - name: Build Pandoc Export Files
+        uses: mph7/pandoc-build-action@main
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PANDOC_PATH: "./ebook/en/content/"
+          YML_PATH: "./ebook/en/epub.yml"
+          EXPORT_PATH: "./ebook/en/export/"
+          EXPORTED_FILE: "introduction-to-bash-scripting.epub"
+          PANDOC_BRANCH: "main"
+          EMAIL: "bobby@bobbyiliev.com"
+          COMMIT_MESSAGE: "Updated Pandoc Exported Files"

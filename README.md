@@ -24,6 +24,8 @@ To download a copy of the ebook use one of the following links:
 
 * [Light mode](https://github.com/bobbyiliev/introduction-to-bash-scripting/raw/main/ebook/en/export/introduction-to-bash-scripting-light.pdf)
 
+* [ePub](https://github.com/bobbyiliev/introduction-to-bash-scripting/raw/main/ebook/en/export/introduction-to-bash-scripting.epub)
+
 ## 📘 Chapters
 
 The first 13 chapters would be purely focused on getting some solid Bash scripting foundations then the rest of the chapters would give you some real life examples and scripts.

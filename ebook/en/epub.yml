@@ -3,7 +3,7 @@
 # pandoc content/*.md epub.yml -o export/introduction-to-bash-scripting.epub
 title: Introduction to Bash Scripting
 author: Bobby Iliev
-cover-image: assets/cover.jpg
+cover-image: ./ebook/en/assets/cover.jpg
 rights: MIT License
 lang: en-US
 tags: [bash, Unix, Linux]
