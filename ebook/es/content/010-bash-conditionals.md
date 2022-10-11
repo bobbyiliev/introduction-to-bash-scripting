@@ -185,3 +185,4 @@ Si el nombre de la marca no coincide con ninguna de nuestras sentencias `case`, 
 Le aconsejo intentar modificar el script y jugar con él un poco ¡así puede practicar lo que ha aprendido en los últimos dos capítulos!
 
 Para más ejemplos de sentencias `case` de Bash, asegúrese de ir al capítulo 16, donde crearemos un menú interactivo en Bash usando sentencias `case` para procesar la entrada del usuario.
+
