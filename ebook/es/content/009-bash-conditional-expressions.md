@@ -184,4 +184,3 @@ Al igual que con otros lenguajes de programación, puede usar las condiciones `A
 
 ```bash
 [[ $? -gt 0 ]]
-```

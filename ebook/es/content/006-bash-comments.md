@@ -24,3 +24,4 @@ echo "¡Bienvenido a DevDojo!"
 ```
 
 Los comentarios son una excelente manera de describir algunas de las funciones más complejas directamente en sus scripts para que otras personas puedan orientarse en su código con facilidad.
+
