@@ -1,7 +1,7 @@
 name: Pandoc eBook Generation
 on:
   workflow_run:
-    workflows: ["Pandoc eBook Generation"]
+    workflows: ["Ibis eBook Generation"]
     types:
       - completed
 
