@@ -23,7 +23,7 @@ Example of a "Hello World!" function:
 ```bash
 #!/bin/bash
 
-function hello(){
+function hello() {
     echo "Hello World Function!"
 }
 
@@ -37,7 +37,7 @@ Passing arguments to a function work in the same way as passing arguments to a s
 ```bash
 #!/bin/bash
 
-function hello(){
+function hello() {
     echo "Hello $1!"
 }
 
@@ -58,7 +58,7 @@ Functions should have comments mentioning description, global variables, argumen
 # Returns:
 #   0 if successful, non-zero on error.
 #######################################
-function hello(){
+function hello() {
     echo "Hello $1!"
 }
 ```
