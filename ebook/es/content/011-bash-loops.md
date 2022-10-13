@@ -196,3 +196,4 @@ done
 
 El script bash comenzará con a=1 y pasará al bucle interno y cuando llegue a b=5, romperá el bucle externo.
 Podemos usar sólo break en lugar de break 2, para romper el bucle interno y ver cómo afecta a la salida.
+
