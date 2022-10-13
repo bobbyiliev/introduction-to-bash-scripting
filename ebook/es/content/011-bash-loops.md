@@ -140,7 +140,7 @@ do
         echo "saltando el número 2"
         continue
     fi
-    echo "I es igual a $i"
+    echo "i es igual a $i"
 done
 ```
 
