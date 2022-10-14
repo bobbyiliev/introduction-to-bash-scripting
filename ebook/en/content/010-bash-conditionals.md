@@ -96,6 +96,22 @@ else
 fi
 ```
 
+If you have multiple conditions and scenerios, then can use `elif` statement with `if` and `else` statements.
+
+```bash
+#!/bin/bash
+
+read -p "Enter a number: " num
+
+if [[ $num -gt 0 ]] ; then
+    echo "The number is positive"
+elif [[ $num -lt 0 ]] ; then
+    echo "The number is negative"
+else
+    echo "The number is 0"
+fi
+```
+
 ## Switch case statements
 
 As in other programming languages, you can use a `case` statement to simplify complex conditionals when there are multiple different choices. So rather than using a few `if`, and `if-else` statements, you could use a single `case` statement.
