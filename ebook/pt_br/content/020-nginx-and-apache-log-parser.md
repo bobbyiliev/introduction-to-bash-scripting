@@ -1,83 +1,83 @@
-# BASH Script parser to Summarize Your NGINX and Apache Access Logs
+# Analisador de script BASH para resumir seus logs de acesso NGINX e Apache
 
-One of the first things that I would usually do in case I notice a high CPU usage on some of my Linux servers would be to check the process list with either top or htop and in case that I notice a lot of Apache or Nginx process I would quickly check my access logs to determine what has caused or is causing the CPU spike on my server or to figure out if anything malicious is going on.
+Uma das primeiras coisas que eu normalmente faria caso eu notasse um alto uso de CPU em alguns dos meus servidores Linux seria verificar a lista de processos com top ou htop e caso eu notasse muito processo Apache ou Nginx eu verificaria rapidamente meus logs de acesso para determinar o que causou ou está causando o pico de CPU no meu servidor ou para descobrir se algo malicioso está acontecendo.
 
-Sometimes reading the logs could be quite intimidating as the log might be huge and going though it manually could take a lot of time. Also, the raw log format could be confusing for people with less experience.
+Às vezes, a leitura dos logs pode ser bastante intimidante, pois o log pode ser enorme e fazer isso manualmente pode levar muito tempo. Além disso, o formato de log bruto pode ser confuso para pessoas com menos experiência.
 
-Just like the previous chapter, this chapter is going to be a challenge! You need to write a short bash script that would summarize the whole access log for you without the need of installing any additional software.
+Assim como o capítulo anterior, este capítulo será um desafio! Você precisa escrever um script bash curto que resuma todo o log de acesso para você sem a necessidade de instalar nenhum software adicional.
 
-# Script requirements
+# Requisitos do script
 
-This BASH script needs to parse and summarize your access logs and provide you with very useful information like:
+Este script BASH precisa analisar e resumir seus logs de acesso e fornecer informações muito úteis, como:
 
-* The 20 top pages with the most POST requests
-* The 20 top pages with the most GET requests
-* Top 20 IP addresses and their geo-location
+* As 20 principais páginas com mais solicitações POST
+* As 20 principais páginas com mais solicitações GET
+* Os 20 principais endereços IP e sua localização geográfica
 
-## Example script
+## Script de exemplo
 
-I already have prepared a demo script which you could use as a reference. But I encourage you to try and write the script yourself first and only then take a look at my script!
+Eu já preparei um script de demonstração que você pode usar como referência. Mas eu encorajo você a tentar escrever o script primeiro e só então dar uma olhada no meu script!
 
-In order to download the script, you can either clone the repository with the following command:
+Para baixar o script, você pode clonar o repositório com o seguinte comando:
 
 ```bash
 git clone https://github.com/bobbyiliev/quick_access_logs_summary.git
 ```
 
-Or run the following command which would download the script in your current directory:
+Ou execute o seguinte comando que faria o download do script em seu diretório atual:
 
 ```bash
 wget https://raw.githubusercontent.com/bobbyiliev/quick_access_logs_summary/master/spike_check
 ```
 
-The script does not make any changes to your system, it only reads the content of your access log and summarizes it for you, however, once you've downloaded the file, make sure to review the content yourself.
+O script não faz nenhuma alteração no seu sistema, ele apenas lê o conteúdo do seu log de acesso e o resume para você, no entanto, depois de baixar o arquivo, certifique-se de revisar o conteúdo você mesmo.
 
-## Running the script
+## Executando o script
 
-All that you have to do once the script has been downloaded is to make it executable and run it.
+Tudo o que você precisa fazer após o download do script é torná-lo executável e executá-lo.
 
-To do that run the following command to make the script executable:
+Para fazer isso, execute o seguinte comando para tornar o script executável:
 
 ```bash
 chmod +x spike_check
 ```
 
-Then run the script:
+Em seguida, execute o script:
 
 ```bash
 ./spike_check /path/to/your/access_log
 ```
 
-Make sure to change the path to the file with the actual path to your access log. For example if you are using Apache on an Ubuntu server, the exact command would look like this:
+Certifique-se de alterar o caminho para o arquivo com o caminho real para o log de acesso. Por exemplo, se você estiver usando o Apache em um servidor Ubuntu, o comando exato ficaria assim:
 
 ```bash
 ./spike_check /var/log/apache2/access.log
 ```
 
-If you are using Nginx the exact command would be almost the same, but with the path to the Nginx access log:
+Se você estiver usando o Nginx, o comando exato seria quase o mesmo, mas com o caminho para o log de acesso do Nginx:
 
 ```bash
 ./spike_check /var/log/nginx/access.log
 ```
 
-## Understanding the output
+## Entendendo a saída
 
-Once you run the script, it might take a while depending on the size of the log.
+Depois de executar o script, pode demorar um pouco dependendo do tamanho do log.
 
-The output that you would see should look like this:
+A saída que você veria deve ser assim:
 
-![Summarized access log](https://imgur.com/WWHVMrj.png)
+![Registro de acesso resumido](https://imgur.com/WWHVMrj.png)
 
-Essentially what we can tell in this case is that we've received 16 POST requests to our xmlrpc.php file which is often used by attackers to try and exploit WordPress websites by using various username and password combinations.
+Essencialmente, o que podemos dizer neste caso é que recebemos 16 solicitações POST para nosso arquivo xmlrpc.php, que é frequentemente usado por invasores para tentar explorar sites WordPress usando várias combinações de nome de usuário e senha.
 
-In this specific case, this was not a huge brute force attack, but it gives us an early indication and we can take action to prevent a larger attack in the future.
+Neste caso específico, este não foi um grande ataque de força bruta, mas nos dá uma indicação antecipada e podemos tomar medidas para evitar um ataque maior no futuro.
 
-We can also see that there were a couple of Russian IP addresses accessing our site, so in case that you do not expect any traffic from Russia, you might want to block those IP addresses as well.
+Também podemos ver que havia alguns endereços IP russos acessando nosso site, portanto, caso você não espere nenhum tráfego da Rússia, bloqueie esses endereços IP também.
 
-## Conclusion
+## Conclusão
 
-This is an example of a simple BASH script that allows you to quickly summarize your access logs and determine if anything malicious is going on.
+Este é um exemplo de um script BASH simples que permite resumir rapidamente seus logs de acesso e determinar se algo malicioso está acontecendo.
 
-Of course, you might want to also manually go through the logs as well but it is a good challenge to try and automate this with Bash!
+Claro, você também pode querer passar manualmente pelos logs, mas é um bom desafio tentar automatizar isso com o Bash!
 
->{notice} This content was initially posted on [DevDojo](https://devdojo.com/bobbyiliev/bash-script-to-summarize-your-nginx-and-apache-access-logs)
+>{notice} Este conteúdo foi postado inicialmente no [DevDojo](https://devdojo.com/bobbyiliev/bash-script-to-summarize-your-nginx-and-apache-access-logs)

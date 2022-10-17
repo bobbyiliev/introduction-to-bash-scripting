@@ -1,179 +1,179 @@
-# Work with JSON in BASH using jq
+# Trabalhe com JSON em BASH usando jq
 
-The `jq` command-line tool is is a lightweight and flexible command-line **JSON** processor. It is great for parsing JSON output in BASH.
+A ferramenta de linha de comando `jq` é um processador **JSON** de linha de comando leve e flexível. É ótimo para analisar a saída JSON no BASH.
 
-One of the great things about `jq` is that it is written in portable C, and it has zero runtime dependencies. All you need to do is to download a single binary or use a package manager like apt and install it with a single command.
+Uma das grandes coisas sobre o `jq` é que ele é escrito em C portátil e tem zero dependências de tempo de execução. Tudo o que você precisa fazer é baixar um único binário ou usar um gerenciador de pacotes como o apt e instalá-lo com um único comando.
 
-## Planning the script
+## Planejando o script
 
-For the demo in this tutorial, I would use an external REST API that returns a simple JSON ouput called the [QuizAPI](https://quizapi.io/):
+Para a demonstração neste tutorial, eu usaria uma API REST externa que retorna uma saída JSON simples chamada [QuizAPI](https://quizapi.io/):
 
 > [https://quizapi.io/](https://quizapi.io/)
 
-If you want to follow along make sure to get a free API key here:
+Se você quiser acompanhar, certifique-se de obter uma chave de API gratuita aqui:
 
 > [https://quizapi.io/clientarea/settings/token](https://quizapi.io/clientarea/settings/token)
 
-The QuizAPI is free for developers.
+O QuizAPI é gratuito para desenvolvedores.
 
-## Installing jq
+## Instalando o jq
 
-There are many ways to install `jq` on your system. One of the most straight forward ways to do so is to use the package manager depending on your OS. 
+Existem muitas maneiras de instalar o `jq` em seu sistema. Uma das maneiras mais diretas de fazer isso é usar o gerenciador de pacotes, dependendo do seu sistema operacional.
 
-Here is a list of the commands that you would need to use depending on your OS:
+Aqui está uma lista dos comandos que você precisaria usar dependendo do seu sistema operacional:
 
-* Install jq on Ubuntu/Debian:
+* Instale o jq no Ubuntu/Debian:
 
 ```bash
 sudo apt-get install jq
 ```
 
-* Install jq on Fedora:
+* Instale o jq no Fedora:
 
 ```bash
 sudo dnf install jq
 ```
 
-* Install jq on openSUSE:
+* Instale o jq no openSUSE:
 
 ```bash
 sudo zypper install jq
 ```
 
-- Install jq on Arch:
+* Instale o jq no Arch:
 
 ```bash
 sudo pacman -S jq
 ```
 
-* Installing on Mac with Homebrew:
+* Instalando no Mac com Homebrew:
 
 ```bash
 brew install jq
 ```
 
-* Install on Mac with MacPort:
+* Instale no Mac com MacPort:
 
 ```bash
 port install jq
 ```
 
-If you are using other OS, I would recommend taking a look at the official documentation here for more information:
+Se você estiver usando outro sistema operacional, recomendo dar uma olhada na documentação oficial aqui para obter mais informações:
 
 > [https://stedolan.github.io/jq/download/](https://stedolan.github.io/jq/download/)
 
-Once you have jq installed you can check your current version by running this command:
+Depois de instalar o jq, você pode verificar sua versão atual executando este comando:
 
 ```bash
 jq --version
 ```
 
-## Parsing JSON with jq
+## Analisando JSON com jq
 
-Once you have `jq` installed and your QuizAPI API Key, you can parse the JSON output of the QuizAPI directly in your terminal.
+Depois de ter o `jq` instalado e sua chave de API do QuizAPI, você pode analisar a saída JSON do QuizAPI diretamente em seu terminal.
 
-First, create a variable that stores your API Key:
+Primeiro, crie uma variável que armazene sua chave de API:
 
 ```bash
 API_KEY=YOUR_API_KEY_HERE
 ```
 
-In order to get some output from one of the endpoints of the QuizAPI you can use the curl command:
+Para obter alguma saída de um dos endpoints da QuizAPI, você pode usar o comando curl:
 
 ```bash
 curl "https://quizapi.io/api/v1/questions?apiKey=${API_KEY}&limit=10"
 ```
 
-For a more specific output, you can use the QuizAPI URL Generator here:
+Para uma saída mais específica, você pode usar o Gerador de URL QuizAPI aqui:
 
 > [https://quizapi.io/api-config](https://quizapi.io/api-config)
 
-After running the curl command, the output which you would get would look like this:
+Depois de executar o comando curl, a saída que você obteria ficaria assim:
 
-![Raw Json output](https://imgur.com/KghOfzj.png)
+![Saída Json bruta](https://imgur.com/KghOfzj.png)
 
-This could be quite hard to read, but thanks to the jq command-line tool, all we need to do is pipe the curl command to jq and we would see a nice formated JSON output:
+Isso pode ser muito difícil de ler, mas graças à ferramenta de linha de comando jq, tudo o que precisamos fazer é canalizar o comando curl para jq e veríamos uma boa saída JSON formatada:
 
 ```bash
 curl "https://quizapi.io/api/v1/questions?apiKey=${API_KEY}&limit=10" | jq
 ```
 
-> Note the `| jq` at the end.
+> Observe o `| jq` no final.
 
-In this case the output that you would get would look something like this:
+Nesse caso, a saída que você obteria seria algo assim:
 
-![bash jq formatting](https://imgur.com/ebdTtVf.png)
+![formatação bash jq](https://imgur.com/ebdTtVf.png)
 
-Now, this looks much nicer! The jq command-line tool formatted the output for us and added some nice coloring!
+Agora, isso parece muito mais bonito! A ferramenta de linha de comando jq formatou a saída para nós e adicionou algumas cores interessantes!
 
-## Getting the first element with jq
+## Obtendo o primeiro elemento com jq
 
-Let's say that we only wanted to get the first element from the JSON output, in order to do that we have to just specify the index that we want to see with the following syntax:
+Digamos que queríamos apenas obter o primeiro elemento da saída JSON, para isso precisamos apenas especificar o índice que queremos ver com a seguinte sintaxe:
 
 ```bash
 jq .[0]
 ```
 
-Now, if we run the curl command again and pipe the output to jq .[0] like this:
+Agora, se executarmos o comando curl novamente e canalizarmos a saída para jq .[0] assim:
 
 ```bash
 curl "https://quizapi.io/api/v1/questions?apiKey=${API_KEY}&limit=10" | jq.[0]
 ```
 
-You will only get the first element and the output will look like this:
+Você obterá apenas o primeiro elemento e a saída ficará assim:
 
-![jq get first element only](https://imgur.com/h9bFMAL.png)
+![jq obtém apenas o primeiro elemento](https://imgur.com/h9bFMAL.png)
 
-## Getting a value only for specific key
+## Obtendo um valor apenas para uma chave específica
 
-Sometimes you might want to get only the value of a specific key only, let's say in our example the QuizAPI returns a list of questions along with the answers, description and etc. but what if you wanted to get the Questions only without the additional information?
+Às vezes você pode querer obter apenas o valor de uma chave específica, digamos que em nosso exemplo o QuizAPI retorne uma lista de perguntas junto com as respostas, descrição e etc. ?
 
-This is going to be quite straight forward with `jq`, all you need to do is add the key after jq command, so it would look something like this:
+Isso vai ser bastante simples com `jq`, tudo que você precisa fazer é adicionar a chave após o comando jq, então ficaria algo assim:
 
 ```bash
 jq .[].question
 ```
 
-We have to add  the `.[]` as the QuizAPI returns an array and by specifying `.[]` we tell jq that we want to get the .question value for all of the elements in the array.
+Temos que adicionar o `.[]` já que o QuizAPI retorna um array e especificando `.[]` dizemos ao jq que queremos obter o valor .question para todos os elementos do array.
 
-The output that you would get would look like this:
+A saída que você obteria ficaria assim:
 
-![jq get a value only for specific key](https://imgur.com/0701wHD.png)
+![jq obtém um valor apenas para uma chave específica](https://imgur.com/0701wHD.png)
 
-As you can see we now only get the questions without the rest of the values.
+Como você pode ver, agora só recebemos as perguntas sem o restante dos valores.
 
-## Using jq in a BASH script
+## Usando jq em um script BASH
 
-Let's go ahead and create a small bash script which should output the following information for us:
+Vamos em frente e criar um pequeno script bash que deve gerar as seguintes informações para nós:
 
-* Get only the first question from the output
-* Get all of the answers for that question
-* Assign the answers to variables
-* Print the question and the answers
-* To do that I've put together the following script:
+* Obtenha apenas a primeira pergunta da saída
+* Obtenha todas as respostas para essa pergunta
+* Atribuir as respostas às variáveis
+* Imprima a pergunta e as respostas
+* Para isso montei o seguinte script:
 
->{notice} make sure to change the API_KEY part with your actual QuizAPI key:
+>{notice} certifique-se de alterar a parte API_KEY com sua chave QuizAPI real:
 
 ```bash
 #!/bin/bash
 
 ##
-# Make an API call to QuizAPI and store the output in a variable
+# Faça uma chamada de API para QuizAPI e armazene a saída em uma variável
 ##
 output=$(curl 'https://quizapi.io/api/v1/questions?apiKey=API_KEY&limit=10' 2>/dev/null)
 
 ##
-# Get only the first question
+#Receba apenas a primeira pergunta
 ##
 output=$(echo $output | jq .[0])
 
 ##
-# Get the question
+#Receba a pergunta
 ##
 question=$(echo $output | jq .question)
 
 ##
-# Get the answers
+# Obtenha as respostas
 ##
 
 answer_a=$(echo $output | jq .answers.answer_a)
@@ -182,11 +182,11 @@ answer_c=$(echo $output | jq .answers.answer_c)
 answer_d=$(echo $output | jq .answers.answer_d)
 
 ##
-# Output the question
+# Saída da pergunta
 ##
 
 echo "
-Question: ${question}
+Pergunta: ${question}
 
 A) ${answer_a}
 B) ${answer_b}
@@ -196,30 +196,30 @@ D) ${answer_d}
 "
 ```
 
-If you run the script you would get the following output:
+Se você executar o script, obterá a seguinte saída:
 
-![Using jq in a bash script](https://imgur.com/LKEsrbq.png)
+![Usando jq em um script bash](https://imgur.com/LKEsrbq.png)
 
-We can even go further by making this interactive so that we could actually choose the answer directly in our terminal.
+Podemos ir além tornando isso interativo para que possamos escolher a resposta diretamente em nosso terminal.
 
-There is already a bash script that does this by using the QuizAPI and `jq`:
+Já existe um script bash que faz isso usando o QuizAPI e o `jq`:
 
-You can take a look at that script here:
+Você pode dar uma olhada nesse script aqui:
 
 * [https://github.com/QuizApi/QuizAPI-BASH/blob/master/quiz.sh](https://github.com/QuizApi/QuizAPI-BASH/blob/master/quiz.sh)
 
-## Conclusion
+## Conclusão
 
-The `jq` command-line tool is an amazing tool that gives you the power to work with JSON directly in your BASH terminal.
+A ferramenta de linha de comando `jq` é uma ferramenta incrível que lhe dá o poder de trabalhar com JSON diretamente em seu terminal BASH.
 
-That way you can easily interact with all kinds of different REST APIs with BASH.
+Dessa forma, você pode interagir facilmente com todos os tipos de APIs REST diferentes com o BASH.
 
-For more information, you could take a look at the official documentation here:
+Para mais informações, você pode dar uma olhada na documentação oficial aqui:
 
 * [https://stedolan.github.io/jq/manual/](https://stedolan.github.io/jq/manual/)
 
-And for more information on the **QuizAPI**, you could take a look at the official documentation here:
+E para mais informações sobre o **QuizAPI**, você pode dar uma olhada na documentação oficial aqui:
 
 * [https://quizapi.io/docs/1.0/overview](https://quizapi.io/docs/1.0/overview)
 
->{notice} This content was initially posted on [DevDojo.com](https://devdojo.com/bobbyiliev/how-to-work-with-json-in-bash-using-jq)
+>{notice} Este conteúdo foi postado inicialmente em [DevDojo.com](https://devdojo.com/bobbyiliev/how-to-work-with-json-in-bash-using-jq)

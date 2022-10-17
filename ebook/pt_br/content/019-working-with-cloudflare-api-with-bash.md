@@ -1,68 +1,68 @@
-# Working with Cloudflare API with Bash
+# Trabalhando com a API Cloudflare com Bash
 
-I host all of my websites on **DigitalOcean** Droplets and I also use Cloudflare as my CDN provider. One of the benefits of using Cloudflare is that it reduces the overall traffic to your user and also hides your actual server IP address behind their CDN.
+Hospedo todos os meus sites no **DigitalOcean** Droplets e também uso o Cloudflare como meu provedor de CDN. Um dos benefícios de usar o Cloudflare é que ele reduz o tráfego geral para o usuário e também oculta o endereço IP do servidor real atrás da CDN.
 
-My personal favorite Cloudflare feature is their free DDoS protection. It has saved my servers multiple times from different DDoS attacks. They have a cool API that you could use to enable and disable their DDoS protection easily.
+Meu recurso favorito da Cloudflare é a proteção gratuita contra DDoS. Ele salvou meus servidores várias vezes de diferentes ataques DDoS. Eles têm uma API legal que você pode usar para habilitar e desabilitar facilmente a proteção contra DDoS.
 
-This chapter is going to be an exercise! I challenge you to go ahead and write a short bash script that would enable and disable the Cloudflare DDoS protection for your server automatically if needed!
+Este capítulo vai ser um exercício! Eu desafio você a escrever um script bash curto que habilitaria e desabilitaria a proteção DDoS da Cloudflare para seu servidor automaticamente, se necessário!
 
-## Prerequisites
+## Pré-requisitos
 
-Before following this guide here, please set up your Cloudflare account and get your website ready. If you are not sure how to do that you can follow these steps here: [Create a Cloudflare account and add a website](https://support.cloudflare.com/hc/en-us/articles/201720164-Step-2-Create-a-Cloudflare-account-and-add-a-website).
+Antes de seguir este guia aqui, configure sua conta Cloudflare e prepare seu site. Se você não tiver certeza de como fazer isso, siga estas etapas aqui: [Crie uma conta Cloudflare e adicione um site](<https://support.cloudflare.com/hc/en-us/articles/201720164-Step-2> -Criar-uma-conta-Cloudflare-e-adicionar-um-site).
 
-Once you have your Cloudflare account, make sure to obtain the following information:
+Depois de ter sua conta Cloudflare, certifique-se de obter as seguintes informações:
 
-* A Cloudflare account
-* Cloudflare API key
-* Cloudflare Zone ID
+* Uma conta Cloudflare
+* Chave de API Cloudflare
+* ID da zona Cloudflare
 
-Also, Make sure curl is installed on your server:
+Além disso, verifique se o curl está instalado em seu servidor:
 
 ```bash
 curl --version
 ```
 
-If curl is not installed you need to run the following:
+Se o curl não estiver instalado, você precisará executar o seguinte:
 
-* For RedHat/CentOs:
+* Para RedHat/CentOs:
 
 ```bash
 yum install curl
 ```
 
-* For Debian/Ubuntu
+* Para Debian/Ubuntu
 
 ```bash
 apt-get install curl
 ```
 
-## Challenge - Script requirements
+## Desafio - Requisitos de script
 
-The script needs to monitor the CPU usage on your server and if the CPU usage gets high based on the number vCPU it would enable the Cloudflare DDoS protection automatically via the Cloudflare API.
+O script precisa monitorar o uso da CPU em seu servidor e, se o uso da CPU ficar alto com base no número de vCPU, ele habilitará a proteção DDoS da Cloudflare automaticamente por meio da API da Cloudflare.
 
-The main features of the script should be:
+As principais características do script devem ser:
 
-* Checks the script CPU load on the server
-* In case of a CPU spike the script triggers an API call to Cloudflare and enables the DDoS protection feature for the specified zone
-* After the CPU load is back to normal the script would disable the "I'm under attack" option and set it back to normal
+* Verifica a carga da CPU do script no servidor
+* No caso de um pico de CPU, o script aciona uma chamada de API para a Cloudflare e habilita o recurso de proteção DDoS para a zona especificada
+* Após a carga da CPU voltar ao normal, o script desabilitaria a opção "Estou sob ataque" e a definiria de volta ao normal
 
-## Example script
+## Script de exemplo
 
-I already have prepared a demo script which you could use as a reference. But I encourage you to try and write the script yourself first and only then take a look at my script!
+Eu já preparei um script de demonstração que você pode usar como referência. Mas eu encorajo você a tentar escrever o script primeiro e só então dar uma olhada no meu script!
 
-To download the script just run the following command:
+Para baixar o script basta executar o seguinte comando:
 
 ```bash
 wget https://raw.githubusercontent.com/bobbyiliev/cloudflare-ddos-protection/main/protection.sh
 ```
 
-Open the script with your favorite text editor:
+Abra o script com seu editor de texto favorito:
 
 ```bash
 nano protection.sh
 ```
 
-And update the following details with your Cloudflare details:
+E atualize os seguintes detalhes com seus detalhes do Cloudflare:
 
 ```bash
 CF_CONE_ID=YOUR_CF_ZONE_ID
@@ -70,35 +70,35 @@ CF_EMAIL_ADDRESS=YOUR_CF_EMAIL_ADDRESS
 CF_API_KEY=YOUR_CF_API_KEY
 ```
 
-After that make the script executable:
+Depois disso, torne o script executável:
 
 ```bash
 chmod +x ~/protection.sh
 ```
 
-Finally, set up 2 Cron jobs to run every 30 seconds. To edit your crontab run:
+Por fim, configure 2  Cron Jobs para serem executados a cada 30 segundos. Para editar seu crontab execute:
 
 ```bash
 crontab -e
 ```
 
-And add the following content:
+E adicione o seguinte conteúdo:
 
 ```bash
 * * * * * /path-to-the-script/cloudflare/protection.sh
 * * * * * ( sleep 30 ; /path-to-the-script/cloudflare/protection.sh )
 ```
 
-Note that you need to change the path to the script with the actual path where you've stored the script at.
+Observe que você precisa alterar o caminho para o script com o caminho real em que armazenou o script.
 
-## Conclusion
+## Conclusão
 
-This is quite straight forward and budget solution, one of the downsides of the script is that if your server gets unresponsive due to an attack, the script might not be triggered at all.
+Esta é uma solução bastante direta e econômica, uma das desvantagens do script é que, se o servidor não responder devido a um ataque, o script pode não ser acionado.
 
-Of course, a better approach would be to use a monitoring system like Nagios and based on the statistics from the monitoring system then you can trigger the script, but this script challenge could be a good learning experience!
+Claro, uma abordagem melhor seria usar um sistema de monitoramento como o Nagios e, com base nas estatísticas do sistema de monitoramento, você pode acionar o script, mas esse desafio de script pode ser uma boa experiência de aprendizado!
 
-Here is another great resource on how to use the Discord API and send notifications to your Discord Channel with a Bash script:
+Aqui está outro ótimo recurso sobre como usar a API Discord e enviar notificações para seu canal Discord com um script Bash:
 
-[How To Use Discord Webhooks to Get Notifications for Your Website Status on Ubuntu 18.04](https://www.digitalocean.com/community/tutorials/how-to-use-discord-webhooks-to-get-notifications-for-your-website-status-on-ubuntu-18-04)
+[Como usar o Discord Webhooks para obter notificações para o status do seu site no Ubuntu 18.04](<https://www.digitalocean.com/community/tutorials/how-to-use-discord-webhooks-to-get-notifications-for>- seu-site-status-on-ubuntu-18-04)
 
->{notice} This content was initially posted on [DevDojo](https://devdojo.com/bobbyiliev/bash-script-to-automatically-enable-cloudflare-ddos-protection)
+>{notice} Este conteúdo foi postado inicialmente no [DevDojo](https://devdojo.com/bobbyiliev/bash-script-to-automatically-enable-cloudflare-ddos-protection)
