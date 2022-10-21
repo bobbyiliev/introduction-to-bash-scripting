@@ -138,7 +138,7 @@ esac
 A quick rundown of the structure:
 
 * All `case` statements start with the `case` keyword.
-* On the same like as the `case` keyword, you need to specify a variable or an expression followed by the `in` keyword.
+* On the same line as the `case` keyword, you need to specify a variable or an expression followed by the `in` keyword.
 * After that, you have your `case` patterns, where you need to use `)`  to identify the end of the pattern.
 * You can specify multiple patterns divided by a pipe: `|`.
 * After the pattern, you specify the commands that you would like to be executed in case that the pattern matches the variable or the expression that you've specified.
