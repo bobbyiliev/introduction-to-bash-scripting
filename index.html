@@ -18,33 +18,8 @@
     <meta name="twitter:image" content="https://cdn.devdojo.com/posts/images/November2020/open-source-introduction-to-bash-scripting-ebook-guide.jpg?auto=format" />
     <link rel="icon" type="image/png" href="https://cdn.devdojo.com/devblog/favicons/3/2QLoxPNvDo4CGedlSIOUFqkXDpcrnLYBKhxHRMmr.png" />
 
-    <!-- Small CSS to Hide elements at 1520px size -->
-    <style>
-        html{
-            scroll-behavior: smooth;
-        }
+    <link rel="stylesheet" href="style.css">
 
-        @media(max-width:1520px) {
-            .left-svg {
-                display: none;
-            }
-        }
-
-        /* small css for the mobile nav close */
-        #nav-mobile-btn.close span:first-child {
-            transform: rotate(45deg);
-            top: 4px;
-            position: relative;
-            background: #a0aec0;
-        }
-
-        #nav-mobile-btn.close span:nth-child(2) {
-            transform: rotate(-45deg);
-            margin-top: 0px;
-            background: #a0aec0;
-        }
-    </style>
-</head>
 <body class="overflow-x-hidden antialiased">
     <!-- Header Section -->
     <header class="relative z-50 w-full h-24">
@@ -528,23 +503,8 @@
             </p>
         </div>
     </footer>
-    <!-- a little JS for the mobile nav button -->
-    <script>
-        var year=new Date().getFullYear();
-        console.log(year);
-       document.getElementById("year").innerHTML=year;
 
-        if (document.getElementById('nav-mobile-btn')) {
-            document.getElementById('nav-mobile-btn').addEventListener('click', function () {
-                if (this.classList.contains('close')) {
-                    document.getElementById('nav').classList.add('hidden');
-                    this.classList.remove('close');
-                } else {
-                    document.getElementById('nav').classList.remove('hidden');
-                    this.classList.add('close');
-                }
-            });
-        }
-    </script>
+    <script src="index.js"></script>
+    
 </body>
 </html>
