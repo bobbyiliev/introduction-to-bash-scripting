@@ -80,7 +80,7 @@ Quick run down of the function:
 
 * `function memory_check() {` - this is how we define the function
 * `echo ""` - here we just print a new line
-* `echo "The current memory usage on ${server_name} is: "` - here we print all a small message and the `$server_name` variable
+* `echo "The current memory usage on ${server_name} is: "` - here we print a small message and the `$server_name` variable
 * `}` - finally this is how we close the function
 
 Then once the function has been defined, in order to call it, just use the name of the function:
