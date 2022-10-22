@@ -85,7 +85,7 @@ Hello DevDojo
 Note that you don't necessarily need to add semicolon `;` at the end of each line. It works both ways, a bit like other programming language such as JavaScript!
 
 
-You can also add variables in the commandline outside the Bash script and they can be read as parameters:
+You can also add variables in the Command Line outside the Bash script and they can be read as parameters:
 
 ```bash
 ./devdojo.sh Bobby buddy!
@@ -98,7 +98,7 @@ This script takes in two parameters `Bobby`and `buddy!` seperated by space. In t
 echo "Hello there" $1
 
 ```
-`$1` is the first input (`Bobby`) in the commandline. Similarly, there could be more inputs and they are all referenced to by the `$` sign and their respective order of input. This means that `buddy!` is referenced to using `$2`. Another useful method for reading variables is the `$@` which reads all inputs.
+`$1` is the first input (`Bobby`) in the Command Line. Similarly, there could be more inputs and they are all referenced to by the `$` sign and their respective order of input. This means that `buddy!` is referenced to using `$2`. Another useful method for reading variables is the `$@` which reads all inputs.
 
 So now let's change the `devdojo.sh` file to better understand: 
 
