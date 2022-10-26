@@ -24,7 +24,7 @@ If you are new to DigitalOcean you can follow the steps on how to create a Dropl
 
 * [How to Create a Droplet from the DigitalOcean Control Panel](https://www.digitalocean.com/docs/droplets/how-to/create/)
 
-You can also follow the steps from this video here on how to do your initial server setul:
+You can also follow the steps from this video here on how to do your initial server setup:
 
 * [How to do your Initial Server Setup with Ubuntu](https://youtu.be/7NL2_4HIgKU)
 
