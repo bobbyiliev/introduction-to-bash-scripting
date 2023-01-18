@@ -52,7 +52,7 @@ done
 La estructura de un bucle while es bastante similar a la del bucle `for`:
 
 ```bash
-while [ condición ]
+while [[ condición ]]
 do
     comandos
 done
@@ -98,7 +98,7 @@ La diferencia entre los bucles `until` y `while` es que el bucle `until` ejecuta
 Estructura:
 
 ```bash
-until [ condición ]
+until [[ condición ]]
 do
     comandos
 done
@@ -110,7 +110,7 @@ Ejemplo:
 #!/bin/bash
 
 contador=1
-until [ $contador -gt 10 ]
+until [[ $contador -gt 10 ]]
 do
     echo $contador
     ((contador++))
@@ -135,7 +135,7 @@ El argumento [n] es opcional y puede ser mayor o igual a 1. Cuando se da [n], se
 
 for i in 1 2 3 4 5
 do
-    if [ $i -eq 2 ] 
+    if [[ $i -eq 2 ]] 
     then
         echo "saltando el número 2"
         continue
@@ -162,9 +162,9 @@ Ejemplo:
 #!/bin/bash
 
 num=1
-while [ $num -lt 10 ] 
+while [[ $num -lt 10 ]] 
 do
-    if [ $num -eq 5 ] 
+    if [[ $num -eq 5 ]] 
     then
         break
     fi
@@ -185,7 +185,7 @@ do
     echo "bucle externo: $a"
     for (( b = 1; b < 100; b++ ))
     do
-        if [ $b -gt 5 ] 
+        if [[ $b -gt 5 ]] 
         then
             break 2
         fi

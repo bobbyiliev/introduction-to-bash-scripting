@@ -52,7 +52,7 @@ done
 A estrutura de um loop while é bastante semelhante ao loop `for`:
 
 ```bash
-while [sua_condição]
+while [[sua_condição]]
 do
     suas_condições
 done
@@ -98,7 +98,7 @@ A diferença entre os loops `until` e `while` é que o loop `until` executará o
 Estrutura:
 
 ```bash
-until [sua_condição]
+until [[sua_condição]]
 do
     seus_comandos
 done
@@ -110,7 +110,7 @@ Exemplo:
 #!/bin/bash
 
 contagem=1
-until [ $contagem -gt 10 ]
+until [[ $contagem -gt 10 ]]
 do
     echo $ contagem
     ((contagem++))
@@ -136,7 +136,7 @@ O argumento [n] é opcional e pode ser maior ou igual a 1. Quando [n] é forneci
 
 for i in 1 2 3 4 5
 do
-    if [ $i –eq 2 ]
+    if [[ $i –eq 2 ]]
     then
         echo "pulando o número 2"
     continue
@@ -163,9 +163,9 @@ Exemplo:
 #!/bin/bash
 
 num=1
-while [ $num –lt 10 ]
+while [[ $num –lt 10 ]]
 do
-    if [ $num –eq 5 ]
+    if [[ $num –eq 5 ]]
     then
         break
     fi
@@ -186,7 +186,7 @@ do
     echo “loop externo: $a”
     for ((b = 1; b < 100; b++))
     do
-        if [ $b –gt 5 ]
+        if [[ $b –gt 5 ]]
         then
             break 2
         fi
