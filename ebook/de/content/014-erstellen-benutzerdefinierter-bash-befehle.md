@@ -80,6 +80,6 @@ Dies ist nützlich, falls bei einigen Befehlen ein seltsames Verhalten auftritt.
 
 Dies ist eine Möglichkeit, benutzerdefinierte Bash-Befehle oder Bash-Aliase zu erstellen.
 
-Natürlich könnten Sie tatsächlich ein Bash-Skript schreiben und das Skript in Ihrem Ordner „/usr/bin“ hinzufügen, aber das würde nicht funktionieren, wenn Sie keinen Root- oder Sudo-Zugriff haben, während Sie es mit Aliasen ohne Notwendigkeit tun können des Root-Zugriffs.
+Natürlich könnten Sie tatsächlich ein Bash-Skript schreiben und das Skript in Ihrem Ordner `/usr/bin` hinzufügen, aber das würde nicht funktionieren, wenn Sie keinen Root- oder Sudo-Zugriff haben, während Sie es mit Aliasen ohne Notwendigkeit tun können des Root-Zugriffs.
 
 > {notice} Dies wurde ursprünglich auf [DevDojo.com](https://devdojo.com/bobbyiliev/how-to-create-custom-bash-commands) veröffentlicht.
