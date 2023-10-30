@@ -1,6 +1,6 @@
 # About the book
 
-* **This version was published on Feb 01 2021**
+* **This version was published on Oct 30 2023**
 
 This is an open-source introduction to Bash scripting guide that will help you learn the basics of Bash scripting and start writing awesome Bash scripts that will help you automate your daily SysOps, DevOps, and Dev tasks. No matter if you are a DevOps/SysOps engineer, developer, or just a Linux enthusiast, you can use Bash scripts to combine different Linux commands and automate tedious and repetitive daily tasks so that you can focus on more productive and fun things.
 
@@ -36,9 +36,9 @@ Founded in 2012 with offices in New York and Cambridge, MA, DigitalOcean offers 
 
 For more information, please visit [https://www.digitalocean.com](https://www.digitalocean.com) or follow [@digitalocean](https://twitter.com/digitalocean) on Twitter.
 
-If you are new to DigitalOcean, you can get a free $100 credit and spin up your own servers via this referral link here:
+If you are new to DigitalOcean, you can get a free $200 credit and spin up your own servers via this referral link here:
 
-[Free $100 Credit For DigitalOcean](https://m.do.co/c/2a9bba940f39)
+[Free $200 Credit For DigitalOcean](https://m.do.co/c/2a9bba940f39)
 
 ### DevDojo
 
