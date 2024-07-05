@@ -173,13 +173,13 @@ As with other programming languages you can use `AND` & `OR` conditions:
 
 ## Exit status operators
 
-* returns true if the the command was successful without any errors
+* returns true if the command was successful without any errors
 
 ```bash
 [[ $? -eq 0 ]]
 ```
 
-* returns true if the the command was not successful or had errors
+* returns true if the command was not successful or had errors
 
 ```bash
 [[ $? -gt 0 ]]

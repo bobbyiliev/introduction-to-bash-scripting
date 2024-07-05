@@ -90,7 +90,7 @@ You can also add variables in the Command Line outside the Bash script and they 
 ```bash
 ./devdojo.sh Bobby buddy!
 ```
-This script takes in two parameters `Bobby`and `buddy!` seperated by space. In the `devdojo.sh` file we have the following:
+This script takes in two parameters `Bobby`and `buddy!` separated by space. In the `devdojo.sh` file we have the following:
 
 ```bash
 #!/bin/bash
@@ -117,7 +117,7 @@ echo "Hello there" $@
 
 # $@ : all
 ```
-The ouput for:
+The output for:
 
 ```bash
 ./devdojo.sh Bobby buddy!
@@ -129,5 +129,3 @@ Hello there Bobby
 Hello there buddy!
 Hello there Bobby buddy!
 ```
-
-

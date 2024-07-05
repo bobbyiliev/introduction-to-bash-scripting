@@ -25,7 +25,7 @@ If you are adding a new translation, make sure to make a copy of the `./ebook/en
 
 All the Markdown files for the 'Introduction to Bash Scripting' guide are located within the [`content`](./content) directory for the specific language.
 
-For example if you are adding a Bulgarian transaltion copy the `./ebook/en` folder to `./ebook/bg`, translate the `.md` files in the `content` directory and submit a PR.
+For example if you are adding a Bulgarian translation copy the `./ebook/en` folder to `./ebook/bg`, translate the `.md` files in the `content` directory and submit a PR.
 
 ### PDF Generation
 
@@ -37,7 +37,7 @@ Make sure to follow the steps on how to get Ibis installed and how to use it her
 
 ## Issue Creation
 
-In the event that you have a issue using the guide or have a suggest for a change but don't want to contribute changes,
+In the event that you have an issue using the guide or have a suggestion for a change but don't want to contribute changes,
  we are more than happy to help.
 Make sure that when you create your issue, it follows the format for the type of issue you select
  (it has individual templates for each issue type).

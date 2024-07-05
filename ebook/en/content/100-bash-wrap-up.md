@@ -10,6 +10,6 @@ In this introduction to Bash scripting book, we just covered the basics, but you
 
 As a next step try writing your own script and share it with the world! This is the best way to learn any new programming or scripting language!
 
-In case that this book enspired you to write some cool Bash scripts, make sure to tweet about it and tag [@bobbyiliev_](https://twitter.com) so that we could check it out!
+In case that this book inspired you to write some cool Bash scripts, make sure to tweet about it and tag [@bobbyiliev_](https://twitter.com) so that we could check it out!
 
 Congrats again on completing this book!

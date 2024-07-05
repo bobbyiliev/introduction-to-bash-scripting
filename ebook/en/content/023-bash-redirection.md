@@ -13,9 +13,9 @@ In Linux, there are 3 File Descriptors, **STDIN** (0); **STDOUT** (1) and **STDE
 
 # Difference between Pipes and Redirections
 
-Both *pipes* and *redidertions* redirect streams `(file descriptor)` of process being executed. The main diffrence is that *redirections* deal with `files stream`, sending the output stream to a file or sending the content of a given file to the input stream of the process.
+Both *pipes* and *redidertions* redirect streams `(file descriptor)` of process being executed. The main difference is that *redirections* deal with `files stream`, sending the output stream to a file or sending the content of a given file to the input stream of the process.
 
-On the otherhand a pipe connects two commands by sending the output stream of the first one to the input stream of the second one. without any redidertions specified.
+On the other hand a pipe connects two commands by sending the output stream of the first one to the input stream of the second one. without any redidertions specified.
 
 # Redirection in Bash
 
@@ -58,7 +58,7 @@ Example:
 echo "Hello World!" > file.txt
 ```
 The following command will not print "Hello World" on the terminal screen, it will instead create a file called ``file.txt`` and will write the "Hello World" string to it.
-This can be verified by runnning the ``cat`` command on the ``file.txt`` file.
+This can be verified by running the ``cat`` command on the ``file.txt`` file.
 ```
 cat file.txt
 ```
@@ -103,7 +103,7 @@ echo "Hello World!" 1> file.txt
 
 ## STDERR (Standard Error)
 
-The error text on the terminal screen is printed via the **STDERR** of the the command. For example:
+The error text on the terminal screen is printed via the **STDERR** of the command. For example:
 ```
 ls --hello
 ```
@@ -160,7 +160,7 @@ Syntax:
 
 You can also build arbitrary chains of commands by piping them together to achieve a powerful result.
 
-This examble create a listing of every user which owns a file in a given directory as well as how many files and directories they own:
+This example creates a listing of every user which owns a file in a given directory as well as how many files and directories they own:
 ```
 ls -l /projects/bash_scripts | tail -n +2 | sed 's/\s\s*/ /g' | cut -d ' ' -f 3 | sort | uniq -c
 ```
@@ -182,7 +182,7 @@ COMMAND << EOF
 	...
 EOF
 ```
-Note here that `EOF` represents the delimiter (end of file) of the heredoc. In fact, we can use any alphanumeric word in it's place to signify the start and the end of the file. For instance, this is a valid heredoc:
+Note here that `EOF` represents the delimiter (end of file) of the heredoc. In fact, we can use any alphanumeric word in its place to signify the start and the end of the file. For instance, this is a valid heredoc:
 ```
 cat << randomword1
 	This script will print these lines on the terminal.

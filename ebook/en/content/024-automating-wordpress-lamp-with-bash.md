@@ -1,6 +1,6 @@
-# Automatic Wordpress on LAMP installation with BASH
+# Automatic WordPress on LAMP installation with BASH
 
-Here is an example of a full LAMP and Wordpress installation that works on any Debian-based machine.
+Here is an example of a full LAMP and WordPress installation that works on any Debian-based machine.
 
 # Prerequisites
 
@@ -42,10 +42,10 @@ Let's start again by going over the main functionality of the script:
 * Create a user
 * Flush Privileges
 
-**Wordpress Config**
+**WordPress Config**
 
-* Install required Wordpress PHP plugins
-* Install Wordpress
+* Install required WordPress PHP plugins
+* Install WordPress
 * Append the required information to `wp-config.php` file
 
 Without further ado, let's start writing the script.

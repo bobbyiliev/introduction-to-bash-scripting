@@ -135,7 +135,7 @@ $(ColorBlue 'Choose an option:') "
 
 ### A quick rundown of the code
 
-First we just echo out the menu optsions with some color:
+First we just echo out the menu options with some color:
 
 ```
 echo -ne "

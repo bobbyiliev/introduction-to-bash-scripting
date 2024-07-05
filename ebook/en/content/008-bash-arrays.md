@@ -4,7 +4,7 @@ If you have ever done any programming, you are probably already familiar with ar
 
 But just in case you are not a developer, the main thing that you need to know is that unlike variables, arrays can hold several values under one name.
 
-You can initialize an array by assigning values devided by space and enclosed in `()`. Example:
+You can initialize an array by assigning values divided by space and enclosed in `()`. Example:
 
 ```bash
 my_array=("value 1" "value 2" "value 3" "value 4")
