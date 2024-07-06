@@ -38,13 +38,13 @@ sudo apt install mailutils
 
 Now that you have `ssmtp` installed, in order to configure it to use your SMTP server when sending emails, you need to edit the SSMTP configuration file.
 
-Using your favourite text editor opent the `/etc/ssmtp/ssmtp.conf` file:
+Using your favourite text editor to open the `/etc/ssmtp/ssmtp.conf` file:
 
 ```bash
 sudo nano /etc/ssmtp/ssmtp.conf
 ```
 
-You need to incldue the your SMTP configuration:
+You need to include your SMTP configuration:
 
 ```
 root=postmaster

@@ -4,7 +4,7 @@ Any command that you can run from the command line can be used in a bash script.
 
 Let's have a hypothetical scenario where you need to execute a BASH script on multiple remote servers, but you don't want to manually copy the script to each server, then again login to each server individually and only then execute the script.
 
-Of course you could use a tool like Ansible but lets learn how to do that with Bash!
+Of course you could use a tool like Ansible but let's learn how to do that with Bash!
 
 ## Prerequisites
 

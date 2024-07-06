@@ -78,7 +78,7 @@ fi
 
 If you put this on top of your script it would exit in case that the EUID is 0 and would not execute the rest of the script. This was discussed on [the DigitalOcean community forum](https://www.digitalocean.com/community/questions/how-to-check-if-running-as-root-in-a-bash-script).
 
-You can also test multiple conditions with an `if` statement. In this example we want to make sure that the user is neither the admin user or the root user to ensure the script is incapable of causing too much damage. We'll use the `or` operator in this example, noted by `||`. This means that either of the conditions needs to be true. If we used the `and` operator of `&&` then both conditions would need to be true.
+You can also test multiple conditions with an `if` statement. In this example we want to make sure that the user is neither the admin user nor the root user to ensure the script is incapable of causing too much damage. We'll use the `or` operator in this example, noted by `||`. This means that either of the conditions needs to be true. If we used the `and` operator of `&&` then both conditions would need to be true.
 
 ```bash
 #!/bin/bash
@@ -96,7 +96,7 @@ else
 fi
 ```
 
-If you have multiple conditions and scenerios, then can use `elif` statement with `if` and `else` statements.
+If you have multiple conditions and scenarios, then can use `elif` statement with `if` and `else` statements.
 
 ```bash
 #!/bin/bash

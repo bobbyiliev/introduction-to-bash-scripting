@@ -2,7 +2,7 @@
 
 As a developer or system administrator, you might have to spend a lot of time in your terminal. I always try to look for ways to optimize any repetitive tasks.
 
-One way to do that is to either write short bash scripts or create custom commands also known as aliases. For example, rather than typing a really long command every time you could just create a short cut for it.
+One way to do that is to either write short bash scripts or create custom commands also known as aliases. For example, rather than typing a really long command every time you could just create a shortcut for it.
 
 ## Example
 
@@ -23,7 +23,7 @@ To avoid that, we can create an alias, so rather than typing the whole command, 
 alias conn="netstat -plant | grep '80\|443' | grep -v LISTEN | wc -l"
 ```
 
-That way we are creating an alias called `conn` which would essentially be a 'short cut' for our long `netstat` command. Now if you run just `conn`:
+That way we are creating an alias called `conn` which would essentially be a 'shortcut' for our long `netstat` command. Now if you run just `conn`:
 
 ```bash
 conn

@@ -1,12 +1,12 @@
 # Work with JSON in BASH using jq
 
-The `jq` command-line tool is is a lightweight and flexible command-line **JSON** processor. It is great for parsing JSON output in BASH.
+The `jq` command-line tool is a lightweight and flexible command-line **JSON** processor. It is great for parsing JSON output in BASH.
 
 One of the great things about `jq` is that it is written in portable C, and it has zero runtime dependencies. All you need to do is to download a single binary or use a package manager like apt and install it with a single command.
 
 ## Planning the script
 
-For the demo in this tutorial, I would use an external REST API that returns a simple JSON ouput called the [QuizAPI](https://quizapi.io/):
+For the demo in this tutorial, I would use an external REST API that returns a simple JSON output called the [QuizAPI](https://quizapi.io/):
 
 > [https://quizapi.io/](https://quizapi.io/)
 
@@ -92,7 +92,7 @@ After running the curl command, the output which you would get would look like t
 
 ![Raw Json output](https://imgur.com/KghOfzj.png)
 
-This could be quite hard to read, but thanks to the jq command-line tool, all we need to do is pipe the curl command to jq and we would see a nice formated JSON output:
+This could be quite hard to read, but thanks to the jq command-line tool, all we need to do is pipe the curl command to jq and we would see a nice formatted JSON output:
 
 ```bash
 curl "https://quizapi.io/api/v1/questions?apiKey=${API_KEY}&limit=10" | jq
