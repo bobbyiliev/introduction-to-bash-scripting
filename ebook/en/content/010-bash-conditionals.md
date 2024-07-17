@@ -70,7 +70,7 @@ Here is another example of an `if` statement which would check your current `Use
 ```bash
 #!/bin/bash
 
-if (( $EUID == 0 )); then
+if [[ $EUID == 0 ]] ; then
     echo "Please do not run as root"
     exit
 fi
