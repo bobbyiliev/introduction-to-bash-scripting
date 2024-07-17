@@ -138,7 +138,7 @@ do
     if [[ $i –eq 2 ]] 
     then
         echo "skipping number 2"
-    continue
+        continue
     fi
     echo "i is equal to $i"
 done
@@ -188,7 +188,7 @@ do
         then
             break 2
         fi
-    echo "Inner loop: $b "
+        echo "Inner loop: $b "
     done
 done
 ```
