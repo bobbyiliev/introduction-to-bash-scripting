@@ -57,7 +57,7 @@ Example:
 ```
 echo "Hello World!" > file.txt
 ```
-The following command will not print "Hello World" on the terminal screen, it will instead create a file called ``file.txt`` and will write the "Hello World" string to it.
+The above command will not print "Hello World" on the terminal screen, it will instead create a file called ``file.txt`` and will write the "Hello World" string to it.
 This can be verified by running the ``cat`` command on the ``file.txt`` file.
 ```
 cat file.txt
