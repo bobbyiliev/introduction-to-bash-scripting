@@ -22,4 +22,11 @@ In order to execute/run a bash script file with the bash shell interpreter, the 
 
 This is also called a [Shebang](https://en.wikipedia.org/wiki/Shebang_(Unix)).
 
-All that the shebang does is to instruct the operating system to run the script with the `/bin/bash` executable.
+All that the shebang does is to instruct the operating system to run the script with the `/bin/bash` executable. 
+
+However, bash is not always in `/bin/bash` directory, particularly on non-Linux systems or due to installation as an optional package. Thus, you may want to use:
+
+```bash
+#!/usr/bin/env bash
+```
+It searches for bash executable in directories, listed in PATH environmental variable.
