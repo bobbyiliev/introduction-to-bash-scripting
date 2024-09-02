@@ -48,7 +48,7 @@ Now if you log out and log back in, your alias would be lost. In the next step y
 
 In order to make the change persistent, we need to add the `alias` command in our shell profile file. 
 
-By default on Ubuntu this would be the `~/.bashrc` file, for other operating systems this might be the `~/.bash_profle`. With your favorite text editor open the file:
+By default on Ubuntu this would be the `~/.bashrc` file, for other operating systems this might be the `~/.bash_profile`. With your favorite text editor open the file:
 
 ```bash
 nano ~/.bashrc
