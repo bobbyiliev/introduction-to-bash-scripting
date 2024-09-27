@@ -135,7 +135,7 @@ The [n] argument is optional and can be greater than or equal to 1. When [n] is 
 
 for i in 1 2 3 4 5
 do
-    if [[ $i –eq 2 ]] 
+    if [[ $i -eq 2 ]] 
     then
         echo "skipping number 2"
         continue
@@ -161,9 +161,9 @@ Example:
 #!/bin/bash
 
 num=1
-while [[ $num –lt 10 ]] 
+while [[ $num -lt 10 ]] 
 do
-    if [[ $num –eq 5 ]] 
+    if [[ $num -eq 5 ]] 
     then
         break
     fi
@@ -184,7 +184,7 @@ do
     echo "outer loop: $a"
     for (( b = 1; b < 100; b++ ))
     do
-        if [[ $b –gt 5 ]] 
+        if [[ $b -gt 5 ]] 
         then
             break 2
         fi
