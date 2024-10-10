@@ -112,18 +112,6 @@ If you prefer watching videos rather than reading, you can find a quick crash co
 
 **[Introduction to Bash Scripting Mini Video Crash Course](https://www.youtube.com/playlist?list=PLY7SzAmnEqp78tsHh1kK0gOx_f-uwQZAT)**
 
-## 💻 Interactive training
-
-You can follow the interactive training online here:
-
-[Introduction to Bash Scripting Interactive training](https://ebook.bobby.sh/training.html)
-
-The training was built with Katacoda. You can find the Katacoda repository [here](https://github.com/bobbyiliev/katacoda).
-
-For more information on how to use Katacoda make sure to follow the steps from this tutorial here:
-
-[How to Use Katacoda to Create Highly Engaging Training Tutorials](https://devdojo.com/bobbyiliev/how-to-use-katacoda-to-create-highly-engaging-training-tutorials)
-
 ## 👋 About the author
 
 My name is Bobby Iliev, and I have been working as a Linux DevOps Engineer since 2014. I am an avid Linux lover and supporter of the open-source movement philosophy. I am always doing that which I cannot do in order that I may learn how to do it, and I believe in sharing knowledge.
@@ -156,7 +144,6 @@ If you ever need to create a graphic, poster, invitation, logo, presentation –
 - [Ibis](https://github.com/themsaid/ibis/)
 - [Canva](https://www.canva.com/)
 - [Tails](http://devdojo.com/tails)
-- [Katacoda](https://www.katacoda.com/)
 
 ## 📖 Other eBooks
 
