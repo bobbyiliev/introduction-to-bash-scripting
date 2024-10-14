@@ -13,7 +13,7 @@ In Linux, there are 3 File Descriptors, **STDIN** (0); **STDOUT** (1) and **STDE
 
 # Difference between Pipes and Redirections
 
-Both *pipes* and *redidertions* redirect streams `(file descriptor)` of process being executed. The main difference is that *redirections* deal with `files stream`, sending the output stream to a file or sending the content of a given file to the input stream of the process.
+Both *pipes* and *redirections* redirect streams `(file descriptor)` of process being executed. The main difference is that *redirections* deal with `files stream`, sending the output stream to a file or sending the content of a given file to the input stream of the process.
 
 On the other hand a pipe connects two commands by sending the output stream of the first one to the input stream of the second one. without any redidertions specified.
 
