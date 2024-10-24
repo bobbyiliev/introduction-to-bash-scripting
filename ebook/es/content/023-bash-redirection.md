@@ -30,7 +30,7 @@ cat << EOF
 ¿Cómo estás?
 EOF
 ```
-Esto simplemente imprimirá el texto proporcionado en la pantalla del terminal:
+Esto simplemente imprimirá el texto proporcionado en la terminal:
 ```
 ¡Hola Mundo!
 ¿Cómo estás?
@@ -43,20 +43,20 @@ wc -l << EOF
 EOF
 ```
 La bandera ``-l`` usada con ``wc`` cuenta el número de líneas.
-Este bloque de código bash imprimirá el número de líneas en la pantalla del terminal:
+Este bloque de código bash imprimirá el número de líneas en la terminal:
 ```
 2
 ```
 
 ## STDOUT (Salida estándar)
-El texto normal (que no sea error) de la pantalla de su terminal se imprime a través del descriptor de archivo **STDOUT**. El **STDOUT** de un comando puede ser redirigido a un archivo, de tal manera que la salida del comando se escriba en un archivo en lugar de imprimirse en la pantalla de la terminal.
+El texto normal (que no sea error) ue aparece en la pantalla de su terminal se imprime a través del descriptor de archivo **STDOUT**. El **STDOUT** de un comando puede ser redirigido a un archivo, de tal manera que la salida del comando se escriba en un archivo en lugar de imprimirse en la pantalla de la terminal.
 Esto se hace simplemente con la ayuda de los operadores ``>`` y ``>>``.
 
 Ejemplo:
 ```
 echo "¡Hola Mundo!" > archivo.txt
 ```
-El comando anterior no imprimirá "¡Hola Mundo!" en la pantalla del terminal, en su lugar creará un archivo llamado ``archivo.txt`` y escribirá la cadena de texto "¡Hola Mundo!" en el mismo.
+El comando anterior no imprimirá "¡Hola Mundo!" en la terminal, en su lugar creará un archivo llamado ``archivo.txt`` y escribirá la cadena de texto "¡Hola Mundo!" en el mismo.
 Esto se puede comprobar ejecutando el comando ``cat`` en el archivo ``archivo.txt``.
 ```
 cat archivo.txt
@@ -74,7 +74,7 @@ Al ejecutar ``cat`` en el archivo ``archivo.txt``:
 cat archivo.txt
 ```
 
-Sólo se imprimirá la cadena de text "¿Cómo estás?".
+Sólo se imprimirá la cadena de texto "¿Cómo estás?".
 ```
 ¿Cómo estás?
 ```
@@ -100,7 +100,7 @@ echo "¡Hola Mundo!" 1> file.txt
 ```
 
 ## STDERR (Error estándar)
-El texto de error en la pantalla del terminal se imprime a través de **STDERR**. Por ejemplo:
+El texto de error en la terminal se imprime a través de **STDERR**. Por ejemplo:
 ```
 ls --hola
 ```
@@ -182,7 +182,7 @@ EOF
 Observe que `EOF` representa el delimitador (fin de archivo) del heredoc. De hecho, podemos utilizar cualquier palabra alfanumérica en su lugar para indicar el inicio y el final del archivo. Por ejemplo, ésta es un heredoc válido:
 ```
 cat << palabraaleatoria1
-    Este script imprimirá estas líneas en el terminal.
+    Este script imprimirá estas líneas en la terminal.
     Tenga en cuenta que cat puede leer desde la entrada estándar. Usando este heredoc, podemos
     crear un archivo temporal con estas líneas como su contenido y canalizar ello
     hacia cat.
