@@ -221,3 +221,4 @@ Al igual que los heredocs, los herestrings pueden contener variables.
 |`\|`|`Enviar la salida de un programa como entrada a otro`|
 |`<<`|`Canalizar múltiple líneas a un programa limpiamente`|
 |`<<<`|`Canalizar una única línea a un programa limpiamente`|
+
