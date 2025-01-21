@@ -85,8 +85,10 @@ Here is a list of the most popular Bash conditional expressions. You do not have
 * True if the shell variable varname is set (has been assigned a value).
 
 ```bash
-[[ -v ${varname} ]]
+[[ -v varname ]]
 ```
+
+> Here, `varname` is the name of the variable. The `-v` operator expects a variable name as an argument rather than a value, so if you pass `${varname}` instead of `varname`, the expression will return false.
 
 True if the length of the string is zero.
 
