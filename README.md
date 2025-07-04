@@ -78,7 +78,7 @@ For more information, please visit [https://www.digitalocean.com](https://www.di
 
 If you are new to DigitalOcean, you can get a free $100 credit and spin up your own servers via this referral link here:
 
-[Free $100 Credit For DigitalOcean](https://m.do.co/c/2a9bba940f39)
+[Free $200 Credit For DigitalOcean](https://m.do.co/c/2a9bba940f39)
 
 ### 👩‍💻 DevDojo
 
