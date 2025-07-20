@@ -83,6 +83,7 @@ At the beginning of your script add the following color functions:
 ##
 green='\e[32m'
 blue='\e[34m'
+red='\e[31m'
 clear='\e[0m'
 
 ##
@@ -127,8 +128,8 @@ $(ColorBlue 'Choose an option:') "
 	        3) tcp_check ; menu ;;
 	        4) kernel_check ; menu ;;
 	        5) all_checks ; menu ;;
-			0) exit 0 ;;
-			*) echo -e $red"Wrong option."$clear; WrongCommand;;
+		0) exit 0 ;;
+		*) echo -e "${red}Wrong option.${clear}"; menu ;;
         esac
 }
 ```
@@ -165,7 +166,7 @@ Finally, we have a switch case which triggers a different function depending on 
 	        4) kernel_check ; menu ;;
 	        5) all_checks ; menu ;;
 		0) exit 0 ;;
-		*) echo -e $red"Wrong option."$clear; WrongCommand;;
+		*) echo -e "${red}Wrong option.${clear}"; menu ;;
         esac
 ```
 
@@ -236,6 +237,7 @@ function all_checks() {
 ##
 green='\e[32m'
 blue='\e[34m'
+red='\e[31m'
 clear='\e[0m'
 
 ##
@@ -267,7 +269,7 @@ $(ColorBlue 'Choose an option:') "
 	        4) kernel_check ; menu ;;
 	        5) all_checks ; menu ;;
 		0) exit 0 ;;
-		*) echo -e $red"Wrong option."$clear; WrongCommand;;
+		*) echo -e "${red}Wrong option.${clear}"; menu ;;
         esac
 }
 
