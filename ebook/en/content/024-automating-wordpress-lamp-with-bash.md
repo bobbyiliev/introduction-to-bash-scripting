@@ -333,4 +333,4 @@ The script does the following:
   * Install WordPress
   * Configure WordPress
 
-With this being said, I hope you enjoyed this example. If you have any questions, please feel free to ask me directly at [@denctl](https://twitter.com/denctl).
+With this being said, I hope you enjoyed this example.
