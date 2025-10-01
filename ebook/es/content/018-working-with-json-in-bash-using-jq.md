@@ -60,7 +60,7 @@ port install jq
 
 Si usas otro sistema operativo echa un vistazo a la documentación oficial en este link para más información:
 
-> [https://stedolan.github.io/jq/download/](https://stedolan.github.io/jq/download/)
+> [https://jqlang.org/download/](https://jqlang.org/download/)
 
 Una vez que ya tengas instalado jq revisa la versión actual con este comando:
 
