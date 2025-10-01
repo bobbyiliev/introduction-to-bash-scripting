@@ -96,7 +96,7 @@ A web page showcasing the eBook:
 
 [Introduction to Bash Scripting Web Page](https://ebook.bobby.sh/)
 
-The web page was built using [Tails](http://devdojo.com/tails), a new `kick-ass` drag-and-drop TailwindCSS page builder!
+The web page was built using [Tails](https://devdojo.com/tails), a new `kick-ass` drag-and-drop TailwindCSS page builder!
 
 ### DigitalOcean App Platform
 
@@ -143,7 +143,7 @@ If you ever need to create a graphic, poster, invitation, logo, presentation –
 - [Join DevDojo](https://devdojo.com?ref=bobbyiliev)
 - [Ibis](https://github.com/themsaid/ibis/)
 - [Canva](https://www.canva.com/)
-- [Tails](http://devdojo.com/tails)
+- [Tails](https://devdojo.com/tails)
 
 ## 📖 Other eBooks
 
