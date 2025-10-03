@@ -60,7 +60,7 @@ port install jq
 
 If you are using other OS, I would recommend taking a look at the official documentation here for more information:
 
-> [https://stedolan.github.io/jq/download/](https://stedolan.github.io/jq/download/)
+> [https://jqlang.org/download/](https://jqlang.org/download/)
 
 Once you have jq installed you can check your current version by running this command:
 
@@ -221,5 +221,6 @@ For more information, you could take a look at the official documentation here:
 And for more information on the **QuizAPI**, you could take a look at the official documentation here:
 
 * [https://quizapi.io/docs/1.0/overview](https://quizapi.io/docs/1.0/overview)
+
 
 >{notice} This content was initially posted on [DevDojo.com](https://devdojo.com/bobbyiliev/how-to-work-with-json-in-bash-using-jq)
