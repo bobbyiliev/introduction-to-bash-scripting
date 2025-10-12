@@ -1,0 +1,166 @@
+/* EPUB Styles for 101 Linux Commands eBook */
+
+body {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 16px;
+    line-height: 1.6;
+    margin: 0;
+    padding: 20px;
+    color: #333;
+}
+
+h1 {
+    font-size: 32px;
+    font-weight: bold;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    page-break-before: always;
+    border-bottom: 2px solid #1a1c3e;
+    padding-bottom: 10px;
+    color: #1a1c3e;
+}
+
+h2 {
+    font-size: 28px;
+    font-weight: bold;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    page-break-before: always;
+    color: #1a1c3e;
+}
+
+h3 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 25px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+h4, h5, h6 {
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 20px;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+p {
+    margin-bottom: 15px;
+    text-align: justify;
+}
+
+ul, ol {
+    margin-bottom: 15px;
+    padding-left: 30px;
+}
+
+li {
+    margin-bottom: 5px;
+}
+
+pre {
+    background-color: #f5f5f5;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 15px;
+    margin: 20px 0;
+    overflow-x: auto;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+code {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 14px;
+    background-color: #f5f5f5;
+    padding: 2px 4px;
+    border-radius: 3px;
+    color: #A5215D;
+}
+
+pre code {
+    background: none;
+    padding: 0;
+    color: #2d2d2d;
+}
+
+blockquote {
+    margin: 20px 0;
+    padding: 15px 20px;
+    border-left: 4px solid #ccc;
+    background-color: #f9f9f9;
+    font-style: italic;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px 12px;
+    text-align: left;
+}
+
+th {
+    background-color: #f5f5f5;
+    font-weight: bold;
+}
+
+a {
+    color: #1a1c3e;
+    text-decoration: underline;
+}
+
+a:hover {
+    color: #333;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 20px auto;
+}
+
+/* Special styles for aside blocks */
+.aside {
+    margin: 20px 0;
+    padding: 15px;
+    border-radius: 5px;
+    border-left: 4px solid;
+}
+
+.aside.note {
+    background-color: #e3f2fd;
+    border-left-color: #2196f3;
+}
+
+.aside.tip {
+    background-color: #e8f5e8;
+    border-left-color: #4caf50;
+}
+
+.aside.warning {
+    background-color: #fff3e0;
+    border-left-color: #ff9800;
+}
+
+.aside.danger {
+    background-color: #ffebee;
+    border-left-color: #f44336;
+}
+
+/* Styling for command tables */
+.command-table th {
+    background-color: #1a1c3e;
+    color: white;
+}
+
+.command-table td {
+    font-family: 'Courier New', Courier, monospace;
+}
