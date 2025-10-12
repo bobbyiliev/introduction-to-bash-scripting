@@ -1,21 +1,29 @@
-name: Ibis eBook Generation
+name: Build eBooks
+
 on:
   push:
-    branches:
-      - main
+    branches: [main]
+
+permissions:
+  contents: write
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@main
-      with:
-        fetch-depth: '0'
-    - name: Build Ibis Export Files
-      uses: bobbyiliev/ibis-build-action@main
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        IBIS_PATH: './ebook/en/'
-        IBIS_BRANCH: 'main'
-        EMAIL: 'bobby@bobbyiliev.com'
-        COMMIT_MESSAGE: 'Updated Ibis Exorted Files'
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build eBooks with Ibis Next
+        uses: bobbyiliev/ibis-build-action@v2.0.0
+        with:
+          ibis_path: "./ebook/en"
+          ibis_branch: "main"
+          email: "bobby@bobbyiliev.com"
+          commit_message: "📚 Updated eBook files"
+          php_version: "8.2"
+          formats: "pdf,pdf-dark,epub,sample,sample-dark"
+          skip_push: "false"
