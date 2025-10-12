@@ -12,6 +12,21 @@ return [
     'author' => 'Bobby Iliev',
 
     /**
+     * CSS inline style for the page header.
+     * If you want to skip header, comment the line
+     */
+    'header' => 'font-style: italic; text-align: right; border-bottom: solid 1px #808080;',
+
+    /**
+     * Cover page image configuration.
+     */
+    'cover' => [
+        'position' => 'position: absolute; left:0; right: 0; top: -.2; bottom: 0;',
+        'dimensions' => 'width: 210mm; height: 297mm; margin: 0;',
+        'image' => 'cover.jpg',
+    ],
+
+    /**
      * The list of fonts to be used in the different themes.
      */
     'fonts' => [
