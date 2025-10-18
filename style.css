@@ -24,4 +24,21 @@ html {
     background: #a0aec0;
 }
 
+.fire-particle {
+    position: fixed;
+    pointer-events: none;
+    font-weight: bold;
+    font-size: 1.2rem;
+    animation: floatEffect 1.5s linear forwards;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+}
+
+@keyframes floatEffect {
+    to {
+        opacity: 0;
+        transform: translate(calc(-50% + var(--translateX)), calc(-50% + var(--translateY)));
+    }
+}
+
 /* Css is same for both the html file index.html and training.html */
