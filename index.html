@@ -528,36 +528,49 @@
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const buttons = document.querySelectorAll('.btn-hover-effect');
-            const chars = ['$', '#', '~', '/'];
+            const chars = ['$', '#', '~', '/', '>', '_', '0', '1'];
 
-            const createParticle = (x, y) => {
+            const createParticle = (rect) => {
                 const particle = document.createElement('span');
                 particle.textContent = chars[Math.floor(Math.random() * chars.length)];
                 particle.classList.add('fire-particle');
 
                 document.body.appendChild(particle);
 
+                const x = rect.left + Math.random() * rect.width;
+                const y = rect.top + Math.random() * rect.height;
+
                 particle.style.top = `${y}px`;
                 particle.style.left = `${x}px`;
 
                 const translateX = (Math.random() - 0.5) * 150;
-                const translateY = -100 - Math.random() * 100;
+                const translateY = 100 + Math.random() * 100; // Fall down
 
                 particle.style.setProperty('--translateX', `${translateX}px`);
                 particle.style.setProperty('--translateY', `${translateY}px`);
 
                 setTimeout(() => {
                     particle.remove();
-                }, 1000);
+                }, 1500); // Match animation duration
             };
 
             buttons.forEach(button => {
+                let intervalId = null;
                 button.addEventListener('mouseenter', e => {
                     const rect = e.target.getBoundingClientRect();
-                    for (let i = 0; i < 20; i++) {
-                        const x = rect.left + Math.random() * rect.width;
-                        const y = rect.top + Math.random() * rect.height;
-                        createParticle(x, y);
+                    if (!intervalId) {
+                        intervalId = setInterval(() => {
+                           for (let i = 0; i < 2; i++) {
+                                createParticle(rect);
+                           }
+                        }, 50);
+                    }
+                });
+
+                button.addEventListener('mouseleave', () => {
+                    if (intervalId) {
+                        clearInterval(intervalId);
+                        intervalId = null;
                     }
                 });
             });

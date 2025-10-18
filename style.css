@@ -29,11 +29,11 @@ html {
 .fire-particle {
     position: fixed;
     pointer-events: none;
-    color: #ff6b6b;
+    color: #39ff14;
     font-weight: bold;
     font-size: 1.2rem;
-    text-shadow: 0 0 5px #ff6b6b, 0 0 10px #ff6b6b, 0 0 15px #ff6b6b, 0 0 20px #ff6b6b;
-    animation: floatEffect 1s ease-out forwards;
+    text-shadow: 0 0 5px #39ff14, 0 0 10px #39ff14, 0 0 20px #fff;
+    animation: floatEffect 1.5s linear forwards;
     z-index: 9999;
     transform: translate(-50%, -50%);
 }
@@ -41,6 +41,6 @@ html {
 @keyframes floatEffect {
     to {
         opacity: 0;
-        transform: translate(calc(-50% + var(--translateX)), calc(-50% + var(--translateY))) rotate(720deg);
+        transform: translate(calc(-50% + var(--translateX)), calc(-50% + var(--translateY)));
     }
 }
