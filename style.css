@@ -25,3 +25,22 @@ html {
 }
 
 /* Css is same for both the html file index.html and training.html */
+
+.fire-particle {
+    position: fixed;
+    pointer-events: none;
+    color: #ff6b6b;
+    font-weight: bold;
+    font-size: 1.2rem;
+    text-shadow: 0 0 5px #ff6b6b, 0 0 10px #ff6b6b, 0 0 15px #ff6b6b, 0 0 20px #ff6b6b;
+    animation: floatEffect 1s ease-out forwards;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+}
+
+@keyframes floatEffect {
+    to {
+        opacity: 0;
+        transform: translate(calc(-50% + var(--translateX)), calc(-50% + var(--translateY))) rotate(720deg);
+    }
+}
