@@ -529,11 +529,16 @@
         document.addEventListener('DOMContentLoaded', () => {
             const buttons = document.querySelectorAll('.btn-hover-effect');
             const chars = ['$', '#', '~', '/', '>', '_', '0', '1'];
+            const colors = ['#ff6b6b', '#f94d6a', '#f8c291', '#82ccdd', '#6a89cc', '#b71540', '#39ff14', '#f0932b', '#eb4d4b', '#6ab04c', '#e056fd', '#be2edd'];
 
             const createParticle = (rect) => {
                 const particle = document.createElement('span');
                 particle.textContent = chars[Math.floor(Math.random() * chars.length)];
                 particle.classList.add('fire-particle');
+
+                const color = colors[Math.floor(Math.random() * colors.length)];
+                particle.style.color = color;
+                particle.style.textShadow = `0 0 5px ${color}, 0 0 10px ${color}`;
 
                 document.body.appendChild(particle);
 

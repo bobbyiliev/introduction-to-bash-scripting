@@ -29,10 +29,8 @@ html {
 .fire-particle {
     position: fixed;
     pointer-events: none;
-    color: #39ff14;
     font-weight: bold;
     font-size: 1.2rem;
-    text-shadow: 0 0 5px #39ff14, 0 0 10px #39ff14, 0 0 20px #fff;
     animation: floatEffect 1.5s linear forwards;
     z-index: 9999;
     transform: translate(-50%, -50%);
