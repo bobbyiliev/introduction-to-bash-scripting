@@ -24,8 +24,6 @@ html {
     background: #a0aec0;
 }
 
-/* Css is same for both the html file index.html and training.html */
-
 .fire-particle {
     position: fixed;
     pointer-events: none;
@@ -42,3 +40,5 @@ html {
         transform: translate(calc(-50% + var(--translateX)), calc(-50% + var(--translateY)));
     }
 }
+
+/* Css is same for both the html file index.html and training.html */
