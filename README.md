@@ -157,3 +157,7 @@ If you ever need to create a graphic, poster, invitation, logo, presentation –
 ## 🤲 Contributing
 
 If you are contributing 🍿 please read the [contributing file](CONTRIBUTING.md) before submitting your pull requests.
+
+## Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=bobbyiliev/introduction-to-bash-scripting&type=date&legend=top-left)](https://www.star-history.com/#bobbyiliev/introduction-to-bash-scripting&type=date&legend=top-left)
