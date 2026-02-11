@@ -105,13 +105,15 @@ True if the length of the string is non-zero.
 * True if the strings are equal. `=` should be used with the test command for POSIX conformance. When used with the `[[` command, this performs pattern matching as described above (Compound Commands).
 
 ```bash
-[[ ${string1} == ${string2} ]]
+[[ ${string1} == "${string2}" ]]
 ```
+
+>{notice} In `[[ ]]`, the right-hand side of `==` and `!=` is treated as a glob pattern unless quoted. Always quote the right-hand side if you want an exact string comparison.
 
 * True if the strings are not equal.
 
 ```bash
-[[ ${string1} != ${string2} ]]
+[[ ${string1} != "${string2}" ]]
 ```
 
 * True if string1 sorts before string2 lexicographically.

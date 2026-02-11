@@ -85,11 +85,10 @@ Generate the passwords and then print it so the user can use it.
 # This is where the magic happens!
 # Generate a list of 10 strings and cut it to the desired value provided from the user
 
-for i in {1..10}; do (tr -cd '[:alnum:]' < /dev/urandom | fold -w${pass_length} | head -n 1); done
+for i in {1..10}; do tr -cd '[:alnum:]' < /dev/urandom | fold -w"${pass_length}" | head -n 1; done
 
-# Print the strings
-printf "$pass_output\n"
-printf "Goodbye, ${USER}\n"
+# Print a farewell message
+printf "Goodbye, %s\n" "$USER"
 ```
 
 ## The full script:
@@ -108,11 +107,10 @@ printf "\n"
 # This is where the magic happens!
 # Generate a list of 10 strings and cut it to the desired value provided from the user
 
-for i in {1..10}; do (tr -cd '[:alnum:]' < /dev/urandom | fold -w${pass_length} | head -n 1); done
+for i in {1..10}; do tr -cd '[:alnum:]' < /dev/urandom | fold -w"${pass_length}" | head -n 1; done
 
-# Print the strings
-printf "$pass_output\n"
-printf "Goodbye, ${USER}\n"
+# Print a farewell message
+printf "Goodbye, %s\n" "$USER"
 ```
 
 ## Conclusion

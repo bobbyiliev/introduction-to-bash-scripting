@@ -64,7 +64,7 @@ read DBPASSWORD
 echo "Please enter your Database name:"
 read DBNAME
 
-ip=`hostname -I | cut -f1 -d' '`
+ip=$(hostname -I | cut -f1 -d' ')
 ```
 
 We are now ready to start writing our functions. Start by creating the `lamp_install()` function. Inside of it, we are going to update the system, install ufw, allow SSH, HTTP and HTTPS traffic, install Apache2, install MariaDB and PHP. We are also going to enable all required Apache2 mods.
@@ -92,18 +92,18 @@ Next, we are going to create the `apache_virtualhost_setup()` function. Inside o
 
 ```bash
 apache_virtual_host_setup () {
-	mkdir /var/www/$DOMAIN
-	chown -R $USER:$USER /var/www/$DOMAIN
+	mkdir "/var/www/$DOMAIN"
+	chown -R "$USER:$USER" "/var/www/$DOMAIN"
 
-	echo "<VirtualHost *:80>" >> /etc/apache2/sites-available/$DOMAIN.conf
-	echo -e "\tServerName $DOMAIN" >> /etc/apache2/sites-available/$DOMAIN.conf
-	echo -e "\tServerAlias www.$DOMAIN" >> /etc/apache2/sites-available/$DOMAIN.conf
-	echo -e "\tServerAdmin webmaster@localhost" >> /etc/apache2/sites-available/$DOMAIN.conf
-	echo -e "\tDocumentRoot /var/www/$DOMAIN" >> /etc/apache2/sites-available/$DOMAIN.conf
-	echo -e '\tErrorLog ${APACHE_LOG_DIR}/error.log' >> /etc/apache2/sites-available/$DOMAIN.conf
-	echo -e '\tCustomLog ${APACHE_LOG_DIR}/access.log combined' >> /etc/apache2/sites-available/$DOMAIN.conf
-	echo "</VirtualHost>" >> /etc/apache2/sites-available/$DOMAIN.conf
-	a2ensite $DOMAIN
+	echo "<VirtualHost *:80>" >> "/etc/apache2/sites-available/${DOMAIN}.conf"
+	echo -e "\tServerName $DOMAIN" >> "/etc/apache2/sites-available/${DOMAIN}.conf"
+	echo -e "\tServerAlias www.$DOMAIN" >> "/etc/apache2/sites-available/${DOMAIN}.conf"
+	echo -e "\tServerAdmin webmaster@localhost" >> "/etc/apache2/sites-available/${DOMAIN}.conf"
+	echo -e "\tDocumentRoot /var/www/$DOMAIN" >> "/etc/apache2/sites-available/${DOMAIN}.conf"
+	echo -e '\tErrorLog ${APACHE_LOG_DIR}/error.log' >> "/etc/apache2/sites-available/${DOMAIN}.conf"
+	echo -e '\tCustomLog ${APACHE_LOG_DIR}/access.log combined' >> "/etc/apache2/sites-available/${DOMAIN}.conf"
+	echo "</VirtualHost>" >> "/etc/apache2/sites-available/${DOMAIN}.conf"
+	a2ensite "$DOMAIN"
 	a2dissite 000-default
 	systemctl reload apache2
 
@@ -159,30 +159,30 @@ wordpress_config () {
 	
 	apt install php-curl php-gd php-mbstring php-xml php-xmlrpc php-soap php-intl php-zip -y
 	systemctl restart apache2
-	sed -i "8i\\\t<Directory /var/www/$DOMAIN/>" /etc/apache2/sites-available/$DOMAIN.conf
-	sed -i "9i\\\t\tAllowOverride All" /etc/apache2/sites-available/$DOMAIN.conf
-	sed -i "10i\\\t</Directory>" /etc/apache2/sites-available/$DOMAIN.conf
+	sed -i "8i\\\t<Directory /var/www/$DOMAIN/>" "/etc/apache2/sites-available/${DOMAIN}.conf"
+	sed -i "9i\\\t\tAllowOverride All" "/etc/apache2/sites-available/${DOMAIN}.conf"
+	sed -i "10i\\\t</Directory>" "/etc/apache2/sites-available/${DOMAIN}.conf"
 
 	a2enmod rewrite
 	systemctl restart apache2
 
 	apt install curl
-	cd /tmp
+	cd /tmp || exit
 	curl -O https://wordpress.org/latest.tar.gz
 	tar xzvf latest.tar.gz
 	touch /tmp/wordpress/.htaccess
 	cp /tmp/wordpress/wp-config-sample.php /tmp/wordpress/wp-config.php
 	mkdir /tmp/wordpress/wp-content/upgrade
-	cp -a /tmp/wordpress/. /var/www/$DOMAIN
-	chown -R www-data:www-data /var/www/$DOMAIN
-	find /var/www/$DOMAIN/ -type d -exec chmod 750 {} \;
-	find /var/www/$DOMAIN/ -type f -exec chmod 640 {} \;
-	curl -s https://api.wordpress.org/secret-key/1.1/salt/ >> /var/www/$DOMAIN/wp-config.php
-	echo "define('FS_METHOD', 'direct');" >> /var/www/$DOMAIN/wp-config.php
-	sed -i "51,58d" /var/www/$DOMAIN/wp-config.php
-	sed -i "s/database_name_here/$DBNAME/1" /var/www/$DOMAIN/wp-config.php
-	sed -i "s/username_here/$DBUSERNAME/1" /var/www/$DOMAIN/wp-config.php
-	sed -i "s/password_here/$DBPASSWORD/1" /var/www/$DOMAIN/wp-config.php
+	cp -a /tmp/wordpress/. "/var/www/$DOMAIN"
+	chown -R www-data:www-data "/var/www/$DOMAIN"
+	find "/var/www/$DOMAIN/" -type d -exec chmod 750 {} \;
+	find "/var/www/$DOMAIN/" -type f -exec chmod 640 {} \;
+	curl -s https://api.wordpress.org/secret-key/1.1/salt/ >> "/var/www/${DOMAIN}/wp-config.php"
+	echo "define('FS_METHOD', 'direct');" >> "/var/www/${DOMAIN}/wp-config.php"
+	sed -i "51,58d" "/var/www/${DOMAIN}/wp-config.php"
+	sed -i "s/database_name_here/$DBNAME/1" "/var/www/${DOMAIN}/wp-config.php"
+	sed -i "s/username_here/$DBUSERNAME/1" "/var/www/${DOMAIN}/wp-config.php"
+	sed -i "s/password_here/$DBPASSWORD/1" "/var/www/${DOMAIN}/wp-config.php"
 }
 ```
 
@@ -213,7 +213,7 @@ read DBPASSWORD
 echo "Please enter your Database name:"
 read DBNAME
 
-ip=`hostname -I | cut -f1 -d' '`
+ip=$(hostname -I | cut -f1 -d' ')
 
 lamp_install () {
 	apt update -y
@@ -233,18 +233,18 @@ lamp_install () {
 }
 
 apache_virtual_host_setup () {
-	mkdir /var/www/$DOMAIN
-	chown -R $USER:$USER /var/www/$DOMAIN
+	mkdir "/var/www/$DOMAIN"
+	chown -R "$USER:$USER" "/var/www/$DOMAIN"
 
-	echo "<VirtualHost *:80>" >> /etc/apache2/sites-available/$DOMAIN.conf
-	echo -e "\tServerName $DOMAIN" >> /etc/apache2/sites-available/$DOMAIN.conf
-	echo -e "\tServerAlias www.$DOMAIN" >> /etc/apache2/sites-available/$DOMAIN.conf
-	echo -e "\tServerAdmin webmaster@localhost" >> /etc/apache2/sites-available/$DOMAIN.conf
-	echo -e "\tDocumentRoot /var/www/$DOMAIN" >> /etc/apache2/sites-available/$DOMAIN.conf
-	echo -e '\tErrorLog ${APACHE_LOG_DIR}/error.log' >> /etc/apache2/sites-available/$DOMAIN.conf
-	echo -e '\tCustomLog ${APACHE_LOG_DIR}/access.log combined' >> /etc/apache2/sites-available/$DOMAIN.conf
-	echo "</VirtualHost>" >> /etc/apache2/sites-available/$DOMAIN.conf
-	a2ensite $DOMAIN
+	echo "<VirtualHost *:80>" >> "/etc/apache2/sites-available/${DOMAIN}.conf"
+	echo -e "\tServerName $DOMAIN" >> "/etc/apache2/sites-available/${DOMAIN}.conf"
+	echo -e "\tServerAlias www.$DOMAIN" >> "/etc/apache2/sites-available/${DOMAIN}.conf"
+	echo -e "\tServerAdmin webmaster@localhost" >> "/etc/apache2/sites-available/${DOMAIN}.conf"
+	echo -e "\tDocumentRoot /var/www/$DOMAIN" >> "/etc/apache2/sites-available/${DOMAIN}.conf"
+	echo -e '\tErrorLog ${APACHE_LOG_DIR}/error.log' >> "/etc/apache2/sites-available/${DOMAIN}.conf"
+	echo -e '\tCustomLog ${APACHE_LOG_DIR}/access.log combined' >> "/etc/apache2/sites-available/${DOMAIN}.conf"
+	echo "</VirtualHost>" >> "/etc/apache2/sites-available/${DOMAIN}.conf"
+	a2ensite "$DOMAIN"
 	a2dissite 000-default
 	systemctl reload apache2
 
@@ -289,30 +289,30 @@ wordpress_config () {
 	
 	apt install php-curl php-gd php-mbstring php-xml php-xmlrpc php-soap php-intl php-zip -y
 	systemctl restart apache2
-	sed -i "8i\\\t<Directory /var/www/$DOMAIN/>" /etc/apache2/sites-available/$DOMAIN.conf
-	sed -i "9i\\\t\tAllowOverride All" /etc/apache2/sites-available/$DOMAIN.conf
-	sed -i "10i\\\t</Directory>" /etc/apache2/sites-available/$DOMAIN.conf
+	sed -i "8i\\\t<Directory /var/www/$DOMAIN/>" "/etc/apache2/sites-available/${DOMAIN}.conf"
+	sed -i "9i\\\t\tAllowOverride All" "/etc/apache2/sites-available/${DOMAIN}.conf"
+	sed -i "10i\\\t</Directory>" "/etc/apache2/sites-available/${DOMAIN}.conf"
 
 	a2enmod rewrite
 	systemctl restart apache2
 
 	apt install curl
-	cd /tmp
+	cd /tmp || exit
 	curl -O https://wordpress.org/latest.tar.gz
 	tar xzvf latest.tar.gz
 	touch /tmp/wordpress/.htaccess
 	cp /tmp/wordpress/wp-config-sample.php /tmp/wordpress/wp-config.php
 	mkdir /tmp/wordpress/wp-content/upgrade
-	cp -a /tmp/wordpress/. /var/www/$DOMAIN
-	chown -R www-data:www-data /var/www/$DOMAIN
-	find /var/www/$DOMAIN/ -type d -exec chmod 750 {} \;
-	find /var/www/$DOMAIN/ -type f -exec chmod 640 {} \;
-	curl -s https://api.wordpress.org/secret-key/1.1/salt/ >> /var/www/$DOMAIN/wp-config.php
-	echo "define('FS_METHOD', 'direct');" >> /var/www/$DOMAIN/wp-config.php
-	sed -i "51,58d" /var/www/$DOMAIN/wp-config.php
-	sed -i "s/database_name_here/$DBNAME/1" /var/www/$DOMAIN/wp-config.php
-	sed -i "s/username_here/$DBUSERNAME/1" /var/www/$DOMAIN/wp-config.php
-	sed -i "s/password_here/$DBPASSWORD/1" /var/www/$DOMAIN/wp-config.php
+	cp -a /tmp/wordpress/. "/var/www/$DOMAIN"
+	chown -R www-data:www-data "/var/www/$DOMAIN"
+	find "/var/www/$DOMAIN/" -type d -exec chmod 750 {} \;
+	find "/var/www/$DOMAIN/" -type f -exec chmod 640 {} \;
+	curl -s https://api.wordpress.org/secret-key/1.1/salt/ >> "/var/www/${DOMAIN}/wp-config.php"
+	echo "define('FS_METHOD', 'direct');" >> "/var/www/${DOMAIN}/wp-config.php"
+	sed -i "51,58d" "/var/www/${DOMAIN}/wp-config.php"
+	sed -i "s/database_name_here/$DBNAME/1" "/var/www/${DOMAIN}/wp-config.php"
+	sed -i "s/username_here/$DBUSERNAME/1" "/var/www/${DOMAIN}/wp-config.php"
+	sed -i "s/password_here/$DBPASSWORD/1" "/var/www/${DOMAIN}/wp-config.php"
 }
 
 execute () {

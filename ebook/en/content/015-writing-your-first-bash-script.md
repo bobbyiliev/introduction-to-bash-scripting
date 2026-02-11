@@ -52,7 +52,7 @@ By using `$()` we tell bash to actually interpret the command and then assign th
 Now if we were to echo out the variable we would see the current hostname:
 
 ```bash
-echo $server_name
+echo "$server_name"
 ```
 
 ## Adding your first function
@@ -151,7 +151,7 @@ function tcp_check() {
     echo ""
 	echo "TCP connections on ${server_name}: "
     echo ""
-	cat  /proc/net/tcp | wc -l
+	wc -l < /proc/net/tcp
     echo ""
 }
 

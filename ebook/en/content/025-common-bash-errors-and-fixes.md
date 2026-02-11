@@ -70,7 +70,7 @@ Run the script from its current directory:
 ```
 Or add its directory to PATH:
 ```bash
-export PATH=$PATH:/path/to/script
+export PATH="$PATH:/path/to/script"
 ```
 
 **Explanation:** The shell searches for commands in directories listed in `$PATH`. Scripts outside these directories require an explicit path.
@@ -90,14 +90,14 @@ Ensure correct syntax for conditional statements.
 
 **Incorrect:**
 ```bash
-if [ $num -gt 10 ]
+if [ "$num" -gt 10 ]
 echo "Number greater than 10"
 fi
 ```
 
 **Correct:**
 ```bash
-if [ $num -gt 10 ]; then
+if [ "$num" -gt 10 ]; then
   echo "Number greater than 10"
 fi
 ```
@@ -118,13 +118,13 @@ A block (like `if`, `for`, or `while`) or a quote is not properly closed.
 
 **Incorrect:**
 ```bash
-if [ $num -gt 5 ]; then
+if [ "$num" -gt 5 ]; then
   echo "Greater"
 ```
 
 **Correct:**
-```
-if [ $num -gt 5 ]; then
+```bash
+if [ "$num" -gt 5 ]; then
   echo "Greater"
 fi
 ```
@@ -161,7 +161,7 @@ A non-numeric value is used in an arithmetic comparison.
 ### Fix:
 ```bash
 num=5
-if [ $num -gt 3 ]; then
+if [ "$num" -gt 3 ]; then
   echo "Yes"
 fi
 ```
@@ -240,7 +240,7 @@ Beginners often write loops that process a directory itself instead of the files
 ```bash
 for file in /home/user/docs
 do
-  echo Processing $file
+  echo "Processing $file"
 done
 ```
 
