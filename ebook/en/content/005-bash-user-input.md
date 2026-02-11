@@ -1,6 +1,6 @@
 # Bash User Input
 
-With the previous script, we defined a variable, and we output the value of the variable on the screen with the `echo $name`.
+With the previous script, we defined a variable, and we output the value of the variable on the screen with `echo "$name"`.
 
 Now let's go ahead and ask the user for input instead. To do that again, open the file with your favorite text editor and update the script as follows:
 

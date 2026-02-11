@@ -13,16 +13,52 @@ name="DevDojo"
 After that, to access the variable, you have to use the `$` and reference it as shown below:
 
 ```bash
-echo $name
-```
-
-Wrapping the variable name between curly brackets is not required, but is considered a good practice, and I would advise you to use them whenever you can:
-
-```bash
-echo ${name}
+echo "$name"
 ```
 
 The above code would output: `DevDojo` as this is the value of our `name` variable.
+
+## Quoting variables
+
+You should **always wrap variable references in double quotes** (`"$name"`). This is one of the most important habits to develop in Bash scripting. Without quotes, Bash will perform **word splitting** and **globbing** on the variable's value, which leads to bugs and even security vulnerabilities.
+
+Here is an example of what can go wrong without quotes:
+
+```bash
+#!/bin/bash
+
+filename="my file.txt"
+
+# Wrong - Bash splits this into two words: "my" and "file.txt"
+touch $filename    # Creates two files: "my" and "file.txt"
+
+# Correct - the quotes preserve the value as a single argument
+touch "$filename"  # Creates one file: "my file.txt"
+```
+
+Without quotes, if a variable contains spaces, wildcards (`*`, `?`), or other special characters, Bash will interpret them rather than treating the value as a single string. This can cause scripts to break or behave unpredictably.
+
+>{notice} **Rule of thumb:** Always use double quotes around variables: `"$name"`, not `$name`. The only common exception is inside `[[ ]]` test brackets, where word splitting does not occur, but even there quoting is a good habit.
+
+## When to use curly braces
+
+You can also wrap the variable name in curly braces: `${name}`. This is **required** when the variable name is followed by characters that could be interpreted as part of the name:
+
+```bash
+greeting="Hello"
+
+# Without braces, Bash looks for a variable called $greetings (not $greeting)
+echo "$greetings world"   # Prints: " world" (empty - no such variable)
+
+# With braces, Bash knows the variable name is just "greeting"
+echo "${greeting}s world" # Prints: "Hellos world"
+```
+
+Curly braces are also required for arrays (`${array[0]}`), string slicing (`${name:0:3}`), and default values (`${name:-default}`). For simple cases like `echo "$name"`, the braces are optional, so both `"$name"` and `"${name}"` work.
+
+Throughout this book, we use curly braces when they are needed for clarity or disambiguation, and omit them when the variable stands alone.
+
+## Using variables in a script
 
 Next, let's update our `devdojo.sh` script and include a variable in it.
 
@@ -57,8 +93,8 @@ Hi there DevDojo
 Here is a rundown of the script written in the file:
 
 * `#!/bin/bash` - At first, we specified our shebang.
-* `name=DevDojo` - Then, we defined a variable called `name` and assigned a value to it.
-* `echo "Hi there $name"` - Finally, we output the content of the variable on the screen as a welcome message by using `echo`
+* `name="DevDojo"` - Then, we defined a variable called `name` and assigned a value to it.
+* `echo "Hi there $name"` - Finally, we output the content of the variable on the screen as a welcome message by using `echo`.
 
 You can also add multiple variables in the file as shown below:
 
@@ -95,25 +131,25 @@ This script takes in two parameters `Bobby`and `buddy!` separated by space. In t
 ```bash
 #!/bin/bash
 
-echo "Hello there" $1
-
+echo "Hello there $1"
 ```
+
 `$1` is the first input (`Bobby`) in the Command Line. Similarly, there could be more inputs and they are all referenced to by the `$` sign and their respective order of input. This means that `buddy!` is referenced to using `$2`. Another useful method for reading variables is the `$@` which reads all inputs.
 
-So now let's change the `devdojo.sh` file to better understand: 
+So now let's change the `devdojo.sh` file to better understand:
 
 ```bash
 #!/bin/bash
 
-echo "Hello there" $1
+echo "Hello there $1"
 
 # $1 : first parameter
 
-echo "Hello there" $2
+echo "Hello there $2"
 
 # $2 : second parameter
 
-echo "Hello there" $@
+echo "Hello there $@"
 
 # $@ : all
 ```
@@ -121,7 +157,7 @@ The output for:
 
 ```bash
 ./devdojo.sh Bobby buddy!
-``` 
+```
 Would be the following:
 
 ```bash

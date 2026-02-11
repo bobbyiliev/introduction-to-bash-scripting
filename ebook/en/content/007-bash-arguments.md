@@ -6,7 +6,7 @@ You can pass arguments to your shell script when you execute it. To pass an argu
 ./devdojo.com your_argument
 ```
 
-In the script, we can then use `$1` in order to reference the first argument that we specified. 
+In the script, we can then use `$1` in order to reference the first argument that we specified.
 
 If we pass a second argument, it would be available as `$2` and so on.
 
@@ -71,11 +71,7 @@ For example, let's create a script that prints out the name of the file and dele
 
 echo "The name of the file is: $0 and it is going to be self-deleted."
 
-rm -f $0
+rm -f "$0"
 ```
 
 You need to be careful with the self deletion and ensure that you have your script backed up before you self-delete it.
-
-
-
-

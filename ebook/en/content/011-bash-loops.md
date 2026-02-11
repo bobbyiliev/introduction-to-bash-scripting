@@ -7,7 +7,7 @@ As with any other language, loops are very convenient. With Bash you can use `fo
 Here is the structure of a for loop:
 
 ```bash
-for var in ${list}
+for var in word1 word2 word3
 do
     your_commands
 done
@@ -18,20 +18,20 @@ Example:
 ```bash
 #!/bin/bash
 
-users="devdojo bobby tony"
+users=("devdojo" "bobby" "tony")
 
-for user in ${users}
+for user in "${users[@]}"
 do
-    echo "${user}"
+    echo "$user"
 done
 ```
 
 A quick rundown of the example:
 
-* First, we specify a list of users and store the value in a variable called `$users`.
+* First, we specify a list of users and store the values in an array called `users`.
 * After that, we start our `for` loop with the `for` keyword.
-* Then we define a new variable which would represent each item from the list that we give. In our case, we define a variable called `user`, which would represent each user from the `$users` variable.
-* Then we specify the `in` keyword followed by our list that we will loop through.
+* Then we define a new variable which would represent each item from the list that we give. In our case, we define a variable called `user`, which would represent each user from the `users` array.
+* We use `"${users[@]}"` to expand all array elements. The quotes ensure that elements containing spaces are handled correctly.
 * On the next line, we use the `do` keyword, which indicates what we will do for each iteration of the loop.
 * Then we specify the commands that we want to run.
 * Finally, we close the loop with the `done` keyword.
@@ -43,7 +43,7 @@ You can also use `for` to process a series of numbers. For example here is one w
 
 for num in {1..10}
 do
-    echo ${num}
+    echo "$num"
 done
 ```
 
@@ -66,7 +66,7 @@ Here is an example of a `while` loop:
 counter=1
 while [[ $counter -le 10 ]]
 do
-    echo $counter
+    echo "$counter"
     ((counter++))
 done
 ```
@@ -112,7 +112,7 @@ Example:
 count=1
 until [[ $count -gt 10 ]]
 do
-    echo $count
+    echo "$count"
     ((count++))
 done
 ```

@@ -74,7 +74,7 @@ function tcp_check() {
     echo "#######"
 	echo "Total TCP connections on ${server_name}: "
     echo ""
-	cat  /proc/net/tcp | wc -l
+	wc -l < /proc/net/tcp
     echo "#######"
 }
 
@@ -103,7 +103,7 @@ Copy the code bellow and add this in a file called `remote_check.sh`. You can al
 Now that we have the script and the servers ready and that we've added those servers in our servers.txt file we can run the following command to loop though all servers and execute the script remotely without having to copy the script to each server and individually connect to each server.
 
 ```bash
-for server in $(cat servers.txt) ; do ssh your_user@${server} 'bash -s' < ./remote_check.sh ; done
+while IFS= read -r server; do ssh "your_user@${server}" 'bash -s' < ./remote_check.sh ; done < servers.txt
 ```
 
 What this for loop does is, it goes through each server in the servers.txt file and then it runs the following command for each item in the list:

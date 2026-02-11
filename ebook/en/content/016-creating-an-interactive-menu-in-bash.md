@@ -47,7 +47,7 @@ function tcp_check() {
     echo ""
 	echo "TCP connections on ${server_name}: "
     echo ""
-	cat  /proc/net/tcp | wc -l
+	wc -l < /proc/net/tcp
     echo ""
 }
 
@@ -91,17 +91,17 @@ clear='\e[0m'
 ##
 
 ColorGreen(){
-	echo -ne $green$1$clear
+	echo -ne "${green}${1}${clear}"
 }
 ColorBlue(){
-	echo -ne $blue$1$clear
+	echo -ne "${blue}${1}${clear}"
 }
 ```
 
 You can use the color functions as follows:
 
 ```bash
-echo -ne $(ColorBlue 'Some text here')
+echo -ne "$(ColorBlue 'Some text here')"
 ```
 
 The above would output the `Some text here` string and it would be blue!
@@ -213,7 +213,7 @@ function tcp_check() {
     echo ""
 	echo "TCP connections on ${server_name}: "
     echo ""
-	cat  /proc/net/tcp | wc -l
+	wc -l < /proc/net/tcp
     echo ""
 }
 
@@ -245,10 +245,10 @@ clear='\e[0m'
 ##
 
 ColorGreen(){
-	echo -ne $green$1$clear
+	echo -ne "${green}${1}${clear}"
 }
 ColorBlue(){
-	echo -ne $blue$1$clear
+	echo -ne "${blue}${1}${clear}"
 }
 
 menu(){

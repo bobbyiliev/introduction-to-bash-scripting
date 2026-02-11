@@ -117,7 +117,7 @@ jq .[0]
 Now, if we run the curl command again and pipe the output to jq .[0] like this:
 
 ```bash
-curl "https://quizapi.io/api/v1/questions?apiKey=${API_KEY}&limit=10" | jq.[0]
+curl "https://quizapi.io/api/v1/questions?apiKey=${API_KEY}&limit=10" | jq '.[0]'
 ```
 
 You will only get the first element and the output will look like this:
@@ -165,21 +165,21 @@ output=$(curl 'https://quizapi.io/api/v1/questions?apiKey=API_KEY&limit=10' 2>/d
 ##
 # Get only the first question
 ##
-output=$(echo $output | jq .[0])
+output=$(echo "$output" | jq '.[0]')
 
 ##
 # Get the question
 ##
-question=$(echo $output | jq .question)
+question=$(echo "$output" | jq '.question')
 
 ##
 # Get the answers
 ##
 
-answer_a=$(echo $output | jq .answers.answer_a)
-answer_b=$(echo $output | jq .answers.answer_b)
-answer_c=$(echo $output | jq .answers.answer_c)
-answer_d=$(echo $output | jq .answers.answer_d)
+answer_a=$(echo "$output" | jq '.answers.answer_a')
+answer_b=$(echo "$output" | jq '.answers.answer_b')
+answer_c=$(echo "$output" | jq '.answers.answer_c')
+answer_d=$(echo "$output" | jq '.answers.answer_d')
 
 ##
 # Output the question
@@ -223,4 +223,3 @@ And for more information on the **QuizAPI**, you could take a look at the offici
 * [https://quizapi.io/docs/1.0/overview](https://quizapi.io/docs/1.0/overview)
 
 >{notice} This content was initially posted on [DevDojo.com](https://devdojo.com/bobbyiliev/how-to-work-with-json-in-bash-using-jq)
-
