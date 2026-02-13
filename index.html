@@ -59,7 +59,7 @@
                     </svg>
                 </a>
                 <a href="#download"
-                    class="relative z-40 inline-block w-auto h-full px-5 py-3 text-sm font-bold leading-none text-white transition-all transition duration-100 duration-300 bg-gray-900 rounded shadow-md fold-bold lg:bg-white lg:text-gray-600 sm:w-full lg:shadow-none hover:shadow-xl">Download
+                    class="relative z-40 inline-block w-auto h-full px-5 py-3 text-sm font-bold leading-none text-white transition-all transition duration-100 duration-300 bg-gray-900 rounded shadow-md fold-bold lg:bg-white lg:text-gray-600 sm:w-full lg:shadow-none hover:shadow-xl btn-hover-effect">Download
                 </a>
                 <svg class="absolute top-0 left-0 hidden w-screen max-w-3xl -mt-64 -ml-12 lg:block"
                     viewBox="0 0 818 815" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -124,7 +124,7 @@
                 <p class="pr-0 mb-8 text-base text-gray-600 sm:text-lg xl:text-xl lg:pr-20">Are you ready to start your
                     adventure and start writing awesome Bash scripts?</p>
                 <a href="#download"
-                    class="relative self-start inline-block w-auto px-8 py-4 mx-auto mt-0 text-base font-bold text-white bg-gray-900 hover:bg-gray-700 border-t border-gray-200 rounded-md shadow-xl sm:mt-1 fold-bold lg:mx-0">Free Download
+                    class="relative self-start inline-block w-auto px-8 py-4 mx-auto mt-0 text-base font-bold text-white bg-gray-900 hover:bg-gray-700 border-t border-gray-200 rounded-md shadow-xl sm:mt-1 fold-bold lg:mx-0 btn-hover-effect">Free Download
                 </a>
                 <!-- Sponsors with section -->
                 <div class="flex-col hidden mt-12 sm:flex lg:mt-24">
@@ -216,7 +216,7 @@
                 This is an open-source introduction to Bash scripting ebook that will help you learn the basics of Bash scripting and start writing awesome Bash scripts that will help you automate your daily SysOps, DevOps, and Dev tasks.
             </p>
             <div class="flex items-center">
-                <a href="#download" type="submit" class="inline-flex items-center justify-center h-12 px-6 mr-6 font-medium tracking-wide text-white transition duration-200 bg-gray-900 rounded-lg hover:bg-gray-700 focus:shadow-outline focus:outline-none">
+                <a href="#download" type="submit" class="inline-flex items-center justify-center h-12 px-6 mr-6 font-medium tracking-wide text-white transition duration-200 bg-gray-900 rounded-lg hover:bg-gray-700 focus:shadow-outline focus:outline-none btn-hover-effect">
                     Free Download
                 </a>
             </div>
@@ -408,7 +408,7 @@
                             <p class="mt-1 mb-4 text-base leading-6 text-gray-500">
                                 Download the Dark theme of the Introduction to Bash Scripting eBook
                             </p>
-                            <a href="https://github.com/bobbyiliev/introduction-to-bash-scripting/raw/main/ebook/en/export/introduction-to-bash-scripting-dark.pdf" class="px-4 py-2 font-semibold text-gray-200 bg-gray-500 border border-green-700 rounded shadow btn btn-secundary hover:bg-gray-600"> Free Download</a>
+                            <a href="https://github.com/bobbyiliev/introduction-to-bash-scripting/raw/main/ebook/en/export/introduction-to-bash-scripting-dark.pdf" class="px-4 py-2 font-semibold text-gray-200 bg-gray-500 border border-green-700 rounded shadow btn btn-secundary hover:bg-gray-600 btn-hover-effect"> Free Download</a>
                         </div>
                     </div>
 
@@ -428,7 +428,7 @@
                             <p class="mt-1 mb-4 text-base leading-6 text-gray-500">
                                 Download the Light theme of the Introduction to Bash Scripting eBook
                             </p>
-                            <a href="https://github.com/bobbyiliev/introduction-to-bash-scripting/raw/main/ebook/en/export/introduction-to-bash-scripting-light.pdf" class="px-4 py-2 font-semibold text-white bg-blue-500 border border-green-700 rounded shadow btn btn-secundary hover:bg-blue-600"> Free Download</a>
+                            <a href="https://github.com/bobbyiliev/introduction-to-bash-scripting/raw/main/ebook/en/export/introduction-to-bash-scripting-light.pdf" class="px-4 py-2 font-semibold text-white bg-blue-500 border border-green-700 rounded shadow btn btn-secundary hover:bg-blue-600 btn-hover-effect"> Free Download</a>
                         </div>
                     </div>
                 </div>
@@ -447,7 +447,7 @@
                     <h4 class="pb-0 mb-0 text-lg font-semibold mb-md-0">Enjoying the free eBook?</h4>
                     <p class="mb-0 text-gray-700">Support this opensource project by staring it on GitHub!</p>
                 </div>
-                <a href="https://github.com/bobbyiliev/introduction-to-bash-scripting" class="px-4 py-2 font-semibold text-white bg-green-500 border border-green-700 rounded shadow btn btn-secundary hover:bg-green-600">
+                <a href="https://github.com/bobbyiliev/introduction-to-bash-scripting" class="px-4 py-2 font-semibold text-white bg-green-500 border border-green-700 rounded shadow btn btn-secundary hover:bg-green-600 btn-hover-effect">
                     <svg class="inline-block h-8 mr-4 text-white duration-150 cursor-pointer fill-current transition-color hover:text-gray-00" viewBox="0 0 2350 2315" xmlns="http://www.w3.org/2000/svg">
                         <g stroke="none" stroke-width="1"></g>
                         <g>
@@ -525,6 +525,62 @@
         </div>
     </footer>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const buttons = document.querySelectorAll('.btn-hover-effect');
+            const chars = ['$', '#', '~', '/', '>', '_', '0', '1'];
+            const colors = ['#ff6b6b', '#f94d6a', '#f8c291', '#82ccdd', '#6a89cc', '#b71540', '#39ff14', '#f0932b', '#eb4d4b', '#6ab04c', '#e056fd', '#be2edd'];
+
+            const createParticle = (rect) => {
+                const particle = document.createElement('span');
+                particle.textContent = chars[Math.floor(Math.random() * chars.length)];
+                particle.classList.add('fire-particle');
+
+                const color = colors[Math.floor(Math.random() * colors.length)];
+                particle.style.color = color;
+                particle.style.textShadow = `0 0 5px ${color}, 0 0 10px ${color}`;
+
+                document.body.appendChild(particle);
+
+                const x = rect.left + Math.random() * rect.width;
+                const y = rect.top + Math.random() * rect.height;
+
+                particle.style.top = `${y}px`;
+                particle.style.left = `${x}px`;
+
+                const translateX = (Math.random() - 0.5) * 150;
+                const translateY = 100 + Math.random() * 100; // Fall down
+
+                particle.style.setProperty('--translateX', `${translateX}px`);
+                particle.style.setProperty('--translateY', `${translateY}px`);
+
+                setTimeout(() => {
+                    particle.remove();
+                }, 1500); // Match animation duration
+            };
+
+            buttons.forEach(button => {
+                let intervalId = null;
+                button.addEventListener('mouseenter', e => {
+                    const rect = e.target.getBoundingClientRect();
+                    if (!intervalId) {
+                        intervalId = setInterval(() => {
+                           for (let i = 0; i < 2; i++) {
+                                createParticle(rect);
+                           }
+                        }, 50);
+                    }
+                });
+
+                button.addEventListener('mouseleave', () => {
+                    if (intervalId) {
+                        clearInterval(intervalId);
+                        intervalId = null;
+                    }
+                });
+            });
+        });
+    </script>
     <script src="index.js"></script>
     
 </body>
