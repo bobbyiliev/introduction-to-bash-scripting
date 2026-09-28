@@ -6,34 +6,34 @@ Una forma de hacerlo es escribir scripts bash cortos o crear comandos personaliz
 
 ## Ejemplo
 
-Comencemos con el siguiente escenario: como administrador del sistema, es posible que deba verificar las conexiones a su servidor web con bastante frecuencia, por lo que usaré el comando `netstat` como ejemplo.
+Comencemos con el siguiente escenario: como administrador del sistema, es posible que deba verificar las conexiones a su servidor web con bastante frecuencia, por lo que usaré el comando `ss` como ejemplo.
 
 Lo que normalmente haría cuando accedo a un servidor que tiene problemas con las conexiones al puerto 80 o 443 es verificar si hay algún servicio escuchando en esos puertos y la cantidad de conexiones a los puertos.
 
-El siguiente comando `netstat` nos mostraría cuántas conexiones TCP en los puertos 80 y 443 tenemos actualmente:
+El siguiente comando `ss` nos mostraría cuántas conexiones TCP en los puertos 80 y 443 tenemos actualmente:
 
 ```golpecito
-planta netstat | grep '80\|443' | grep -v ESCUCHAR | baño -l
+ss -plant | grep '80\|443' | grep -v LISTEN | wc -l
 ```
 Este es un comando bastante largo, por lo que escribirlo cada vez puede llevar mucho tiempo a largo plazo, especialmente cuando desea obtener esa información rápidamente.
 
 Para evitar eso, podemos crear un alias, de modo que en lugar de escribir el comando completo, podríamos simplemente escribir un comando corto. Por ejemplo, digamos que queremos poder escribir "conn" (abreviatura de conexiones) y obtener la misma información. Todo lo que necesitamos hacer en este caso es ejecutar el siguiente comando:
 
 ```golpecito
-alias conn="netstat -plant | grep '80\|443' | grep -v ESCUCHAR | wc -l"
+alias conn="ss -plant | grep '80\|443' | grep -v LISTEN | wc -l"
 ```
 
-De esa manera estamos creando un alias llamado "conn" que esencialmente sería un "atajo" para nuestro comando largo "netstat". Ahora, si ejecutas solo `conn`:
+De esa manera estamos creando un alias llamado "conn" que esencialmente sería un "atajo" para nuestro comando largo "ss". Ahora, si ejecutas solo `conn`:
 
 ```golpecito
 conectar
 ```
 
-Obtendría el mismo resultado que el comando largo `netstat`.
+Obtendría el mismo resultado que el comando largo `ss`.
 Puedes ser aún más creativo y agregar algunos mensajes informativos como este aquí:
 
 ```golpecito
-alias conn="echo 'Total de conexiones en los puertos 80 y 443:' ; netstat -plant | grep '80\|443' | grep -v LISTEN | wc -l"
+alias conn="echo 'Total de conexiones en los puertos 80 y 443:' ; ss -plant | grep '80\|443' | grep -v LISTEN | wc -l"
 ```
 
 Ahora, si ejecuta `conn`, obtendrá el siguiente resultado:
@@ -57,7 +57,7 @@ nano ~/.bashrc
 Vaya al final y agregue lo siguiente:
 
 ```golpecito
-alias conn="echo 'Total de conexiones en los puertos 80 y 443:' ; netstat -plant | grep '80\|443' | grep -v LISTEN | wc -l"
+alias conn="echo 'Total de conexiones en los puertos 80 y 443:' ; ss -plant | grep '80\|443' | grep -v LISTEN | wc -l"
 ```
 
 Guarde y luego salga.
