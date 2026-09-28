@@ -6,34 +6,37 @@ One way to do that is to either write short bash scripts or create custom comman
 
 ## Example
 
-Let's start with the following scenario, as a system admin, you might have to check the connections to your web server quite often, so I will use the `netstat` command as an example.
+Let's start with the following scenario, as a system admin, you might have to check the connections to your web server quite often, so I will use the `ss` command as an example.
 
 What I would usually do when I access a server that is having issues with the connections to port 80 or 443 is to check if there are any services listening on those ports and the number of connections to the ports.
 
-The following `netstat` command would show us how many TCP connections on port 80 and 443 we currently have:
+The following `ss` command would show us how many TCP connections on port 80 and 443 we currently have:
 
 ```bash
-netstat -plant | grep '80\|443' | grep -v LISTEN | wc -l
+ss -plant | grep '80\|443' | grep -v LISTEN | wc -l
 ```
+
+>{notice} `ss` comes with the `iproute2` package, which is installed by default on most modern Linux distributions. It replaces the older `netstat` command from `net-tools`, which is no longer installed by default on Ubuntu or Debian.
+
 This is quite a lengthy command so typing it every time might be time-consuming in the long run especially when you want to get that information quickly.
 
 To avoid that, we can create an alias, so rather than typing the whole command, we could just type a short command instead. For example, lets say that we wanted to be able to type `conn` (short for connections) and get the same information. All we need to do in this case is to run the following command:
 
 ```bash
-alias conn="netstat -plant | grep '80\|443' | grep -v LISTEN | wc -l"
+alias conn="ss -plant | grep '80\|443' | grep -v LISTEN | wc -l"
 ```
 
-That way we are creating an alias called `conn` which would essentially be a 'shortcut' for our long `netstat` command. Now if you run just `conn`:
+That way we are creating an alias called `conn` which would essentially be a 'shortcut' for our long `ss` command. Now if you run just `conn`:
 
 ```bash
 conn
 ```
 
-You would get the same output as the long `netstat` command.
+You would get the same output as the long `ss` command.
 You can get even more creative and add some info messages like this one here:
 
 ```bash
-alias conn="echo 'Total connections on port 80 and 443:' ; netstat -plant | grep '80\|443' | grep -v LISTEN | wc -l"
+alias conn="echo 'Total connections on port 80 and 443:' ; ss -plant | grep '80\|443' | grep -v LISTEN | wc -l"
 ```
 
 Now if you run `conn` you would get the following output:
@@ -57,7 +60,7 @@ nano ~/.bashrc
 Go to the bottom and add the following:
 
 ```bash
-alias conn="echo 'Total connections on port 80 and 443:' ; netstat -plant | grep '80\|443' | grep -v LISTEN | wc -l"
+alias conn="echo 'Total connections on port 80 and 443:' ; ss -plant | grep '80\|443' | grep -v LISTEN | wc -l"
 ```
 
 Save and then exit.

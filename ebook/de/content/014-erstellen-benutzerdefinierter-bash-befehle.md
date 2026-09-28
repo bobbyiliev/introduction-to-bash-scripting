@@ -6,14 +6,14 @@ Eine Möglichkeit hierfür besteht darin, entweder kurze Bash-Skripte zu schreib
 
 ## Beispiel
 
-Beginnen wir mit dem folgenden Szenario: Als Systemadministrator müssen Sie möglicherweise häufig die Verbindungen zu Ihrem Webserver überprüfen, daher verwende ich den Befehl `netstat` als Beispiel.
+Beginnen wir mit dem folgenden Szenario: Als Systemadministrator müssen Sie möglicherweise häufig die Verbindungen zu Ihrem Webserver überprüfen, daher verwende ich den Befehl `ss` als Beispiel.
 
 Wenn ich auf einen Server zugreife, der Probleme mit den Verbindungen zu Port 80 oder 443 hat, prüfe ich normalerweise, ob Dienste diese Ports überwachen und wie viele Verbindungen zu diesen Ports bestehen.
 
-Der folgende `netstat`-Befehl würde uns zeigen, wie viele TCP-Verbindungen auf Port 80 und 443 wir derzeit haben:
+Der folgende `ss`-Befehl würde uns zeigen, wie viele TCP-Verbindungen auf Port 80 und 443 wir derzeit haben:
 
 ```bash
-netstat -plant | grep '80\|443' | grep -v LISTEN | wc -l
+ss -plant | grep '80\|443' | grep -v LISTEN | wc -l
 ```
 
 Dies ist ein ziemlich langer Befehl, daher kann es auf lange Sicht zeitaufwändig sein, ihn jedes Mal einzugeben, insbesondere wenn Sie diese Informationen schnell erhalten möchten.
@@ -21,20 +21,20 @@ Dies ist ein ziemlich langer Befehl, daher kann es auf lange Sicht zeitaufwändi
 Um dies zu vermeiden, können wir einen Alias erstellen, sodass wir statt des gesamten Befehls einfach einen kurzen Befehl eingeben können. Nehmen wir zum Beispiel an, wir wollten in der Lage sein, `conn` (Abkürzung für 'Connections') einzugeben und die gleichen Informationen zu erhalten. In diesem Fall müssen wir lediglich den folgenden Befehl ausführen:
 
 ```bash
-alias conn="netstat -plant | grep '80\|443' | grep -v LISTEN | wc -l"
+alias conn="ss -plant | grep '80\|443' | grep -v LISTEN | wc -l"
 ```
 
-Auf diese Weise erstellen wir einen Alias namens `conn`, der im Wesentlichen eine 'Abkürzung' für unseren langen `netstat`-Befehl wäre. Wenn Sie jetzt einfach `conn` ausführen:
+Auf diese Weise erstellen wir einen Alias namens `conn`, der im Wesentlichen eine 'Abkürzung' für unseren langen `ss`-Befehl wäre. Wenn Sie jetzt einfach `conn` ausführen:
 
 ```bash
 conn
 ```
 
-Sie würden die gleiche Ausgabe erhalten wie der lange Befehl `netstat`.
+Sie würden die gleiche Ausgabe erhalten wie der lange Befehl `ss`.
 Sie können noch kreativer werden und hier einige Infobotschaften wie diese hinzufügen:
 
 ```bash
-alias conn="echo 'Total connections on port 80 and 443:' ; netstat -plant | grep '80\|443' | grep -v LISTEN | wc -l"
+alias conn="echo 'Total connections on port 80 and 443:' ; ss -plant | grep '80\|443' | grep -v LISTEN | wc -l"
 ```
 
 Wenn Sie nun `conn` ausführen, erhalten Sie die folgende Ausgabe:
@@ -59,7 +59,7 @@ nano ~/.bashrc
 Gehen Sie nach unten und fügen Sie Folgendes hinzu:
 
 ```bash
-alias conn="echo 'Total connections on port 80 and 443:' ; netstat -plant | grep '80\|443' | grep -v LISTEN | wc -l"
+alias conn="echo 'Total connections on port 80 and 443:' ; ss -plant | grep '80\|443' | grep -v LISTEN | wc -l"
 ```
 
 Speichern und dann beenden.

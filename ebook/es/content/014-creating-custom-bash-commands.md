@@ -6,34 +6,34 @@ Una forma de hacerlo es escribir scripts bash cortos o crear comandos personaliz
 
 ## Ejemplo
 
-Comencemos con el siguiente escenario, como administrador del sistema, es posible que deba verificar las conexiones a su servidor web con bastante frecuencia, por lo que usaré el comando `netstat` como ejemplo.
+Comencemos con el siguiente escenario, como administrador del sistema, es posible que deba verificar las conexiones a su servidor web con bastante frecuencia, por lo que usaré el comando `ss` como ejemplo.
 
 Lo que normalmente haría cuando accedo a un servidor que tiene problemas con las conexiones al puerto 80 o 443 es verificar si hay algún servicio escuchando en esos puertos y la cantidad de conexiones a los puertos.
 
-El siguiente comando `netstat` nos mostraría cuántas conexiones TCP en los puertos 80 y 443 tenemos actualmente:
+El siguiente comando `ss` nos mostraría cuántas conexiones TCP en los puertos 80 y 443 tenemos actualmente:
 
 ```bash
-netstat -plant | grep '80\|443' | grep -v LISTEN | wc -l
+ss -plant | grep '80\|443' | grep -v LISTEN | wc -l
 ```
 Este es un comando bastante largo, por lo que escribirlo cada vez puede llevar mucho tiempo a largo plazo, especialmente cuando desea obtener esa información rápidamente.
 
 Para evitar eso, podemos crear un alias, así que en lugar de escribir el comando completo, podríamos escribir un comando corto en su lugar. Por ejemplo, digamos que queríamos poder escribir `conx` (abreviatura de conexiones) y obtener la misma información. Todo lo que tenemos que hacer en este caso es ejecutar el siguiente comando:
 
 ```bash
-alias conx="netstat -plant | grep '80\|443' | grep -v LISTEN | wc -l"
+alias conx="ss -plant | grep '80\|443' | grep -v LISTEN | wc -l"
 ```
 
-De esa manera estamos creando un alias llamado `conx` que sería esencialmente un 'atajo' para nuestro comando largo `netstat`. Ahora, si ejecuta simplemente `conx`:
+De esa manera estamos creando un alias llamado `conx` que sería esencialmente un 'atajo' para nuestro comando largo `ss`. Ahora, si ejecuta simplemente `conx`:
 
 ```bash
 conx
 ```
 
-Obtendría el mismo resultado que el comando largo `netstat`.
+Obtendría el mismo resultado que el comando largo `ss`.
 Puede ser aún más creativo y agregar algunos mensajes de información como este:
 
 ```bash
-alias conx="echo 'Total de conexiones en los puertos 80 y 443:' ; netstat -plant | grep '80\|443' | grep -v LISTEN | wc -l"
+alias conx="echo 'Total de conexiones en los puertos 80 y 443:' ; ss -plant | grep '80\|443' | grep -v LISTEN | wc -l"
 ```
 
 Ahora, si ejecuta `conx` obtendrá el siguiente resultado:
@@ -57,7 +57,7 @@ nano ~/.bashrc
 Ve al final y agrega lo siguiente:
 
 ```bash
-alias conx="echo 'Total de conexiones en los puertos 80 y 443:' ; netstat -plant | grep '80\|443' | grep -v LISTEN | wc -l"
+alias conx="echo 'Total de conexiones en los puertos 80 y 443:' ; ss -plant | grep '80\|443' | grep -v LISTEN | wc -l"
 ```
 
 Guardar y luego salir.
